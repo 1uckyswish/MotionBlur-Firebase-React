@@ -2,20 +2,52 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 10vh;
     background-color: var(--Pastel-Sage);
-    padding:  2rem;
+    height: 70px;
+    padding: 0 20px;
     box-shadow: 
     12px 1px 16px 0 rgba(0, 0, 0, 0.25),
     -8px -8px 12px 0 rgba(255, 255, 255, 0.3);
+     text-align: center;
 }
 
- span{
-    color: transparent;
-	  filter: blur(1rem);
-  }
+h1{
+    filter: blur(0.4px);
+    -webkit-filter: blur(0.4px);
+}
+
+h1::after{
+	  content: "blurr";
+	  filter: blur(0.5px);
+	  -webkit-filter: blur(0.5px);
+}
+
+.trending-hashtags{
+    display: flex;
+    width: 25%;
+    justify-content: space-evenly;
+}
+
+.trending-hashtags p{
+     border-bottom: 1px solid var(--Dark-Sage);
+     font-size: 20px;
+}
+
+.trending-hashtags p:hover{
+    color: var(--Pastel-Pink);
+}
 
 button{
-    width: auto;
+    width: 6rem;
+    height: 2rem;
     border: none;
+    background-color: var();
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    background-color: var(--Pastel-Pink);
+    font-size: 25px;
+    padding-top: 5px;
 }
