@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Katibeh&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Katibeh', cursive;
+}
+
+body{
+  background-color: var(--Pastel-White-Body);
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+a{
+  text-decoration: none;
+}
+
+:root{
+  --Black-Base: #000000;
+  --Black-Text: #000000;
+  --Pastel-White-Body:#FAF9F6;
+  --Pastel-Pink: #efb6b2;
+  --Pastel-Brown:#4a3b39;
+  --Pastel-Sage:#c7d5b5;
+  --Dark-Sage:#10494d;
+  --Pastel-Grey: #4e4e4e;
+  --Pastel-Error: #ff4a4a;
+  --GrayScale:#c0c0c0;
+}
