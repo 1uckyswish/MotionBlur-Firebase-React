@@ -12,6 +12,7 @@ header{
 }
 
 h1{
+    padding-top: 10px;
     filter: blur(0.4px);
     -webkit-filter: blur(0.4px);
 }
@@ -47,7 +48,12 @@ button{
     -moz-border-radius: 15px;
     -ms-border-radius: 15px;
     -o-border-radius: 15px;
-    background-color: var(--Pastel-Pink);
+    background-color: var(--Pastel-Grey);
+    color: white;
     font-size: 25px;
     padding-top: 5px;
+}
+
+button:hover{
+    background-color: var(--Pastel-Pink);
 }
