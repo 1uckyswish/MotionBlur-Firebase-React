@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap');
 section{
-    min-height: auto;
+    min-height: 100vh;
 }
 
 .banner{

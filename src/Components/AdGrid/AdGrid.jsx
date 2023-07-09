@@ -4,29 +4,32 @@ import "./AdGrid.css"
 function AdGrid() {
   return (
     <section>
-        <div className='ad-container'>
-            <div className='ad-box ad-1'>
-                <div className='ad-info-1'>
-                     <h2>Discover & collaborate with others</h2>
-                     <p> vibrant community of artists, photographers, music lovers, and dreamers. Unleash your imagination, find inspiration, and ignite conversations that transcend boundaries. </p>
-                </div>
-                <div className='ad-image-1'></div>
-            </div>
-            <div className='ad-box ad-2'>
-                 <div className='ad-image-2'></div>
-                 <div className='ad-info-2'> 
-                    <h2>Follow & Like</h2>
-                    <p>Ignite conversations with captivating content. Leave your mark through thought-provoking visuals and heart-pounding beats.</p>
-                 </div>
-            </div>
-            <div className='ad-box ad-3'>
-                 <div className='ad-info-3'>
-                     <h2>About</h2>
-                    <p>Unleash your creativity! Share passions through captivating visuals and soulful music. Experience art and sound seamlessly. Join us today!</p>
-                 </div>
-                <div className='ad-image-3'></div>
-            </div>
+      <div className="container">
+        <div className="ad-box ad-box-1">
+          <h2 className="hidden-h2">About</h2>
+          <p className="hidden-p">Unleash your creativity! Share passions through captivating visuals and soulful music. Experience art and sound seamlessly. Join us today!</p>
         </div>
+        <div className="ad-box ad-box-2">
+          <h2 className="hidden-h2">Discover</h2>
+          <p className="hidden-p">vibrant community of artists, photographers, music lovers, and dreamers. </p>
+        </div>
+        <div className="ad-box ad-box-3">
+          <h2 className="hidden-h2">Collaborate</h2>
+          <p className="hidden-p">Unleash your imagination, find inspiration, and ignite conversations that transcend boundaries.</p>
+        </div>
+        <div className="ad-box ad-box-4">
+          <h2 className="hidden-h2">Follow & Like</h2>
+          <p className="hidden-p">Ignite conversations with captivating content. Leave your mark through thought-provoking visuals and heart-pounding beats.</p>
+        </div>
+        <div className="ad-box ad-box-5">
+          <h2 className="hidden-h2">Comment & Share</h2>
+          <p className="hidden-p">Unleash your voice! Comment, share, and make an impact. Join the conversation and spread your influence.</p>
+        </div>
+        <div className="ad-box ad-box-6">
+          <h2 className="hidden-h2">Trending Topics</h2>
+          <p className="hidden-p">Stay in the loop! Explore trending topics and be part of the buzz. Join the conversation and discover what's hot right now.</p>
+        </div>
+      </div>
     </section>
   )
 }
