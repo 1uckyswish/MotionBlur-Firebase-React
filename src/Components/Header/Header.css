@@ -11,10 +11,11 @@ header{
      text-align: center;
 }
 
-h1{
+header h1{
     padding-top: 10px;
     filter: blur(0.4px);
     -webkit-filter: blur(0.4px);
+    cursor: pointer;
 }
 
 h1::after{
@@ -52,6 +53,7 @@ button{
     color: white;
     font-size: 25px;
     padding-top: 5px;
+    cursor: pointer;
 }
 
 button:hover{
