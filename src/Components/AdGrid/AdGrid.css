@@ -2,7 +2,7 @@
 
 .container {
   display: grid;
-  margin-top: 100px;
+  margin: 100px;
   grid-template-areas:
     "ad-box-1 ad-box-2 ad-box-3"
     "ad-box-1 ad-box-5 ad-box-3"
@@ -12,6 +12,7 @@
   grid-template-rows: 1.5fr 0.8fr 0.7fr 1fr;
   gap: 10px;
   height: 100vh;
+
 }
 
 .ad-box {
@@ -56,7 +57,7 @@
 }
 
 .hidden-p {
-  font-size: 25px;
+  font-size: 24px;
   top: 50px;
   line-height: 1.5;
   padding-top: 80px;
