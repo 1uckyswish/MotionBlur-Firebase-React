@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import AdGrid from '../../Components/AdGrid/AdGrid';
 import './Homepage.css';
 import { Banner } from '/src/Utils/data';
 
@@ -20,7 +21,7 @@ function Homepage() {
     backgroundSize: 'cover',
     backgroundPosition: 'right',
     backgroundRepeat: 'no-repeat',
-    height: '42vh',
+    height: '55vh',
     opacity: 1,
     transition: 'background-image 20s ease-in-out background-position 9s ease-in-out, opacity 0.5s ease-in-out',
     backdropFilter: 'blur(5px)',
@@ -33,8 +34,9 @@ function Homepage() {
       <div className='banner' style={bannerStyles}>
         <div className='banner-header'>
           <h2>Unleash Your Creativity with Motion Blurr</h2>
-          <p>Share, Explore, & Capture Moments in Motion</p></div>
+        </div>
       </div>
+      <AdGrid />
     </section>
   );
 }
