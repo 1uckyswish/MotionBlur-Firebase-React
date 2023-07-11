@@ -1,0 +1,116 @@
+.post-container{
+    border: 0.1px solid grey;
+    width: 55%;
+    height: auto;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    margin: 20px 0;
+}
+
+.post-header{
+    display: flex;
+    margin: 50px;
+}
+
+.post-header img{
+   width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+    margin-right: 20px;
+}
+
+.post-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.post-info h3{
+    font-size: 40px;
+}
+
+.post-info p{
+    font-size: 20px;
+    color: rgb(149, 149, 149);
+}
+
+.post-caption{
+   width: auto;
+   display: flex;
+   margin: 0 50px;
+}
+
+.post-caption p{
+    font-size: 25px;
+}
+
+.post-image{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.post-image img{
+    width: 90%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+.post-social{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 50px;
+    align-items: center;
+}
+
+.post-social p{
+    text-align: center;
+    font-size: 25px;
+    height: 50px;
+    width: 100px;
+    padding: 13px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    background-color: rgb(129, 202, 226);
+    color: white;
+}
+
+#follow-button{
+    text-align: center;
+    font-size: 25px;
+    height: 50px;
+    border: none;
+    width: 100px;
+    padding: 14px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    background-color: var(--Pastel-Error);
+    color: white;
+}
+
+#liked-icon{
+    color: var(--Pastel-Error);
+}
+
+.social-icons{
+    width: 100px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 2em;
+}

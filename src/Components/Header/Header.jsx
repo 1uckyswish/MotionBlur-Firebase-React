@@ -8,7 +8,7 @@ function Header() {
     <header>
         <h1 onClick={()=>navigate('/')}>Motion</h1>
         <div className='trending-hashtags'>
-          <p>Trending</p>
+          <p onClick={()=>navigate('/TimeLine')}>Trending</p>
           <p>Music</p>
           <p>Photos</p>
           <p>Profile</p>
