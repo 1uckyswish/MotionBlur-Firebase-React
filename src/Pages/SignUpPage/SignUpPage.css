@@ -103,9 +103,24 @@
     font-size: 1.2rem;
 }
 
-.box-2 input:last-child{
+.box-2 button{
     background-color: var(--Dark-Sage);
     color: White;
     font-size: 30px;
-    padding: 15px 0 10px 0;
+    /* padding: 15px 0 10px 0; */
+    padding: 8px 0;
+    width: 100px;
+    height: 40px;
+    text-align: center;
+}
+
+.box-2 p{
+    font-size: 25px;
+}
+
+.box-2 span{
+    color: blue;
+    font-style: italic;
+    cursor: pointer;
+    font-size: 26px;
 }

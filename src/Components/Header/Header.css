@@ -59,3 +59,17 @@ button{
 button:hover{
     background-color: var(--Pastel-Pink);
 }
+
+.profile-signout-box{
+    width: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile-signout-box span{
+    font-size: 20px;
+    color: var(--Dark-Sage);
+    font-weight: bolder;
+    font-style: italic;
+}
