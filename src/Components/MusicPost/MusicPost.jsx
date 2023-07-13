@@ -21,8 +21,8 @@ function MusicPost() {
         </div>
         <div className="music-image">
            <div class="ratio ratio-16x9">
-            <iframe src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" title="YouTube video" allowfullscreen></iframe>
-           </div>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/TOGswC4X8Nc?start=278" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
         </div>
         <div className="music-social">
             <div className='social-icons'>
