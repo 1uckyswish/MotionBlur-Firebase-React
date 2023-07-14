@@ -1,3 +1,4 @@
+//*import  components
 import React, {useState}from 'react'
 import './SinglePost.css'
 import { SlLike } from "react-icons/sl";
