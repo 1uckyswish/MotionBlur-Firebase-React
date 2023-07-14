@@ -1,3 +1,4 @@
+//Import components
 import React, { useState, useEffect } from 'react';
 import AdGrid from '../../Components/AdGrid/AdGrid';
 import './Homepage.css';
