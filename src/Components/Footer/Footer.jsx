@@ -1,5 +1,6 @@
 import React from 'react'
 import "./Footer.css"
+//Import components
 import { AiFillFacebook} from "react-icons/ai";
 import { FaInstagram, FaTwitter } from "react-icons/fa";
 
