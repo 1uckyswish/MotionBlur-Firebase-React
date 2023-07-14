@@ -1,4 +1,5 @@
 import React from 'react'
+//Import css files
 import "./Footer.css"
 //Import components
 import { AiFillFacebook} from "react-icons/ai";
