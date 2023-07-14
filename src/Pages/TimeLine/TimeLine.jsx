@@ -1,3 +1,4 @@
+//*import  components
 import React from 'react'
 import SinglePost from '../../Components/SinglePost/SinglePost'
 import "./TimeLine.css"
