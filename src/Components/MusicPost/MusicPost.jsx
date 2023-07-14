@@ -4,24 +4,24 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { SlLike } from "react-icons/sl";
 import { AiOutlineComment } from "react-icons/ai";
 
-function MusicPost() {
-    const [liked, SetLiked] = useState(true);
+function MusicPost({video}) {
+    const [liked, SetLiked] = useState(false);
     const [followed, setFollowed] = useState(false);
   return (
     <div className='music-container'>
         <div className='music-header'>
-            <img src='https://images.unsplash.com/photo-1567270671170-fdc10a5bf831?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80' alt='profileImg'/>
+            <img src='https://images.unsplash.com/flagged/photo-1557286249-08f5bc2ef21d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80' alt='profileImg'/>
                 <div className='music-info'>
-                    <h3>Thomas O'Malley Cat</h3>
-                    <p>July 16th 2023</p>
+                    <h3>Marvin Gaye</h3>
+                    <p>July 5th 2023</p>
                 </div>
         </div>
         <div className='music-caption'>
-            <p>Cat-ivating my hoomans with my purr-sonality and pawsome sense of humor! 😸🎭 Just a whisker away from my next mischief. Stay tuned for some feline-fueled comedy and fur-tastic adventures! #CattitudeOnPoint #PawsitivelyPurrfect #MeowAndLaughs</p>
+            <p>Stepping into the realm of my all-time favorite song, where every note is a masterpiece and every lyric holds a special place in my heart. The melody, the lyrics, and the emotions intertwine to create an extraordinary experience that never fails to captivate me. Sharing a piece of my musical passion with you all. 🎶✨ #FavoriteSong #MusicEnthusiast #MelodicMasterpiece #SongMagic #UnforgettableMoments #TimelessClassic #MemorableLyrics #IncredibleComposition</p>
         </div>
         <div className="music-image">
            <div class="ratio ratio-16x9">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/TOGswC4X8Nc?start=278" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe width="560" height="315" src={video} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
         </div>
         <div className="music-social">

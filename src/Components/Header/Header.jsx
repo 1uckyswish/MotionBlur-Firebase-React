@@ -22,9 +22,9 @@ function Header() {
     <header>
         <h1 onClick={()=>navigate('/')}>Motion</h1>
         <div className='trending-hashtags'>
-          <p onClick={()=>navigate('/TimeLine')}>Trending</p>
+          <p>Trending</p>
           <p onClick={()=>navigate('/MusicPage')}>Music</p>
-          <p>Photos</p>
+          <p onClick={()=>navigate('/TimeLine')}>Photos</p>
         </div>
         {
           user?
