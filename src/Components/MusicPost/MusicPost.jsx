@@ -2,8 +2,8 @@
 import React, {useState} from 'react';
 import './MusicPost.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { SlLike } from "react-icons/sl";
-import { AiOutlineComment } from "react-icons/ai";
+import { AiOutlineComment, AiOutlineHeart, AiFillHeart} from "react-icons/ai";
+
 
 function MusicPost({video}) {
     const [liked, SetLiked] = useState(false);
@@ -29,9 +29,9 @@ function MusicPost({video}) {
             <div className='social-icons'>
                 {
                     liked?
-                    <SlLike id='liked-icon' onClick={()=> SetLiked(!liked)}/>
+                    <AiFillHeart id='liked-icon' onClick={()=> SetLiked(!liked)}/>
                     :
-                    <SlLike onClick={()=> SetLiked(!liked)}/>
+                    <AiOutlineHeart onClick={()=> SetLiked(!liked)}/>
                 }
                 <AiOutlineComment/>
             </div>

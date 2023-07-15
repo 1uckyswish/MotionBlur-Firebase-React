@@ -1,8 +1,7 @@
 //*import  components
 import React, {useState}from 'react'
 import './SinglePost.css'
-import { SlLike } from "react-icons/sl";
-import { AiOutlineComment } from "react-icons/ai";
+import { AiOutlineComment, AiOutlineHeart, AiFillHeart} from "react-icons/ai";
 
 function SinglePost({image}) {
     const [liked, SetLiked] = useState(false);
@@ -28,9 +27,9 @@ function SinglePost({image}) {
             <div className='social-icons'>
                 {
                     liked?
-                    <SlLike id='liked-icon' onClick={()=> SetLiked(!liked)}/>
+                    <AiFillHeart id='liked-icon' onClick={()=> SetLiked(!liked)}/>
                     :
-                    <SlLike onClick={()=> SetLiked(!liked)}/>
+                    <AiOutlineHeart onClick={()=> SetLiked(!liked)}/>
                 }
                 <AiOutlineComment/>
             </div>
