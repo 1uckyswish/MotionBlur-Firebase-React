@@ -9,7 +9,6 @@ import TimeLine from './Pages/TimeLine/TimeLine';
 import MusicPage from './Pages/MusicPage/MusicPage';
 import Footer from './Components/Footer/Footer';
 //Import css Files
-import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 function App() {
