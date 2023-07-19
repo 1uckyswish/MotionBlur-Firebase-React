@@ -17,7 +17,7 @@ function TimeLine() {
 
   return (
     <div className='timeline-container'>
-        <h2>TimeLine</h2>
+        <h2>Photos</h2>
         {
         allPosts.map((item)=>{
           if(isYouTubeLink(item?.MediaUrl)){
