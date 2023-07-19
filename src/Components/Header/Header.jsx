@@ -4,7 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import { auth } from '/src/Config/FirebaseConfig';
 import {useAuthState} from 'react-firebase-hooks/auth';
 import { signOut } from 'firebase/auth';
+import { db } from '../../Config/FirebaseConfig';
 import './Header.css';
+import { collection, getDocs} from 'firebase/firestore';
 
 function Header() {
   const navigate = useNavigate();
@@ -13,6 +15,15 @@ function Header() {
   useEffect(()=>{
     console.log(user)
   },[user])
+
+  useEffect(
+    ()=>{
+      const postRef = collection(db, "Posts");
+      getDocs(postRef).then((result)=>{
+        console.log(result.docs[0].data())
+      }).catch((error)=> console.error(error))
+    },[]
+  )
 
   const logOut =()=>{
     navigate('/');

@@ -18,7 +18,7 @@ function SinglePost({image}) {
                 </div>
         </div>
         <div className='post-caption'>
-            <p> "Embracing every moment of this wild ride called life! 🎉💫 YOLO, right? 😜 Taking selfies and capturing memories along the way. ✨ #YOLOLife #LiveInTheMoment #SelfieTime #MemoriesForLife"</p>
+            <p>"Embracing every moment of this wild ride called life! 🎉💫 YOLO, right? 😜 Taking selfies and capturing memories along the way. ✨ #YOLOLife #LiveInTheMoment #SelfieTime #MemoriesForLife"</p>
         </div>
         <div className="post-image">
             <img src={image} alt='postimage'/>
