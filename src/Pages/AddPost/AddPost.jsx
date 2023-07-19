@@ -3,8 +3,9 @@ import "./AddPost.css"
 
 function AddPost() {
   return (
-    <div>
-      
+    <div className='add-post-container'>
+        <h2>Create A Post</h2>
+       
     </div>
   )
 }
