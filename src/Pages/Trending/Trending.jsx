@@ -6,10 +6,8 @@ import { useContext } from 'react';
 import { FirebaseData } from '../../Context/FirebaseContext';
 
 function Trending() {
-  const {allPosts} = useContext(FirebaseData);
-  function isYouTubeLink(link) {
-    return link.includes('youtube.com');
-  }
+  const {allPosts, isYouTubeLink} = useContext(FirebaseData);
+
 console.log(allPosts)
   return (
     <div className='music-page-container'>

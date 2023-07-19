@@ -6,6 +6,9 @@ export const FirebaseData = createContext();
 
 export default function FirebaseDataProvider({children}){
     const [allPosts, setAllPosts] = useState([]);
+     function isYouTubeLink(link) {
+    return link.includes('youtube.com');
+  }
 
     useEffect(
         ()=>{
@@ -21,7 +24,7 @@ export default function FirebaseDataProvider({children}){
         },[]
     )
     return (
-        <FirebaseData.Provider value={{allPosts}}>
+        <FirebaseData.Provider value={{allPosts, isYouTubeLink}}>
             {children}
         </FirebaseData.Provider>
     );
