@@ -2,33 +2,23 @@ import React from 'react';
 import './Trending.css';
 import TrendingPost from '../../Components/TrendingPost/TrendingPost';
 import SinglePost from '../../Components/SinglePost/SinglePost';
+import { useContext } from 'react';
+import { FirebaseData } from '../../Context/FirebaseContext';
 
 function Trending() {
- const links = [
-  "https://www.youtube.com/embed/9bZkp7q19f0?start=69",
-  "https://images.unsplash.com/photo-1688383213635-9bc2fc25103d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-  "https://www.youtube.com/embed/tG35R8F2j8k?start=69",
-  "https://images.unsplash.com/photo-1600832501609-0ba64370e7ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80",
-  "https://images.unsplash.com/photo-1536009744269-d24508b32196?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-  "https://images.unsplash.com/photo-1587279484404-29792a7c375c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-  "https://www.youtube.com/embed/76O3w4pt0CA?start=69",
-  "https://images.unsplash.com/photo-1536009744269-d24508b32196?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-  "https://www.youtube.com/embed/Czs2B53M444?start=69"
-];
-
-
+  const {allPosts} = useContext(FirebaseData);
   function isYouTubeLink(link) {
     return link.includes('youtube.com');
   }
-
+console.log(allPosts)
   return (
     <div className='music-page-container'>
       <h2>Trending</h2>
-      {links.map((item) => {
-        if (isYouTubeLink(item)) {
-          return <TrendingPost post={item} />;
+      {allPosts.map((item) => {
+        if (isYouTubeLink(item?.MediaUrl)) {
+          return <TrendingPost post={item?.MediaUrl} userName={item?.CreatedBy} date={item?.CreatedAt} caption={item?.Caption}/>;
         } else {
-          return <SinglePost image={item} />;
+          return <SinglePost image={item?.MediaUrl} userName={item?.CreatedBy} date={item?.CreatedAt} caption={item?.Caption} />;
         }
       })}
     </div>

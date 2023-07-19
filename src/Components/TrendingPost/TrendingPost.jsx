@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { AiOutlineComment, AiOutlineHeart, AiFillHeart} from "react-icons/ai";
 
 
-function TrendingPost({post}) {
+function TrendingPost({post, userName, date, caption}) {
     const [liked, SetLiked] = useState(false);
     const [followed, setFollowed] = useState(false);
   return (
@@ -11,12 +11,12 @@ function TrendingPost({post}) {
         <div className='music-header'>
             <img src='https://images.unsplash.com/photo-1551847812-f815b31ae67c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80' alt='profileImg'/>
                 <div className='music-info'>
-                    <h3>Din Djarin</h3>
-                    <p>July 5th 2023</p>
+                    <h3>{userName}</h3>
+                    <p>{date.toDate().toDateString()}</p>
                 </div>
         </div>
         <div className='music-caption'>
-            <p>Stepping into the realm of my all-time favorite song, where every note is a masterpiece and every lyric holds a special place in my heart. The melody, the lyrics, and the emotions intertwine to create an extraordinary experience that never fails to captivate me. Sharing a piece of my musical passion with you all. 🎶✨ #FavoriteSong #MusicEnthusiast #MelodicMasterpiece #SongMagic #UnforgettableMoments #TimelessClassic #MemorableLyrics #IncredibleComposition</p>
+            <p>{caption}</p>
         </div>
         <div className="music-image">
            <div class="ratio ratio-16x9">
