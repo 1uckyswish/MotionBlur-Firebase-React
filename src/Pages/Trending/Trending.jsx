@@ -8,7 +8,7 @@ import { FirebaseData } from '../../Context/FirebaseContext';
 function Trending() {
   const {allPosts, isYouTubeLink} = useContext(FirebaseData);
 
-console.log(allPosts)
+// console.log(allPosts)
   return (
     <div className='music-page-container'>
       <h2>Trending</h2>

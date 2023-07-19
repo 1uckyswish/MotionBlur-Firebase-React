@@ -7,6 +7,7 @@ import Homepage from './Pages/Homepage/Homepage';
 import Trending from './Pages/Trending/Trending';
 import TimeLine from './Pages/TimeLine/TimeLine';
 import MusicPage from './Pages/MusicPage/MusicPage';
+import AddPost from './Pages/AddPost/AddPost';
 import Footer from './Components/Footer/Footer';
 import FirebaseDataProvider from './Context/FirebaseContext';
 //Import css Files
@@ -23,6 +24,7 @@ function App() {
           <Route path='/SignUp' element={<SignUpPage />}/>
           <Route path='/Trending' element={<Trending />}/>
           <Route path='/TimeLine' element={<TimeLine />}/>
+          <Route path='/AddPost' element={<AddPost />}/>
           <Route path='/MusicPage' element={<MusicPage />}/>
         </Routes>
         <Footer />

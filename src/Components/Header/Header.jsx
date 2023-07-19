@@ -22,6 +22,12 @@ function Header() {
           <p onClick={()=>navigate('/Trending')}>Trending</p>
           <p onClick={()=>navigate('/MusicPage')}>Music</p>
           <p onClick={()=>navigate('/TimeLine')}>Photos</p>
+          {
+            user?
+             <p onClick={()=>navigate('/AddPost')}>Create Post</p>
+             :
+            null
+          }
         </div>
         {
           user?
