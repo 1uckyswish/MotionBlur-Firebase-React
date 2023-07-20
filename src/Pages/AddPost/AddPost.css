@@ -15,3 +15,43 @@
     border: 2px solid red;
     width: 70%;
 }
+
+.container-progress{
+    width: 70%;
+}
+
+.progress-bar{
+    width: 100%;
+    height: 10px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    background-color: #e6e6e6;
+    margin-bottom: 10px;
+}
+
+.progress-bar-fill{
+    height: 100px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    background-color: #2ecc21;
+    transition:ease-out;
+    width: 0.5s;
+    -webkit-transition:ease-out;
+    -moz-transition:ease-out;
+    -ms-transition:ease-out;
+    -o-transition:ease-out;
+}
+
+.progress-label{
+    margin-top: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #444444;
+}
+
