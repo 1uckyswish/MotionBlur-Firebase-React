@@ -10,3 +10,8 @@
 .add-post-container h2{
     font-size: 80px;
 }
+
+.form-container{
+    border: 2px solid red;
+    width: 70%;
+}
