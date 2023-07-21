@@ -11,11 +11,6 @@
     font-size: 80px;
 }
 
-.form-container{
-    border: 2px solid red;
-    width: 70%;
-}
-
 .container-progress{
     width: 70%;
 }
@@ -55,3 +50,69 @@
     color: #444444;
 }
 
+
+.form-container{
+    border: 2px solid red;
+    width: 70%;
+    display: flex;
+}
+
+.form-container form{
+    display: flex;
+    flex-direction: column;
+    border: 2px solid red;
+    width: 80%;
+    height: 90vh;
+    align-items: center;
+}
+
+.image-file {
+  /* Your CSS styles for the input element go here */
+  /* For example: */
+  border: 1px solid #ccc;
+  padding: 10px;
+  /* Add any other styles you want to apply to the input element */
+}
+
+/* Hide the default file input element */
+.image-file {
+  display: none;
+}
+
+/* Style the custom file label to look like a button */
+.custom-file-label {
+  width: 200px;
+  display: inline-block;
+  padding: 8px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+}
+
+/* Style the placeholder text when no file is selected */
+.image-file::before {
+  content: 'No file selected';
+  color: #777;
+}
+
+/* Style the placeholder text when a file is selected */
+.image-file:not(:placeholder-shown)::before {
+  content: attr(data-placeholder);
+  color: #333;
+}
+
+/* Optionally, style the file input container to control layout */
+.image-file-container {
+  margin-bottom: 10px;
+}
+
+
+.form-container form img{
+    /* border: 2px solid red; */
+    height: 400px;
+    width: auto;
+    object-fit: contain;
+}

@@ -1,8 +1,11 @@
 import {useState, useEffect} from 'react'
 import "./AddPost.css"
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function AddPost() {
-  const [progress, setProgress] = useState(50);
+  const [progress, setProgress] = useState(20);
+  const [mediaType, setMediaType] = useState(true);
+  const [youtubeLink, setYoutubeLink] = useState('');
   const handleButtonClick = ()=>{
     if(progress < 100){
       setProgress(progress +20)
@@ -34,6 +37,17 @@ function AddPost() {
     }
   }, [selectedImage]);
 
+  const handleMediaUrl = (e)=>{
+    const optionValue = e.target.value;
+    if(optionValue === "Video"){
+      setMediaType(true)
+    }else if (optionValue === "Picture"){
+      setMediaType(false)
+    }else{
+      setMediaType(false)
+    }
+  };
+
   return (
     <div className='add-post-container'>
         <h2>Create A Post</h2>
@@ -50,14 +64,39 @@ function AddPost() {
           <label htmlFor="caption">Caption</label>
           <input type="text" id='caption' />
           <label htmlFor="post-type">Post Type</label>
-          <select id="post-type">
+          <select id="post-type" onChange={handleMediaUrl}>
           <option value="">Select</option>
           <option value="Video">Music</option>
           <option value="Picture">Picture</option>
           </select>
-          <label htmlFor="FileUrl">Upload Image</label>
-          <input type="file" id='FileUrl' accept='image/*' onChange={(e)=> setSelectedImage(e.target.files[0])} style={{display: "none"}}/>
-          {/* <input
+          {
+            mediaType?
+              <>
+            <label htmlFor="FileUrl">Youtube Video Embed Link</label>
+          <input type="text" id='FileUrl' oninput={(e)=>setYoutubeLink(e.target.value)}/>
+          <div class="ratio ratio-16x9">
+           {youtubeLink}
+        </div>
+          </>
+            :
+             <><label htmlFor="FileUrl">Upload Image</label>
+          <input className='image-file' type="file" id='FileUrl' accept='image/*' onChange={(e)=> setSelectedImage(e.target.files[0])}/>
+          <label for="FileUrl" class="custom-file-label">Choose an Image</label>
+          <img src={imageUrl} style={imageUrl?{display: "block"} : {display: "none"}}/>
+          </>
+          }
+        </form>
+      </div>
+    </div>
+  )
+}
+
+export default AddPost
+
+
+
+
+ {/* <input
         accept="image/*"
         type="file"
         id="select-image"
@@ -88,15 +127,5 @@ function AddPost() {
         </div>
       )} */}
 
-        <img src={imageUrl} />
 
 
-
-
-        </form>
-      </div>
-    </div>
-  )
-}
-
-export default AddPost
