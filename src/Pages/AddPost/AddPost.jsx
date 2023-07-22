@@ -1,11 +1,13 @@
 import {useState, useEffect} from 'react'
 import "./AddPost.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ReactPlayer from 'react-player';
 
 function AddPost() {
-  const [progress, setProgress] = useState(20);
-  const [mediaType, setMediaType] = useState(true);
+  const [progress, setProgress] = useState(0);
+  const [mediaType, setMediaType] = useState(false);
   const [youtubeLink, setYoutubeLink] = useState('');
+  
   const handleButtonClick = ()=>{
     if(progress < 100){
       setProgress(progress +20)
@@ -55,16 +57,13 @@ function AddPost() {
           <div className="progress-bar">
             <div className="progress-bar-fill" style={{width: `${progress}%`, backgroundColor: getColor() }}></div>
           </div>
-          {/* <div className="progress-label">{progress}%</div>
-          <button onClick={handleButtonClick}>add</button>
-          <button onClick={handleButtonRest}>rest</button> */}
         </div>
-      <div className='form-container'>
+      <div className='post-form-container'>
         <form>
-          <label htmlFor="caption">Caption</label>
-          <input type="text" id='caption' />
+          <label htmlFor="caption">Post Caption</label>
+          <textarea id='caption' placeholder='caption' onChange={()=>setProgress(20)} required/>
           <label htmlFor="post-type">Post Type</label>
-          <select id="post-type" onChange={handleMediaUrl}>
+          <select id="post-type" onChange={handleMediaUrl} required>
           <option value="">Select</option>
           <option value="Video">Music</option>
           <option value="Picture">Picture</option>
@@ -72,16 +71,14 @@ function AddPost() {
           {
             mediaType?
               <>
-            <label htmlFor="FileUrl">Youtube Video Embed Link</label>
-          <input type="text" id='FileUrl' oninput={(e)=>setYoutubeLink(e.target.value)}/>
-          <div class="ratio ratio-16x9">
-           {youtubeLink}
-        </div>
+            <label htmlFor="FileUrl">Youtube Video Link</label>
+          <input type="text" id='FileUrl' onChange={(e)=>setYoutubeLink(e.target.value)} required/>
+          <div className='youtube-box'><ReactPlayer url={youtubeLink} controls={true} className="video"/></div>
           </>
             :
-             <><label htmlFor="FileUrl">Upload Image</label>
-          <input className='image-file' type="file" id='FileUrl' accept='image/*' onChange={(e)=> setSelectedImage(e.target.files[0])}/>
-          <label for="FileUrl" class="custom-file-label">Choose an Image</label>
+          <><label htmlFor="FileUrl">Upload Image</label>
+          <input className='image-file' type="file" id='FileUrl' accept='image/*' onChange={(e)=> setSelectedImage(e.target.files[0])} required/>
+          <label for="FileUrl" class="custom-file-label" id="label-size">Choose an Image</label>
           <img src={imageUrl} style={imageUrl?{display: "block"} : {display: "none"}}/>
           </>
           }

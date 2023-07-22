@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import './MusicPost.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { AiOutlineComment, AiOutlineHeart, AiFillHeart} from "react-icons/ai";
+import ReactPlayer from 'react-player'
 
 function MusicPost({video, userName, date, caption}) {
     const [liked, SetLiked] = useState(false);
@@ -20,9 +21,7 @@ function MusicPost({video, userName, date, caption}) {
            <p>{caption}</p>
         </div>
         <div className="music-image">
-           <div class="ratio ratio-16x9">
-            <iframe width="560" height="315" src={video} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        </div>
+            <ReactPlayer url={video} />
         </div>
         <div className="music-social">
             <div className='social-icons'>
