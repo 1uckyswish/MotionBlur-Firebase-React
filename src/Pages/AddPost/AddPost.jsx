@@ -61,7 +61,7 @@ function AddPost() {
       <div className='post-form-container'>
         <form>
           <label htmlFor="caption">Post Caption</label>
-          <textarea id='caption' placeholder='caption' onChange={()=>setProgress(20)} required/>
+          <textarea id='caption' placeholder='Caption' onChange={()=>setProgress(20)} required/>
           <label htmlFor="post-type">Post Type</label>
           <select id="post-type" onChange={handleMediaUrl} required>
           <option value="">Select</option>
