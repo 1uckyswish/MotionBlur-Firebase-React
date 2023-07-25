@@ -1,179 +1,97 @@
-.add-post-container{
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    margin-top: 20px;
+/* AddPost.css */
+.add-post-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
 }
 
-.add-post-container h2{
-    font-size: 80px;
+.add-post-container h2 {
+    font-size: 70px;
+  margin-bottom: 20px;
 }
 
-.container-progress{
-    width: 61%;
+.post-form-container {
+  width: 100%;
+  max-width: 800px;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  padding: 20px;
 }
 
-.progress-bar{
-    width: 100%;
-    height: 10px;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
-    background-color: #e6e6e6;
-    margin-bottom: 10px;
+.post-form-container form {
+  display: flex;
+  flex-direction: column;
 }
 
-.progress-bar-fill{
-    height: 100px;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
-    background-color: #2ecc21;
-    transition:ease-out;
-    width: 0.5s;
-    -webkit-transition:ease-out;
-    -moz-transition:ease-out;
-    -ms-transition:ease-out;
-    -o-transition:ease-out;
+.post-form-container label {
+  font-size: 18px;
+  margin-bottom: 8px;
+  font-size: 25px;
 }
 
-.post-form-container{
-    /* border: 2px solid red; */
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    height: 100%;
-    /* border: 0.1px solid grey;
-      border-radius: 20px;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    -ms-border-radius: 20px;
-    -o-border-radius: 20px; */
-}
-
-.post-form-container form{
-    display: flex;
-    flex-direction: column;
-    width:70%;
-    height: 100vh;
-    align-items: center;
-     border: 0.1px solid grey;
-      border-radius: 20px;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    -ms-border-radius: 20px;
-    -o-border-radius: 20px;
-}
-
-.post-form-container textarea, input{
-  width: 300px;
-  /* height: 150px; */
-  padding: 12px 20px;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
+.post-form-container textarea,
+.post-form-container input,
+.post-form-container select {
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  border: none;
   border-radius: 4px;
-  background-color: #f8f8f8;
-  font-size: 16px;
+  font-size: 25px;
+  background-color: #fff;
   resize: none;
 }
 
-.post-form-container label:not(:last-child) {
-  font-size: 60px;
-}
-
-.post-form-container select{
-  text-align: center;
-  width: 300px;
-  display: inline-block;
-  padding: 8px 20px;
-  background-color: var(--Dark-Sage);
+.post-form-container select {
+    background-color: var(--Dark-Sage);
   color: #fff;
-  border: none;
-  border-radius: 4px;
   cursor: pointer;
-  text-align: center;
-  font-size: 20px;
+  font-size: 25px;
 }
 
-.image-file {
-  /* Your CSS styles for the input element go here */
-  /* For example: */
-  border: 1px solid #ccc;
-  padding: 10px;
-  /* Add any other styles you want to apply to the input element */
-}
-
-/* Hide the default file input element */
 .image-file {
   display: none;
 }
 
-/* Style the custom file label to look like a button */
 .custom-file-label {
-  width: 300px;
-  display: inline-block;
-  padding: 8px 20px;
-  background-color: var(--Dark-Sage);
+    background-color: var(--Dark-Sage);
   color: #fff;
+  cursor: pointer;
+  text-align: center;
+  padding: 12px 16px;
+  border-radius: 4px;
+}
+
+.post-form-container form img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+.youtube-box {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.video {
+  width: 100%;
+  height: 200px;
+}
+
+.post-form-container form button {
+    background-color: var(--Dark-Sage);
+  color: #fff;
+  font-size: 18px;
+  padding: 12px 20px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  text-align: center;
+  font-size: 25px;
 }
 
-#label-size{
-  font-size: 20px;
-}
-
-
-/* Style the placeholder text when no file is selected */
-.image-file::before {
-  content: 'No file selected';
-  color: #777;
-}
-
-/* Style the placeholder text when a file is selected */
-.image-file:not(:placeholder-shown)::before {
-  content: attr(data-placeholder);
-  color: #333;
-}
-
-/* Optionally, style the file input container to control layout */
-.image-file-container {
-  margin-bottom: 10px;
-}
-
-
-.post-form-container form img{
-    border: 2px solid red;
-    height: 300px;
-    width: auto;
-    object-fit: contain;
-}
-
-.youtube-box{
-  display: flex;
-  justify-content: center;
-  min-height: 100%;
-  max-height: 100%;
-  max-width: 100%;
-  min-width: 100%;
-  margin: 20px 0;
-}
-
-.video{
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  min-height: auto;
-  max-height: auto;
-  max-width: auto;
-  min-width: auto;
+.post-form-container form button:hover {
+  background-color: #2c3e50;
 }
