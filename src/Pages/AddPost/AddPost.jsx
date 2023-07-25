@@ -9,6 +9,12 @@ function AddPost() {
   const [youtubeLink, setYoutubeLink] = useState('');
   const [selectedImage, setSelectedImage] = useState(null);
   const [imageUrl, setImageUrl] = useState(null);
+  const [formData, setFormData] = useState({
+    Caption: '',
+    PostType: '',
+    MediaUrl: '',
+  });
+  console.log(formData)
 
   useEffect(() => {
     if (selectedImage) {
@@ -19,7 +25,19 @@ function AddPost() {
   const handleMediaUrl = (e) => {
     const optionValue = e.target.value;
     setMediaType(optionValue === 'Video');
+    setFormData({...formData, PostType: e.target.value})
   };
+
+  const ImageUrlState = (e)=>{
+    setSelectedImage(e.target.files[0])
+    setFormData({...formData, MediaUrl: e.target.value})
+  }
+
+    const videoUrlState = (e)=>{
+    setFormData({...formData, MediaUrl: e.target.value})
+    setFormData({...formData, MediaUrl: e.target.value})
+  }
+
 
   return (
     <div className='add-post-container'>
@@ -27,7 +45,7 @@ function AddPost() {
       <div className='post-form-container'>
         <form>
           <label htmlFor="caption">Post Caption</label>
-          <textarea id='caption' placeholder='Write your caption here...' required />
+          <textarea id='caption' placeholder='Write your caption here...' required onChange={(e)=>setFormData({...formData, Caption: e.target.value})}/>
 
           <label htmlFor="post-type">Post Type</label>
           <select id="post-type" onChange={handleMediaUrl} required>
@@ -42,7 +60,7 @@ function AddPost() {
               <input
                 type="text"
                 id='FileUrl'
-                onChange={(e) => setYoutubeLink(e.target.value)}
+                onChange={videoUrlState}
                 required
               />
               <div className='youtube-box'>
@@ -51,6 +69,7 @@ function AddPost() {
                   controls={true}
                   className='video'
                   style={youtubeLink ? { display: 'block' } : { display: 'none' }}
+                  onChange={(e) => setYoutubeLink(e.target.value)}
                 />
               </div>
             </>
@@ -62,7 +81,7 @@ function AddPost() {
                 type="file"
                 id='FileUrl'
                 accept='image/*'
-                onChange={(e) => setSelectedImage(e.target.files[0])}
+                onChange={ImageUrlState}
                 required
               />
               <label htmlFor="FileUrl" className="custom-file-label" id="label-size">
