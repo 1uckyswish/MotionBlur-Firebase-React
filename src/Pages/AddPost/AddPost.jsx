@@ -93,10 +93,10 @@ function AddPost() {
       <div className='post-form-container'>
         <form onSubmit={handleSubmitForm}>
           <label htmlFor="caption">Post Caption</label>
-          <textarea id='caption' placeholder='Write your caption here...' onChange={(e)=>setFormData({...formData, Caption: e.target.value})}/>
+          <textarea id='caption' placeholder='Write your caption here...' onChange={(e)=>setFormData({...formData, Caption: e.target.value})} required/>
 
           <label htmlFor="post-type">Post Type</label>
-          <select id="post-type" onChange={handleMediaUrl} >
+          <select id="post-type" onChange={handleMediaUrl} required>
             <option value="">Select</option>
             <option value="Video">Music</option>
             <option value="Picture">Picture</option>
@@ -109,7 +109,7 @@ function AddPost() {
                 type="text"
                 id='FileUrl'
                 onChange={videoUrlState}
-                
+                required
               />
               <div className='youtube-box'>
                 <ReactPlayer
@@ -129,7 +129,7 @@ function AddPost() {
                 id='FileUrl'
                 accept='image/*'
                 onChange={ImageUrlState}
-                
+                required
               />
               <label htmlFor="FileUrl" className="custom-file-label" id="label-size">
                 {selectedImage ? selectedImage.name : 'Choose an Image'}
