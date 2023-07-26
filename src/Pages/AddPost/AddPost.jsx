@@ -9,17 +9,23 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 // get the firestore exports from the config file
 import { storage, db, auth } from '../../Config/FirebaseConfig';
 import {v4} from 'uuid';
+import { addDoc, collection, Timestamp } from 'firebase/firestore';
+import {toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 function AddPost() {
   const [mediaType, setMediaType] = useState(false);
   const [youtubeLink, setYoutubeLink] = useState('');
   const [selectedImage, setSelectedImage] = useState(null);
   const [imageUrl, setImageUrl] = useState(null);
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     Caption: '',
     PostType: '',
     MediaUrl: '',
   });
+  //get user profile
+  const [user] = useAuthState(auth);
 
   useEffect(() => {
     if (selectedImage) {
@@ -34,7 +40,26 @@ function AddPost() {
     const imageRef = ref(storage, `images/${formData.MediaUrl.name + v4()}`);
     //upload to bucket
     uploadBytes(imageRef, formData.MediaUrl).then((response)=>{
-      getDownloadURL(response.ref);
+      getDownloadURL(response.ref)
+      .then((url)=>{
+        // all data and url for image
+        // * creating a post reference
+        const postRef = collection(db, 'Posts');
+        // use add doc to add post
+        addDoc(postRef, {
+          Caption: formData.Caption,
+          PostType: formData.PostType,
+          MediaUrl: url,
+          CreatedBy: user.displayName,
+          UserId: user.uid,
+          CreatedAt: Timestamp.now().toDate(),
+        });
+      });
+    }).then((results)=>{
+      toast('Post Saved Successfully!', {type: "success", autoClose: 3000});
+      setTimeout(() => {
+         navigate('/TimeLine');
+      }, 4000);
     })
     .catch((error)=> console.error(error));
   }
