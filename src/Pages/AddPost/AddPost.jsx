@@ -19,6 +19,7 @@ function AddPost() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [imageUrl, setImageUrl] = useState(null);
   const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     Caption: '',
     PostType: '',
@@ -27,24 +28,43 @@ function AddPost() {
   //get user profile
   const [user] = useAuthState(auth);
 
+   // * creating a post reference
+        const postRef = collection(db, 'Posts');
+
   useEffect(() => {
     if (selectedImage) {
       setImageUrl(URL.createObjectURL(selectedImage));
     }
   }, [selectedImage]);
 
+  // TODO change function to ternary op
   // set a  function to handle the form submit when the user clicks the button
   function handleSubmitForm(e){
     e.preventDefault();
-    // create a reference for the image
-    const imageRef = ref(storage, `images/${formData.MediaUrl.name + v4()}`);
     //upload to bucket
-    uploadBytes(imageRef, formData.MediaUrl).then((response)=>{
+    if(mediaType){
+       addDoc(postRef, {
+          Caption: formData.Caption,
+          PostType: formData.PostType,
+          MediaUrl: formData.MediaUrl,
+          CreatedBy: user.displayName,
+          UserId: user.uid,
+          CreatedAt: Timestamp.now().toDate(),
+        }).then((results)=>{
+      toast('Post Saved Successfully!', {type: "success", autoClose: 3000});
+      setTimeout(() => {
+        //* for music page
+         navigate('/MusicPage');
+      }, 4000);
+    })
+    .catch((error)=> console.error(error));
+    }else{
+       // create a reference for the image
+    const imageRef = ref(storage, `images/${formData.MediaUrl.name + v4()}`);
+      uploadBytes(imageRef, formData.MediaUrl).then((response)=>{
       getDownloadURL(response.ref)
       .then((url)=>{
         // all data and url for image
-        // * creating a post reference
-        const postRef = collection(db, 'Posts');
         // use add doc to add post
         addDoc(postRef, {
           Caption: formData.Caption,
@@ -54,14 +74,18 @@ function AddPost() {
           UserId: user.uid,
           CreatedAt: Timestamp.now().toDate(),
         });
+        // add spinner
       });
     }).then((results)=>{
+      // hide spinner 
       toast('Post Saved Successfully!', {type: "success", autoClose: 3000});
       setTimeout(() => {
+        //* image page
          navigate('/TimeLine');
       }, 4000);
     })
     .catch((error)=> console.error(error));
+    }
   }
 
 // handles the condtional rendering of JSX and also sets value for database
