@@ -1,23 +1,23 @@
-// AddPost.jsx
 import React, { useState, useEffect } from 'react';
 import './AddPost.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ReactPlayer from 'react-player';
-import {ref, uploadBytes, getDownloadURL} from 'firebase/storage'
-//make sure the user is logged in
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { useAuthState } from 'react-firebase-hooks/auth';
-// get the firestore exports from the config file
 import { storage, db, auth } from '../../Config/FirebaseConfig';
-import {v4} from 'uuid';
+import { v4 } from 'uuid';
 import { addDoc, collection, Timestamp } from 'firebase/firestore';
-import {toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import ScaleLoader from 'react-spinners/ScaleLoader';
+import Modal from 'react-modal';
 
 function AddPost() {
   const [mediaType, setMediaType] = useState(false);
   const [youtubeLink, setYoutubeLink] = useState('');
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [imageUrl, setImageUrl] = useState(null);
+  const [selectedImage, setSelectedImage] = useState('');
+  const [imageUrl, setImageUrl] = useState('');
+  const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -25,11 +25,9 @@ function AddPost() {
     PostType: '',
     MediaUrl: '',
   });
-  //get user profile
-  const [user] = useAuthState(auth);
 
-   // * creating a post reference
-        const postRef = collection(db, 'Posts');
+  const [user] = useAuthState(auth);
+  const postRef = collection(db, 'Posts');
 
   useEffect(() => {
     if (selectedImage) {
@@ -37,104 +35,134 @@ function AddPost() {
     }
   }, [selectedImage]);
 
-  // TODO change function to ternary op
-  // set a  function to handle the form submit when the user clicks the button
-  function handleSubmitForm(e){
+  function handleSubmitForm(e) {
     e.preventDefault();
-    //upload to bucket
-    if(mediaType){
-       addDoc(postRef, {
-          Caption: formData.Caption,
-          PostType: formData.PostType,
-          MediaUrl: formData.MediaUrl,
-          CreatedBy: user.displayName,
-          UserId: user.uid,
-          CreatedAt: Timestamp.now().toDate(),
-        }).then((results)=>{
-      toast('Post Saved Successfully!', {type: "success", autoClose: 3000});
-      setTimeout(() => {
-        //* for music page
-         navigate('/MusicPage');
-      }, 4000);
-    })
-    .catch((error)=> console.error(error));
-    }else{
-       // create a reference for the image
-    const imageRef = ref(storage, `images/${formData.MediaUrl.name + v4()}`);
-      uploadBytes(imageRef, formData.MediaUrl).then((response)=>{
-      getDownloadURL(response.ref)
-      .then((url)=>{
-        // all data and url for image
-        // use add doc to add post
-        addDoc(postRef, {
-          Caption: formData.Caption,
-          PostType: formData.PostType,
-          MediaUrl: url,
-          CreatedBy: user.displayName,
-          UserId: user.uid,
-          CreatedAt: Timestamp.now().toDate(),
+
+    // Check if the required fields are filled
+    if (!formData.Caption || !formData.PostType || !formData.MediaUrl) {
+      toast('Please fill all required fields.', { type: 'error', autoClose: 3000 });
+      return;
+    }
+
+    setIsOpen(true); // Open the modal here to show the spinner
+
+    if (mediaType) {
+      // Handle video upload (Youtube link)
+      addDoc(postRef, {
+        Caption: formData.Caption,
+        PostType: formData.PostType,
+        MediaUrl: formData.MediaUrl,
+        CreatedBy: user.displayName,
+        UserId: user.uid,
+        CreatedAt: Timestamp.now().toDate(),
+      })
+        .then((results) => {
+          setIsOpen(false);
+          toast('Post Saved Successfully!', { type: 'success', autoClose: 1000 });
+          setTimeout(() => {
+            navigate('/MusicPage');
+          }, 2000);
+        })
+        .catch((error) => console.error(error));
+    } else {
+      // Handle image upload
+      const imageRef = ref(storage, `images/${formData.MediaUrl.name + v4()}`);
+      uploadBytes(imageRef, formData.MediaUrl)
+        .then((response) => {
+          getDownloadURL(response.ref).then((url) => {
+            addDoc(postRef, {
+              Caption: formData.Caption,
+              PostType: formData.PostType,
+              MediaUrl: url,
+              CreatedBy: user.displayName,
+              UserId: user.uid,
+              CreatedAt: Timestamp.now().toDate(),
+            });
+          });
+        })
+        .then((results) => {
+          setIsOpen(false);
+          toast('Post Saved Successfully!', { type: 'success', autoClose: 1000 });
+          setTimeout(() => {
+            navigate('/TimeLine');
+          }, 2000);
+        })
+        .catch((error) => {
+          setIsOpen(false);
+          toast('Failed to upload the image. Please try again.', { type: 'error', autoClose: 3000 });
         });
-        // add spinner
-      });
-    }).then((results)=>{
-      // hide spinner 
-      toast('Post Saved Successfully!', {type: "success", autoClose: 3000});
-      setTimeout(() => {
-        //* image page
-         navigate('/TimeLine');
-      }, 4000);
-    })
-    .catch((error)=> console.error(error));
     }
   }
 
-// handles the condtional rendering of JSX and also sets value for database
   const handleMediaUrl = (e) => {
     const optionValue = e.target.value;
     setMediaType(optionValue === 'Video');
-    setFormData({...formData, PostType: e.target.value})
+    setFormData({ ...formData, PostType: e.target.value });
   };
 
-  // set the state of the on change for image 
   const ImageUrlState = (e) => {
-    const selectedImage = e.target.files[0]; // Get the selected image
+    const selectedImage = e.target.files[0];
     setSelectedImage(selectedImage);
-    setFormData({ ...formData, MediaUrl: selectedImage }); // Set the selected image as MediaUrl
+    setFormData({ ...formData, MediaUrl: selectedImage });
   };
-  // set the state of the on change for video link 
+
   const videoUrlState = (e) => {
-    const videoLink = e.target.value; // Get the video link from the input field
+    const videoLink = e.target.value;
     setYoutubeLink(videoLink);
-    setFormData({ ...formData, MediaUrl: videoLink }); // Set the video link as MediaUrl
+    setFormData({ ...formData, MediaUrl: videoLink });
   };
 
+  const customStyles = {
+  overlay: {
+    backgroundColor: "rgba(0, 0, 0, 0.4)", // Darken the overlay to make the modal stand out more
+    // zIndex: 1000, // Ensure the overlay is on top of other elements
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  content: {
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: "auto", // Increase the width for a better display
+    height: "auto",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(0, 0, 0, 0)", // Light gray background for a modern look
+    border: "none", // Remove the border for a cleaner appearance
+    borderRadius: "8px", // Round the corners of the modal
+    boxShadow: "0px 5px 15px rgba(0, 0, 0, 0)", // Add a subtle shadow to lift the modal
+  },
+};
 
 
+
+  Modal.setAppElement(document.getElementById('root'));
 
   return (
     <div className='add-post-container'>
       <h2>Create A Post</h2>
       <div className='post-form-container'>
         <form onSubmit={handleSubmitForm}>
-          <label htmlFor="caption">Post Caption</label>
-          <textarea id='caption' placeholder='Write your caption here...' onChange={(e)=>setFormData({...formData, Caption: e.target.value})} required/>
-
-          <label htmlFor="post-type">Post Type</label>
-          <select id="post-type" onChange={handleMediaUrl} required>
-            <option value="">Select</option>
-            <option value="Video">Music</option>
-            <option value="Picture">Picture</option>
+          <label htmlFor='caption'>Post Caption</label>
+          <textarea
+            id='caption'
+            placeholder='Write your caption here...'
+            onChange={(e) => setFormData({ ...formData, Caption: e.target.value })}
+            required
+          />
+          <label htmlFor='post-type'>Post Type</label>
+          <select id='post-type' onChange={handleMediaUrl} required>
+            <option value=''>Select</option>
+            <option value='Video'>Music</option>
+            <option value='Picture'>Picture</option>
           </select>
 
           {mediaType ? (
             <>
-              <label htmlFor="FileUrl">Youtube Video Link</label>
-              <input
-                type="text"
-                id='FileUrl'
-                onChange={videoUrlState}
-                required
-              />
+              <label htmlFor='FileUrl'>Youtube Video Link</label>
+              <input type='text' id='FileUrl' onChange={videoUrlState} required />
               <div className='youtube-box'>
                 <ReactPlayer
                   url={youtubeLink}
@@ -146,16 +174,16 @@ function AddPost() {
             </>
           ) : (
             <>
-              <label htmlFor="FileUrl">Upload Image</label>
+              <label htmlFor='FileUrl'>Upload Image</label>
               <input
                 className='image-file'
-                type="file"
+                type='file'
                 id='FileUrl'
                 accept='image/*'
                 onChange={ImageUrlState}
                 required
               />
-              <label htmlFor="FileUrl" className="custom-file-label" id="label-size">
+              <label htmlFor='FileUrl' className='custom-file-label' id='label-size'>
                 {selectedImage ? selectedImage.name : 'Choose an Image'}
               </label>
               {imageUrl && (
@@ -168,6 +196,14 @@ function AddPost() {
             </>
           )}
           <button type='submit'>Submit</button>
+          <Modal
+            isOpen={isOpen}
+            onRequestClose={() => setIsOpen(false)}
+            style={customStyles}
+            contentLabel='Example Modal'
+          >
+            <ScaleLoader color='#efb6b2' height='100px'/>
+          </Modal>
         </form>
       </div>
     </div>
