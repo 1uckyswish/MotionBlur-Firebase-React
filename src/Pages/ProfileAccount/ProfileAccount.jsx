@@ -1,5 +1,7 @@
-import React from 'react';
+import {useState} from 'react';
 import "./ProfileAccount.css";
+import { auth } from '/src/Config/FirebaseConfig';
+import {useAuthState} from 'react-firebase-hooks/auth';
 
 function ProfileAccount() {
     const profileImageStyle = [
@@ -16,19 +18,24 @@ function ProfileAccount() {
         backgroundPosition: 'center',
     },
     ]
+
+  const [user] = useAuthState(auth);
+  const [followUser, setFollowUser] = useState(true);
+
   return (
+    <div className='profile-container'>
     <div className="card">
       <div className="card_background_img" style={profileImageStyle[1]}></div>
       <div className="card_profile_img" style={profileImageStyle[0]}></div>
       <div className="user_details">
-        <h3>Gordon Ramsay</h3>
-        <p>Master Chef</p>
+        <h3>{user?.displayName}</h3>
+        <p>{user?.email}</p>
       </div>
       <div className="card_count">
         <div className="count">
           <div className="fans">
-            <h3>2.4M</h3>
-            <p>Fans</p>
+            <h3>100</h3>
+            <p>Liked Posts</p>
           </div>
           <div className="following">
             <h3>202</h3>
@@ -39,9 +46,15 @@ function ProfileAccount() {
             <p>Posts</p>
           </div>
         </div>
-        <div className="btn">Follow</div>
+       {
+        followUser?
+          <div onClick={()=> setFollowUser(!followUser)} className="btn">Follow</div>
+         :
+          <div onClick={()=> setFollowUser(!followUser)} className="btn">UnFollow</div>
+       }
       </div>
     </div>
+  </div>
   );
 }
 
