@@ -19,7 +19,7 @@ function TrendingPost({post, userName, date, caption}) {
             <p>{caption}</p>
         </div>
         <div className="music-image">
-            <ReactPlayer url={post} />
+            <ReactPlayer url={post} controls/>
         </div>
         <div className="music-social">
             <div className='social-icons'>
