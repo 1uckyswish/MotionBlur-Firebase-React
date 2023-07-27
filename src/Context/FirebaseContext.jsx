@@ -1,11 +1,12 @@
 import { useState, createContext, useEffect } from "react";
-import { collection, getDocs} from 'firebase/firestore';
+import { collection, getDocs, orderBy, query} from 'firebase/firestore';
 import { db } from '../Config/FirebaseConfig';
 
 export const FirebaseData = createContext();
 
 export default function FirebaseDataProvider({children}){
     const [allPosts, setAllPosts] = useState([]);
+    
      function isYouTubeLink(link) {
     return link.includes('youtube.com');
   }
@@ -13,7 +14,8 @@ export default function FirebaseDataProvider({children}){
     useEffect(
         ()=>{
             const postsRef = collection(db, 'Posts');
-            getDocs(postsRef)
+            const q = query(postsRef, orderBy('CreatedAt', "desc"))
+            getDocs(q,postsRef)
             .then((result)=>{
                const posts = result.docs.map((item)=>{
                 return {id: item.id, ...item.data()};
