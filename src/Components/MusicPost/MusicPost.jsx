@@ -3,13 +3,15 @@ import React, {useState} from 'react';
 import './MusicPost.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { AiOutlineComment, AiOutlineHeart, AiFillHeart} from "react-icons/ai";
-import ReactPlayer from 'react-player'
+import ReactPlayer from 'react-player';
+import { useNavigate } from 'react-router-dom';
 
-function MusicPost({video, userName, date, caption}) {
+function MusicPost({video, userName, date, caption, id}) {
     const [liked, SetLiked] = useState(false);
     const [followed, setFollowed] = useState(false);
+    const navigate = useNavigate();
   return (
-    <div className='music-container'>
+    <div className='music-container' onClick={()=>navigate(`/PostDetails/${id}`)}>
         <div className='music-header'>
             <img src='https://images.unsplash.com/flagged/photo-1557286249-08f5bc2ef21d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80' alt='profileImg'/>
                 <div className='music-info'>
