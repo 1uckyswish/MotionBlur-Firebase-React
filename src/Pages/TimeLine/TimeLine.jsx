@@ -7,6 +7,7 @@ import { FirebaseData } from '../../Context/FirebaseContext';
 
 function TimeLine() {
   const {allPosts, isYouTubeLink} = useContext(FirebaseData);
+  console.log(allPosts)
   return (
     <div className='timeline-container'>
         <h2>Photos</h2>
@@ -15,7 +16,7 @@ function TimeLine() {
           if(isYouTubeLink(item?.MediaUrl)){
              return null
           }else{
-            return <SinglePost image={item?.MediaUrl} userName={item?.CreatedBy} date={item?.CreatedAt} caption={item?.Caption} />;
+            return <SinglePost image={item?.MediaUrl} userName={item?.CreatedBy} date={item?.CreatedAt} caption={item?.Caption} id={item?.id}/>;
           }
         })
       }
