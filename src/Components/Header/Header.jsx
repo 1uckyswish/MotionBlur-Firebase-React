@@ -32,8 +32,8 @@ function Header() {
         {
           user?
           <div className='profile-signout-box'>
-            <img src='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Image-File.png'/>
-            <span>{user?.displayName ? user?.displayName : user?.email}</span>
+            <img onClick={()=>navigate('/ProfileAccount')} src='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Image-File.png'/>
+            <span onClick={()=>navigate('/ProfileAccount')}>{user?.displayName ? user?.displayName : user?.email}</span>
              <button onClick={logOut}>Log Out</button>
           </div>
           :

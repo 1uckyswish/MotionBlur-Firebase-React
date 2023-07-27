@@ -76,6 +76,7 @@ header button:hover{
     -moz-border-radius: 300px;
     -ms-border-radius: 300px;
     -o-border-radius: 300px;
+    cursor: pointer;
 }
 
 .profile-signout-box span{
@@ -84,4 +85,5 @@ header button:hover{
     font-weight: bolder;
     font-style: italic;
     padding-top: 10px;
+    cursor: pointer;
 }
