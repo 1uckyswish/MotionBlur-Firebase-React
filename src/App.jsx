@@ -8,6 +8,7 @@ import Trending from './Pages/Trending/Trending';
 import TimeLine from './Pages/TimeLine/TimeLine';
 import MusicPage from './Pages/MusicPage/MusicPage';
 import AddPost from './Pages/AddPost/AddPost';
+import ProfileAccount from './Pages/ProfileAccount/ProfileAccount';
 import Footer from './Components/Footer/Footer';
 import FirebaseDataProvider from './Context/FirebaseContext';
 //Import css Files
@@ -25,6 +26,7 @@ function App() {
           <Route path='/Trending' element={<Trending />}/>
           <Route path='/TimeLine' element={<TimeLine />}/>
           <Route path='/AddPost' element={<AddPost />}/>
+          <Route path='/ProfileAccount' element={<ProfileAccount />}/>
           <Route path='/MusicPage' element={<MusicPage />}/>
         </Routes>
         <Footer />
