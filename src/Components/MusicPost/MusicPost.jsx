@@ -21,7 +21,7 @@ function MusicPost({video, userName, date, caption}) {
            <p>{caption}</p>
         </div>
         <div className="music-image">
-            <ReactPlayer url={video} />
+            <ReactPlayer url={video} controls/>
         </div>
         <div className="music-social">
             <div className='social-icons'>
