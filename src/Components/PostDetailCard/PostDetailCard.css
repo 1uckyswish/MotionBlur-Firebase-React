@@ -12,7 +12,7 @@
 
 .music-header{
     display: flex;
-    margin: 50px;
+    /* margin: 50px; */
 }
 
 .music-header img{
@@ -41,7 +41,7 @@
 .music-caption{
    width: auto;
    display: flex;
-   margin: 0 50px;
+   margin-top: 20px;
 }
 
 .music-caption p{
@@ -69,7 +69,7 @@
 .music-social{
     display: flex;
     justify-content: space-between;
-    margin: 20px 50px;
+    /* margin: 20px 50px; */
     align-items: center;
 }
 
