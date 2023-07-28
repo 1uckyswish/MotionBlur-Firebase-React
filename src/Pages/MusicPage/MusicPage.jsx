@@ -16,7 +16,7 @@ function MusicPage() {
     {
         allPosts.map((item)=>{
           if(isYouTubeLink(item?.MediaUrl)){
-             return <MusicPost video={item.MediaUrl} userName={item?.CreatedBy} date={item?.CreatedAt} caption={item?.Caption} id={item?.id}/>
+             return <MusicPost post={item.MediaUrl} userName={item?.CreatedBy} date={item?.CreatedAt} caption={item?.Caption} id={item?.id}/>
           }else{
             return null;
           }

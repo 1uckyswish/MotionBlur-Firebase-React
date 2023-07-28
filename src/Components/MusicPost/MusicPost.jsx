@@ -6,7 +6,7 @@ import { AiOutlineComment, AiOutlineHeart, AiFillHeart} from "react-icons/ai";
 import ReactPlayer from 'react-player';
 import { useNavigate } from 'react-router-dom';
 
-function MusicPost({video, userName, date, caption, id}) {
+function MusicPost({post, userName, date, caption, id}) {
     const [liked, SetLiked] = useState(false);
     const [followed, setFollowed] = useState(false);
     const navigate = useNavigate();
@@ -23,7 +23,7 @@ function MusicPost({video, userName, date, caption, id}) {
            <p>{caption}</p>
         </div>
         <div className="music-image">
-            <ReactPlayer url={video} controls/>
+            <ReactPlayer url={post} controls/>
         </div>
         <div className="music-social">
             <div className='social-icons'>
