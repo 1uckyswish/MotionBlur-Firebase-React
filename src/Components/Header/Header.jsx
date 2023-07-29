@@ -18,7 +18,7 @@ function Header() {
   return (
     <header>
         <h1 onClick={()=>navigate('/')}>Motion</h1>
-        <div className='trending-hashtags'>
+        <div className={user? 'user-trending-hashtags' : 'trending-hashtags'}>
           <p onClick={()=>navigate('/Trending')}>Trending</p>
           <p onClick={()=>navigate('/MusicPage')}>Music</p>
           <p onClick={()=>navigate('/TimeLine')}>Photos</p>
@@ -32,7 +32,7 @@ function Header() {
         {
           user?
           <div className='profile-signout-box'>
-            <img onClick={()=>navigate('/ProfileAccount')} src='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Image-File.png'/>
+            {/* <img onClick={()=>navigate('/ProfileAccount')} src='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Image-File.png'/> */}
             <span onClick={()=>navigate('/ProfileAccount')}>{user?.displayName ? user?.displayName : user?.email}</span>
              <button onClick={logOut}>Log Out</button>
           </div>
