@@ -13,6 +13,7 @@
 .post-detail-header{
     display: flex;
     /* margin: 50px; */
+    justify-content: space-between;
     margin-bottom: 0;
     margin-top: 30px;
     margin-left: 30px;
@@ -37,16 +38,17 @@
 
 .post-detail-info h3{
     font-size: 40px;
+    color: var(--Dark-Sage);
 }
 
 .post-detail-info p{
-    font-size: 20px;
+    font-size: 25px;
     color: rgb(149, 149, 149);
 }
 
 .username-info-date{
     display: flex;
-    width: 225%;
+    width: 700px;
     justify-content: space-between;
 }
 
@@ -54,7 +56,7 @@
     display: flex;
     justify-content: space-between;
     text-align: center;
-    width: 100px;
+    width: 112px;
 }
 
 .post-detail-caption{
@@ -67,6 +69,7 @@
 
 .post-detail-caption p{
     font-size: 25px;
+    color: var(--Pastel-Grey);
 }
 
 .post-detail-image{
@@ -105,6 +108,7 @@
     width: auto;
     display: flex;
     margin: 0 25px;
+    font-size: 2em;
 }
 
 .social-icons p{
