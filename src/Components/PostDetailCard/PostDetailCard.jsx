@@ -14,8 +14,8 @@ function PostDetailCard({post, userName, date, caption, id}) {
         return youtubeRegex.test(link);
     }
   return (
-    <div className='music-container'>
-        <div className="music-image">
+    <div className='post-detail-container'>
+        <div className="post-detail-image">
           {
         isYouTubeLink(post) ? (
           <ReactPlayer url={post} controls />
@@ -24,31 +24,36 @@ function PostDetailCard({post, userName, date, caption, id}) {
         )
       }
         </div>
-        <div className='music-header'>
+        <div className='post-detail-header'>
             {/* <img src='https://images.unsplash.com/photo-1551847812-f815b31ae67c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80' alt='profileImg'/> */}
-                <div className='music-info'>
+                <div className='post-detail-info'>
+                  <div className='username-info-date'>
                     <h3>{userName}</h3>
-                    {
-                followed?
-                 <p id='follow-button' onClick={()=> setFollowed(!followed)}>Unfollow</p>
-                 :
-                <p onClick={()=> setFollowed(!followed)}>Follow</p>
-            }
-                    <p>{date}</p>
+                     {/* <p>{date}</p> */}
+                      <div className='like-follow-info'>
                     {
                     liked?
                     <AiFillHeart id='liked-icon' onClick={()=> SetLiked(!liked)}/>
                     :
-                    <AiOutlineHeart onClick={()=> SetLiked(!liked)}/>
+                    <AiOutlineHeart id='unliked-icon' onClick={()=> SetLiked(!liked)}/>
                     }
+                    {
+                    followed?
+                    <p id='follow-user-button' onClick={()=> setFollowed(!followed)}>Unfollow</p>
+                    :
+                    <p id='follow-user-button' onClick={()=> setFollowed(!followed)}>Follow</p>
+                    }
+                    </div>
+                   </div>
                 </div>
         </div>
-        <div className='music-caption'>
+        <div className='post-detail-caption'>
             <p>{caption}</p>
         </div>
-        <div className="music-social">
+        <div className="post-detail-social">
             <div className='social-icons'>
                 <AiOutlineComment/>
+                <p>Add Comment?</p>
             </div>
         </div>
     </div>
