@@ -37,6 +37,17 @@
     font-size: 20px;
     color: rgb(149, 149, 149);
 }
+.username-box{
+    display: flex;
+    width: 235%;
+    justify-content: space-between;
+    text-align: center;
+}
+
+#more-icon{
+    font-size: 2em;
+    font-weight: bolder;
+}
 
 .post-caption{
    width: auto;

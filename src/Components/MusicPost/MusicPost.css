@@ -20,7 +20,7 @@
   height: 120px;
   border-radius: 50%;
   object-fit: cover;
-    margin-right: 20px;
+  margin-right: 20px;
 }
 
 .music-info{
@@ -36,6 +36,18 @@
 .music-info p{
     font-size: 20px;
     color: rgb(149, 149, 149);
+}
+
+.username-box{
+    display: flex;
+    width: 235%;
+    justify-content: space-between;
+    text-align: center;
+}
+
+#more-icon{
+    font-size: 2em;
+    font-weight: bolder;
 }
 
 .music-caption{
@@ -113,4 +125,9 @@
     display: flex;
     justify-content: space-between;
     font-size: 2em;
+}
+
+#post-details{
+    font-size: 15px;
+    text-align: center;
 }
