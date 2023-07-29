@@ -39,7 +39,7 @@
 }
 .username-box{
     display: flex;
-    width: 235%;
+    width: 550px;
     justify-content: space-between;
     text-align: center;
 }
@@ -119,8 +119,8 @@
     color: var(--Pastel-Error);
 }
 
-.social-icons{
-    width: 100px;
+.card-social-icons{
+    width: 11%;
     display: flex;
     justify-content: space-between;
     font-size: 2em;
