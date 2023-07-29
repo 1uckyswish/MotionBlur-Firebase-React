@@ -3,7 +3,6 @@ import React, {useState} from 'react';
 import './MusicPost.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { AiOutlineComment, AiOutlineHeart, AiFillHeart, AiOutlineMore} from "react-icons/ai";
-import { FiMoreHorizontal } from "react-icons/fi";
 import ReactPlayer from 'react-player';
 import { useNavigate } from 'react-router-dom';
 
@@ -33,7 +32,7 @@ function MusicPost({post, userName, date, caption, id}) {
             <div className='card-social-icons'>
                 {
                     liked?
-                    <AiFillHeart id='liked-icon' onClick={()=> SetLiked(!liked)}/>
+                    <AiFillHeart id='liked-heart-icon' onClick={()=> SetLiked(!liked)}/>
                     :
                     <AiOutlineHeart onClick={()=> SetLiked(!liked)}/>
                 }

@@ -32,7 +32,7 @@ function SinglePost({image, userName, date, caption, id}) {
             <div className='card-social-icons'>
                 {
                     liked?
-                    <AiFillHeart id='liked-icon' onClick={()=> SetLiked(!liked)}/>
+                    <AiFillHeart id='liked-heart-icon' onClick={()=> SetLiked(!liked)}/>
                     :
                     <AiOutlineHeart onClick={()=> SetLiked(!liked)}/>
                 }

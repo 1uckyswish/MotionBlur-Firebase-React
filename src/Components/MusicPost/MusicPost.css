@@ -116,15 +116,15 @@
     color: white;
 }
 
-#liked-icon{
-    color: var(--Pastel-Error);
-}
-
 .card-social-icons{
     width: 11%;
     display: flex;
     justify-content: space-between;
     font-size: 2em;
+}
+
+#liked-heart-icon{
+    color: var(--Pastel-Error);
 }
 
 #post-details{
