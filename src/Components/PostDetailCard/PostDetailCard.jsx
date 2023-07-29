@@ -56,6 +56,9 @@ function PostDetailCard({post, userName, date, caption, id}) {
                 <p>Add Comment?</p>
             </div>
         </div>
+        <div className='comment-container'>
+          
+        </div>
     </div>
   );
 }
