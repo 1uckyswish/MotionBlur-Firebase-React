@@ -30,7 +30,7 @@ function MusicPost({post, userName, date, caption, id}) {
             <ReactPlayer url={post} controls/>
         </div>
         <div className="music-social">
-            <div className='social-icons'>
+            <div className='card-social-icons'>
                 {
                     liked?
                     <AiFillHeart id='liked-icon' onClick={()=> SetLiked(!liked)}/>
