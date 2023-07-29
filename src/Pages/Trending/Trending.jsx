@@ -6,18 +6,17 @@ import { FirebaseData } from '../../Context/FirebaseContext';
 import MusicPost from '../../Components/MusicPost/MusicPost';
 
 function Trending() {
-  const {allPosts, isYouTubeLink} = useContext(FirebaseData);
-  console.log(allPosts)
+  const { allPosts, isYouTubeLink } = useContext(FirebaseData);
+  console.log(allPosts);
 
-// console.log(allPosts)
   return (
     <div className='music-page-container'>
       <h2>Trending</h2>
       {allPosts.map((item) => {
         if (isYouTubeLink(item?.MediaUrl)) {
-          return <MusicPost post={item?.MediaUrl} userName={item?.CreatedBy} date={item?.CreatedAt} caption={item?.Caption} id={item?.id}/>;
+          return <MusicPost post={item?.MediaUrl} userName={item?.CreatedBy} date={item?.CreatedAt} caption={item?.Caption} id={item?.id} />;
         } else {
-          return <SinglePost image={item?.MediaUrl} userName={item?.CreatedBy} date={item?.CreatedAt} caption={item?.Caption} id={item?.id}/>;
+          return <SinglePost image={item?.MediaUrl} userName={item?.CreatedBy} date={item?.CreatedAt} caption={item?.Caption} id={item?.id} />;
         }
       })}
     </div>

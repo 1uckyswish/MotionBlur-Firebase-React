@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./PostDetailCard.css"
 import { AiOutlineComment, AiOutlineHeart, AiFillHeart} from "react-icons/ai";
@@ -7,10 +7,22 @@ import ReactPlayer from 'react-player';
 function PostDetailCard({post, userName, date, caption, id}) {
     const [liked, SetLiked] = useState(false);
     const [followed, setFollowed] = useState(false);
+
+    function isYouTubeLink(link) {
+        // Regular expression to match YouTube URLs
+        const youtubeRegex = /^(https?:\/\/)?(www\.)?(youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/).+/;
+        return youtubeRegex.test(link);
+    }
   return (
     <div className='music-container'>
         <div className="music-image">
-            <ReactPlayer url={post} controls/>
+          {
+        isYouTubeLink(post) ? (
+          <ReactPlayer url={post} controls />
+        ) : (
+          <img src={post} alt='postimage' />
+        )
+      }
         </div>
         <div className='music-header'>
             {/* <img src='https://images.unsplash.com/photo-1551847812-f815b31ae67c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80' alt='profileImg'/> */}

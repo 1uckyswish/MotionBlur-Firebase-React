@@ -11,9 +11,6 @@ function PostDetails() {
     const {PostId} = useParams();
     const [singlePostData, setSinglePostData] = useState([]);
     const {isYouTubeLink} = useContext(FirebaseData);
-    console.log(singlePostData)
-
-
   useEffect(
     ()=>{
       //* set up a single ref to a single PostDetails
@@ -31,7 +28,7 @@ function PostDetails() {
   return (
     <div className='post-details-container'>
        <h2>Post Details</h2>
-      <PostDetailCard post={singlePostData?.MediaUrl} userName={singlePostData?.CreatedBy}  date={singlePostData?.CreatedAt?.toDate().toDateString()} caption={singlePostData?.Caption} id={singlePostData?.id} />
+        <PostDetailCard post={singlePostData?.MediaUrl} userName={singlePostData?.CreatedBy}  date={singlePostData?.CreatedAt?.toDate().toDateString()} caption={singlePostData?.Caption} id={singlePostData?.id} />
     </div>
   )
 }
