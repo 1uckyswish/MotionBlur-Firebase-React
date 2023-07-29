@@ -29,7 +29,7 @@ function SinglePost({image, userName, date, caption, id}) {
             <img src={image} alt='postimage'/>
         </div>
         <div className="post-social">
-            <div className='social-icons'>
+            <div className='card-social-icons'>
                 {
                     liked?
                     <AiFillHeart id='liked-icon' onClick={()=> SetLiked(!liked)}/>
