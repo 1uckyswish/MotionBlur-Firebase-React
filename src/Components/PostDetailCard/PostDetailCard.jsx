@@ -55,11 +55,11 @@ function PostDetailCard({post, userName, date, caption, id, postUrlId}) {
         <div className="post-detail-social">
             <div className='social-icons'>
                 <AiOutlineComment onClick={()=> setComment(!comment)}/>
-                <p onClick={()=> setComment(!comment)}>Add Comment?</p>
+                <p onClick={()=> setComment(!comment)}>Leave a Comment?</p>
             </div>
         </div>
         <div className='comment-container'>
-          <Comments postId={postUrlId} commentState={comment}/>
+          <Comments postId={postUrlId} commentState={comment} userName={userName}/>
         </div>
     </div>
   );
