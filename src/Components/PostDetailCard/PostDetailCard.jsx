@@ -1,12 +1,23 @@
 import React, {useState, useContext} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./PostDetailCard.css"
-import { AiOutlineComment, AiOutlineHeart, AiFillHeart} from "react-icons/ai";
+import { AiOutlineComment, AiOutlineHeart, AiFillHeart, AiOutlineLike} from "react-icons/ai";
+import { AiTwotoneLike } from "react-icons/ai";
 import ReactPlayer from 'react-player';
 
 function PostDetailCard({post, userName, date, caption, id}) {
     const [liked, SetLiked] = useState(false);
+    const [commentLiked, SetCommentLiked] = useState(false);
     const [followed, setFollowed] = useState(false);
+    const [comment, setComment] = useState(false);
+    const [commentDots, setCommentDots] = useState(".");
+
+    setTimeout(() => {
+      setCommentDots(commentDots + ".")
+      if(commentDots.length > 3){
+        setCommentDots(".")
+      }
+    }, 1000);
 
     function isYouTubeLink(link) {
         // Regular expression to match YouTube URLs
@@ -52,12 +63,30 @@ function PostDetailCard({post, userName, date, caption, id}) {
         </div>
         <div className="post-detail-social">
             <div className='social-icons'>
-                <AiOutlineComment/>
-                <p>Add Comment?</p>
+                <AiOutlineComment onClick={()=> setComment(!comment)}/>
+                <p onClick={()=> setComment(!comment)}>Add Comment?</p>
             </div>
         </div>
         <div className='comment-container'>
-          
+           {
+          comment ?
+          <input type="text" placeholder={`Leave ${userName} a comment${commentDots}`} />
+          :
+          null
+        }
+
+        <p>
+          <span>{userName}:</span>
+          <span id="comment-section-like-icon">
+            hello hello hello hello hello hello hello hello hello
+            {
+            commentLiked?
+            (<AiTwotoneLike id='liked-comment-icon' onClick={() => SetCommentLiked(!commentLiked)} />)
+            :
+            (<AiOutlineLike id='unliked-comment-icon' onClick={() => SetCommentLiked(!commentLiked)} />)
+            }
+          </span>
+        </p>
         </div>
     </div>
   );
