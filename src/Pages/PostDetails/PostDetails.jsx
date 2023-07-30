@@ -28,7 +28,7 @@ function PostDetails() {
   return (
     <div className='post-details-container'>
        <h2>Post Details</h2>
-        <PostDetailCard post={singlePostData?.MediaUrl} userName={singlePostData?.CreatedBy}  date={singlePostData?.CreatedAt?.toDate().toDateString()} caption={singlePostData?.Caption} id={singlePostData?.id} />
+        <PostDetailCard post={singlePostData?.MediaUrl} userName={singlePostData?.CreatedBy}  date={singlePostData?.CreatedAt?.toDate().toDateString()} caption={singlePostData?.Caption} id={singlePostData?.id} postUrlId={PostId}/>
     </div>
   )
 }
