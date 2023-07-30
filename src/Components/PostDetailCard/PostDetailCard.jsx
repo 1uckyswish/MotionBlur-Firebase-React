@@ -1,23 +1,14 @@
 import React, {useState, useContext} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./PostDetailCard.css"
-import { AiOutlineComment, AiOutlineHeart, AiFillHeart, AiOutlineLike} from "react-icons/ai";
-import { AiTwotoneLike } from "react-icons/ai";
+import { AiOutlineComment, AiOutlineHeart, AiFillHeart} from "react-icons/ai";
 import ReactPlayer from 'react-player';
+import Comments from '../Comments/Comments';
 
-function PostDetailCard({post, userName, date, caption, id}) {
+function PostDetailCard({post, userName, date, caption, id, postUrlId}) {
     const [liked, SetLiked] = useState(false);
-    const [commentLiked, SetCommentLiked] = useState(false);
     const [followed, setFollowed] = useState(false);
     const [comment, setComment] = useState(false);
-    const [commentDots, setCommentDots] = useState(".");
-
-    setTimeout(() => {
-      setCommentDots(commentDots + ".")
-      if(commentDots.length > 3){
-        setCommentDots(".")
-      }
-    }, 1000);
 
     function isYouTubeLink(link) {
         // Regular expression to match YouTube URLs
@@ -42,17 +33,17 @@ function PostDetailCard({post, userName, date, caption, id}) {
                     <h3>{userName}</h3>
                      {/* <p>{date}</p> */}
                       <div className='like-follow-info'>
+                     {
+                    followed?
+                    <p id='follow-user-button' onClick={()=> setFollowed(!followed)}>Unfollow</p>
+                    :
+                    <p id='follow-user-button' onClick={()=> setFollowed(!followed)}>Follow</p>
+                    }
                     {
                     liked?
                     <AiFillHeart id='liked-icon' onClick={()=> SetLiked(!liked)}/>
                     :
                     <AiOutlineHeart id='unliked-icon' onClick={()=> SetLiked(!liked)}/>
-                    }
-                    {
-                    followed?
-                    <p id='follow-user-button' onClick={()=> setFollowed(!followed)}>Unfollow</p>
-                    :
-                    <p id='follow-user-button' onClick={()=> setFollowed(!followed)}>Follow</p>
                     }
                     </div>
                    </div>
@@ -68,25 +59,7 @@ function PostDetailCard({post, userName, date, caption, id}) {
             </div>
         </div>
         <div className='comment-container'>
-           {
-          comment ?
-          <input type="text" placeholder={`Leave ${userName} a comment${commentDots}`} />
-          :
-          null
-        }
-
-        <p>
-          <span>{userName}:</span>
-          <span id="comment-section-like-icon">
-            hello hello hello hello hello hello hello hello hello
-            {
-            commentLiked?
-            (<AiTwotoneLike id='liked-comment-icon' onClick={() => SetCommentLiked(!commentLiked)} />)
-            :
-            (<AiOutlineLike id='unliked-comment-icon' onClick={() => SetCommentLiked(!commentLiked)} />)
-            }
-          </span>
-        </p>
+          <Comments postId={postUrlId} commentState={comment}/>
         </div>
     </div>
   );
