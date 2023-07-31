@@ -37,6 +37,20 @@ function Comments({ postId, commentState, userName}) {
 
   function addNewComment(e){
     e.preventDefault();
+     if (newComment.length <= 5) {
+      toast.error('Enter a comment greater than 5 characters', {
+        position: "bottom-center",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        });
+    // You can show an error message here, or prevent the comment from being posted
+    return;
+  }
     //need to make a document in comments collection in the db
     //include the newComment,  the post id and the user who added the comment
     // create a reference to the Comments
