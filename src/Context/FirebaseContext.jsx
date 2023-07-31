@@ -1,5 +1,5 @@
 import { useState, createContext, useEffect } from "react";
-import { collection, getDocs, orderBy, query} from 'firebase/firestore';
+import { collection, getDocs, orderBy, query, onSnapshot } from 'firebase/firestore';
 import { db } from '../Config/FirebaseConfig';
 
 export const FirebaseData = createContext();
@@ -15,14 +15,12 @@ export default function FirebaseDataProvider({children}){
         ()=>{
             const postsRef = collection(db, 'Posts');
             const q = query(postsRef, orderBy('CreatedAt', "desc"))
-            getDocs(q,postsRef)
-            .then((result)=>{
-               const posts = result.docs.map((item)=>{
+            onSnapshot(q,(snapshot)=>{
+               const posts = snapshot.docs.map((item)=>{
                 return {id: item.id, ...item.data()};
                });
             setAllPosts(posts);
             })
-            .catch((error)=> console.error(error));
         },[]
     )
     return (
