@@ -6,6 +6,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { collection, addDoc, getDocs, query, where, onSnapshot, deleteDoc, doc } from 'firebase/firestore';
 import { toast } from 'react-toastify';
 import "./Comments.css"
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -15,6 +16,7 @@ function Comments({ postId, commentState, userName}) {
   const [commentDots, setCommentDots] = useState('.');
   const [newComment, setNewComment] = useState('');
   const [arrayOfComments, setArrayOfComments] = useState([]);
+  const nav = useNavigate();
 
   useEffect(
     ()=>{
@@ -98,7 +100,7 @@ function Comments({ postId, commentState, userName}) {
         user?
         (commentState? (<form onSubmit={addNewComment}><input type="text" placeholder={`Leave ${userName} a comment${commentDots}`} onChange={(e)=> setNewComment(e.target.value)} value={newComment}/> </form>) : (null))
         :
-        (<p id="error-login">Please Login To Comment!</p>)
+        (<p id="error-login">Please <span id="error-login-text" onClick={()=>nav('/SignUp')}>Login</span> To Comment!</p>)
         }
          {
           arrayOfComments.map((item)=>{

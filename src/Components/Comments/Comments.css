@@ -71,3 +71,10 @@
    -ms-border-radius: 4px;
    -o-border-radius: 4px;
 }
+#error-login-text{
+    text-decoration: underline;
+    padding-left: 2px;
+    padding-right: 1px;
+    color: red;
+    cursor: pointer;
+}
