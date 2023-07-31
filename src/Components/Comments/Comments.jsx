@@ -3,7 +3,7 @@ import { AiTwotoneLike } from 'react-icons/ai';
 import { AiOutlineLike } from 'react-icons/ai';
 import { db, auth } from '../../Config/FirebaseConfig';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { collection, addDoc, getDocs, query, where} from 'firebase/firestore';
+import { collection, addDoc, getDocs, query, where, onSnapshot} from 'firebase/firestore';
 import { toast } from 'react-toastify';
 
 
@@ -24,8 +24,8 @@ function Comments({ postId, commentState, userName}) {
       const q = query(commentsRef, where('PostId', '==', postId))
 
       //* then use a promise to get the comments
-      getDocs(q,commentsRef).then((res)=>{
-        const comments = res.docs.map((item)=>({
+      onSnapshot(q,(snapshot)=>{
+        const comments = snapshot.docs.map((item)=>({
           ...item.data(),
           id: item.id,
         }));
