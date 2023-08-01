@@ -86,7 +86,7 @@
     align-items: center;
 }
 
-.post-social p{
+.post-social p:nth-child(2){
     text-align: center;
     font-size: 25px;
     height: 50px;
@@ -127,9 +127,15 @@
     justify-content: space-between;
 }
 
+.comment-count {
+    padding-top: 5px;
+    padding-right:2px;
+}
+
 
 #comment-icon{
-    font-size: 1.9rem;
+    padding-top: 2px;
+    font-size: 2rem;
 }
 
 

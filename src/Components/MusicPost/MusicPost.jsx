@@ -64,12 +64,12 @@ function MusicPost({post, userName, date, caption, id}) {
             <div className='card-social-icons'>
                 <PostLikes postId={id} />
                 <AiOutlineComment onClick={()=>navigate(`/PostDetails/${id}`)} id='comment-icon'/>
-                 {
+                {
                     commentCount?
-                    commentCount
+                    <p className='comment-count'>{commentCount}</p>
                     :
                     null
-                }
+                    }
             </div>
             {
                 followed?

@@ -86,7 +86,7 @@
     align-items: center;
 }
 
-.music-social p{
+.music-social p:nth-child(2){
     text-align: center;
     font-size: 25px;
     height: 50px;
@@ -124,8 +124,15 @@
     font-size: 1.5rem;
 }
 
+.comment-count {
+    padding-top: 5px;
+    padding-right:2px;
+}
+
+
 #comment-icon{
-    font-size: 1.9rem;
+    padding-top: 2px;
+    font-size: 2rem;
 }
 
 #liked-heart-icon{
