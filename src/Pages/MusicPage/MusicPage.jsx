@@ -9,6 +9,7 @@ import { FirebaseData } from '../../Context/FirebaseContext';
 
 function MusicPage() {
   const {allPosts, isYouTubeLink} = useContext(FirebaseData);
+  console.log(allPosts)
 
   return (
     <div className='music-page-container'>
