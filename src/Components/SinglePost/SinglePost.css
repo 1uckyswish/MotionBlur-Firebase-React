@@ -58,7 +58,7 @@
 .post-caption p{
     font-size: 26px;
     font-weight: 100;
-    font-family: 'Times New Roman', Times, serif;
+    font-family:Georgia, 'Times New Roman', Times, serif;
 }
 
 .post-image{
@@ -125,5 +125,15 @@
     width: 11%;
     display: flex;
     justify-content: space-between;
-    font-size: 2em;
+}
+
+
+#comment-icon{
+    font-size: 1.9rem;
+}
+
+
+#post-details{
+    font-size: 15px;
+    text-align: center;
 }
