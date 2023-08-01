@@ -4,9 +4,10 @@ import "./PostDetailCard.css"
 import { AiOutlineComment, AiOutlineHeart, AiFillHeart} from "react-icons/ai";
 import ReactPlayer from 'react-player';
 import Comments from '../Comments/Comments';
+import PostLikes from '../PostLikes/PostLikes';
 
 function PostDetailCard({post, userName, date, caption, id, postUrlId}) {
-    const [liked, SetLiked] = useState(false);
+    // const [liked, SetLiked] = useState(false);
     const [followed, setFollowed] = useState(false);
     const [comment, setComment] = useState(false);
 
@@ -39,12 +40,13 @@ function PostDetailCard({post, userName, date, caption, id, postUrlId}) {
                     :
                     <p id='follow-user-button' onClick={()=> setFollowed(!followed)}>Follow</p>
                     }
-                    {
+                    <PostLikes postId={postUrlId}/>
+                    {/* {
                     liked?
                     <AiFillHeart id='liked-icon' onClick={()=> SetLiked(!liked)}/>
                     :
                     <AiOutlineHeart id='unliked-icon' onClick={()=> SetLiked(!liked)}/>
-                    }
+                    } */}
                     </div>
                    </div>
                 </div>
