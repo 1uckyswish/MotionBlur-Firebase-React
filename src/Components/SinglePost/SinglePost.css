@@ -57,7 +57,8 @@
 
 .post-caption p{
     font-size: 26px;
-    font-style:italic;
+    font-weight: 100;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .post-image{

@@ -62,15 +62,17 @@
 .post-detail-caption{
    width: auto;
    display: flex;
-   margin-top: 10px;
+   margin-top: 0px;
      margin-left: 30px;
     margin-right: 30px;
-    font-style: italic;
+    margin-bottom: 10px;
 }
 
 .post-detail-caption p{
     font-size: 25px;
     color: var(--Pastel-Grey);
+    font-weight: 100;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .post-detail-image{
@@ -150,6 +152,7 @@
     display: flex;
     padding-top: 4px;
     padding-left: 5px;
+    font-size: 1.3rem;
 }
 
 .comment-container span{
