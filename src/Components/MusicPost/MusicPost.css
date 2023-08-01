@@ -58,7 +58,7 @@
 
 .music-caption p{
     font-size: 26px;
-    font-style:italic;
+     font-family:Georgia, 'Times New Roman', Times, serif;
 }
 
 .music-image{
@@ -118,10 +118,14 @@
 }
 
 .card-social-icons{
-    width: 11%;
+    width: 100px;
     display: flex;
     justify-content: space-between;
-    font-size: 2em;
+    font-size: 1.5rem;
+}
+
+#comment-icon{
+    font-size: 1.9rem;
 }
 
 #liked-heart-icon{

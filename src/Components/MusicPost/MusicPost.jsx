@@ -1,15 +1,47 @@
 //*import  components
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './MusicPost.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { AiOutlineComment, AiOutlineHeart, AiFillHeart, AiOutlineMore} from "react-icons/ai";
+import { AiOutlineComment, AiOutlineMore} from "react-icons/ai";
 import ReactPlayer from 'react-player';
 import { useNavigate } from 'react-router-dom';
+import PostLikes from '../PostLikes/PostLikes';
+import { db } from '../../Config/FirebaseConfig';
+import { collection, getDocs, query, where} from 'firebase/firestore';
+
 
 function MusicPost({post, userName, date, caption, id}) {
-    const [liked, SetLiked] = useState(false);
     const [followed, setFollowed] = useState(false);
     const navigate = useNavigate();
+    const [commentCount, setCommentCount] = useState(0);
+
+
+
+     useEffect(
+      ()=>{
+         //* figure out if the user liked the article
+        const commentLikes = collection(db, 'Comments');
+        //* make a query to count likes
+        const q2 = query(commentLikes, where('PostId', '==', id));
+        //* fetch for matching comments with a length
+        getDocs(q2, commentLikes)
+        .then((res)=>{
+          setCommentCount(res.size);
+        })
+        .catch((err)=>{
+           toast.error('Error try again', {
+          position: "bottom-right",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+        })
+      },[commentCount])
+
   return (
     <div className='music-container'>
         <div className='music-header'>
@@ -30,13 +62,14 @@ function MusicPost({post, userName, date, caption, id}) {
         </div>
         <div className="music-social">
             <div className='card-social-icons'>
-                {
-                    liked?
-                    <AiFillHeart id='liked-heart-icon' onClick={()=> SetLiked(!liked)}/>
+                <PostLikes postId={id} />
+                <AiOutlineComment onClick={()=>navigate(`/PostDetails/${id}`)} id='comment-icon'/>
+                 {
+                    commentCount?
+                    commentCount
                     :
-                    <AiOutlineHeart onClick={()=> SetLiked(!liked)}/>
+                    null
                 }
-                <AiOutlineComment onClick={()=>navigate(`/PostDetails/${id}`)}/>
             </div>
             {
                 followed?
