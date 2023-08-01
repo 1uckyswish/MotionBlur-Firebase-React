@@ -39,8 +39,8 @@ function Comments({ postId, commentState, userName}) {
 
   function addNewComment(e){
     e.preventDefault();
-     if (newComment.length <= 5) {
-      toast.error('Enter a comment greater than 5 characters', {
+     if (newComment.length <= 1) {
+      toast.error('Provide a valid input', {
         position: "bottom-center",
         autoClose: 1000,
         hideProgressBar: false,
