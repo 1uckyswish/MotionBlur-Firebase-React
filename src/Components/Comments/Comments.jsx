@@ -114,10 +114,11 @@ function Comments({ postId, commentState, userName}) {
               user?.uid === item?.UserId?
               (<button id="comment-delete" onClick={()=>deleteComment(item.id)}>Delete</button>)
               :
-              commentLiked?
-              (<AiTwotoneLike id="liked-comment-icon" onClick={() => setCommentLiked(!commentLiked)} />)
-              :
-              (<AiOutlineLike id="unliked-comment-icon" onClick={() => setCommentLiked(!commentLiked)} />)
+              null
+              // commentLiked?
+              // (<AiTwotoneLike id="liked-comment-icon" onClick={() => setCommentLiked(!commentLiked)} />)
+              // :
+              // (<AiOutlineLike id="unliked-comment-icon" onClick={() => setCommentLiked(!commentLiked)} />)
             }
             </span>
             </p>)
