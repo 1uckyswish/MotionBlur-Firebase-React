@@ -9,7 +9,6 @@ import { FirebaseData } from '../../Context/FirebaseContext';
 
 function MusicPage() {
   const {allPosts, isYouTubeLink} = useContext(FirebaseData);
-  console.log(allPosts)
 
   return (
     <div className='music-page-container'>
@@ -17,7 +16,7 @@ function MusicPage() {
     {
         allPosts.map((item)=>{
           if(isYouTubeLink(item?.MediaUrl)){
-             return <MusicPost post={item.MediaUrl} userName={item?.CreatedBy} date={item?.CreatedAt} caption={item?.Caption} id={item?.id}/>
+             return <MusicPost post={item.MediaUrl} userName={item?.CreatedBy} date={item?.CreatedAt} caption={item?.Caption} id={item?.id} userId={item.UserId}/>
           }else{
             return null;
           }
