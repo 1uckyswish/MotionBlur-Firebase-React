@@ -43,6 +43,18 @@ function MusicPost({post, userName, date, caption, id, userId}) {
         })
       },[commentCount])
 
+   useEffect(() => {
+    // Fetch all users
+    const usersRef = collection(db, 'Users');
+    getDocs(usersRef).then((res)=>{
+        console.log(res)
+    })
+    .catch((err)=>console.log(err))
+    
+  }, []);
+
+      
+
   return (
     <div className='music-container'>
         <div className='music-header'>
