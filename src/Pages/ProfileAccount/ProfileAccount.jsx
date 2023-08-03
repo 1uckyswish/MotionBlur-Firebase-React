@@ -1,29 +1,68 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import "./ProfileAccount.css";
 import { auth } from '/src/Config/FirebaseConfig';
 import {useAuthState} from 'react-firebase-hooks/auth';
-import { FiEdit } from "react-icons/fi";
 import { BsCameraFill } from "react-icons/bs";
+import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { storage } from '../../Config/FirebaseConfig';
+import { updateProfile } from 'firebase/auth';
 
 function ProfileAccount() {
-    const profileImageStyle = [
-        {
-        background: 'url("https://images.unsplash.com/photo-1552699611-e2c208d5d9cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1108&q=80")',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize:'cover',
-        backgroundPosition: 'center',
-    },
-    {
-        background: 'url("https://images.unsplash.com/photo-1484318571209-661cf29a69c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize:'cover',
-        backgroundPosition: 'center',
-    },
-    ]
+    const [user] = useAuthState(auth);
+    const [followUser, setFollowUser] = useState(true);
+    const [photoURL, setPhotoURL] = useState('https://img.myloview.com/stickers/default-avatar-profile-icon-vector-social-media-user-photo-400-205577532.jpg')
+    const [photo, setPhoto] = useState(null)
+    const [loading, setLoading] = useState(false);
 
-  const [user] = useAuthState(auth);
-  const [followUser, setFollowUser] = useState(true);
+   function handleChange(e) {
+    if (e.target.files[0]) {
+      setPhoto(e.target.files[0]);
+      upload(e.target.files[0], user);
+    }
+  }
 
+  // storage
+  async function upload(file, account) {
+    try {
+      const fileRef = ref(storage, account.uid + '.jpeg');
+      await uploadBytes(fileRef, file);
+      const downloadURL = await getDownloadURL(fileRef);
+      updateProfile(account, { photoURL: downloadURL });
+      setPhotoURL(downloadURL); // Update the photoURL here after successful upload
+      alert("File uploaded successfully!");
+    } catch (error) {
+      console.error("Error uploading photo:", error);
+      alert("An error occurred while uploading the photo. Please try again.");
+    }
+  }
+
+  useEffect(() => {
+    if (user && user.photoURL) {
+      setPhotoURL(user.photoURL);
+    }
+  }, [user]);
+
+
+console.log(user)
+
+
+
+
+   const profileImageStyle = [
+  {
+    backgroundImage: `url(${photoURL})`, // Separate backgroundImage property
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover', // Separate backgroundSize property
+    backgroundPosition: 'center',
+  },
+  {
+    backgroundImage:
+      'url("https://images.unsplash.com/photo-1484318571209-661cf29a69c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")', // Separate backgroundImage property
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover', // Separate backgroundSize property
+    backgroundPosition: 'center',
+  },
+];
 
 
 
@@ -32,7 +71,10 @@ function ProfileAccount() {
     <div className="card">
       <div className="card_background_img" style={profileImageStyle[1]}></div>
       <label htmlFor="background-img-input" className="icon-wrapper">
-    <FiEdit className="edit-icon" />
+      <div className='background-edit-icon'>
+        <BsCameraFill className="edit-icon" />
+        <p style={{color: 'white', paddingLeft: "10px"}}>Change Image</p>
+      </div>
     <input
       type="file"
       id="background-img-input"
@@ -50,6 +92,7 @@ function ProfileAccount() {
           accept="image/*"
           required
           className="profile-img-input"
+          onChange={handleChange}
         />
       </label>
       <div className="user_details">

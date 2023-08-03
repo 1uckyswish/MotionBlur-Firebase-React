@@ -20,11 +20,35 @@
 }
 
 .edit-icon {
-  position: absolute;
+  /* position: absolute;
   left: 96%;
-  top: -220px;
-  font-size: 1.5rem;
+  top: -220px; */
+  font-size: 1rem;
 }
+
+.background-edit-icon{
+  position: absolute;
+  left: 80%;
+  top: -40px;
+  font-size: 1.5rem;
+  display: flex;
+  width: 160px;
+  border: 0.1px solid black;
+  height: 30px;
+  background-color: #222121;
+  color: #fff;
+  opacity: .6;
+  padding-top:5px;
+  justify-content: center;
+  border-radius:4px ;
+  -webkit-border-radius:4px ;
+  -moz-border-radius:4px ;
+  -ms-border-radius:4px ;
+  -o-border-radius:4px ;
+  letter-spacing: 0.4px;
+  cursor: pointer;
+}
+
 
 /* Hide the file input */
 .background-img-input {
@@ -82,6 +106,7 @@
     -moz-border-radius: 50px;
     -ms-border-radius: 50px;
     -o-border-radius: 50px;
+    cursor: pointer;
 }
 
 
