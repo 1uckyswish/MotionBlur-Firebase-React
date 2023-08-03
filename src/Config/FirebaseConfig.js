@@ -8,7 +8,7 @@ import {getFirestore} from 'firebase/firestore';
 import {getAuth} from 'firebase/auth';
 
 // for storage
-import {getStorage} from "firebase/storage"
+import {getStorage, ref} from "firebase/storage"
 
 // import { getAnalytics } from "firebase/analytics";
 // TODO: Add SDKs for Firebase products that you want to use
