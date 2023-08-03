@@ -16,7 +16,7 @@ function TimeLine() {
           if(isYouTubeLink(item?.MediaUrl)){
              return null
           }else{
-            return <SinglePost image={item?.MediaUrl} userName={item?.CreatedBy} date={item?.CreatedAt} caption={item?.Caption} id={item?.id}/>;
+            return <SinglePost image={item?.MediaUrl} userName={item?.CreatedBy} date={item?.CreatedAt} caption={item?.Caption} id={item?.id} userId={item.UserId}/>;
           }
         })
       }
