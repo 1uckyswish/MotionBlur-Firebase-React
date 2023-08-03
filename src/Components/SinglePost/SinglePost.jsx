@@ -1,13 +1,14 @@
 //*import  components
 import React, {useState, useEffect}from 'react'
 import './SinglePost.css'
-import { AiOutlineComment, AiOutlineHeart, AiFillHeart,AiOutlineMore} from "react-icons/ai";
+import { AiOutlineComment,AiOutlineMore} from "react-icons/ai";
 import { useNavigate } from 'react-router-dom';
 import PostLikes from '../PostLikes/PostLikes';
 import { db } from '../../Config/FirebaseConfig';
 import { collection, getDocs, query, where} from 'firebase/firestore';
 import { auth } from '/src/Config/FirebaseConfig';
 import {useAuthState} from 'react-firebase-hooks/auth';
+import { getStorage, ref, getDownloadURL, listAll } from 'firebase/storage';
 
 
 function SinglePost({image, userName, date, caption, id, userId}) {
@@ -16,6 +17,40 @@ function SinglePost({image, userName, date, caption, id, userId}) {
     const navigate = useNavigate();
     const [commentCount, setCommentCount] = useState(0);
     const [user] = useAuthState(auth);
+     const [defaultImage, setDefaultImage] = useState(true)
+
+     const [pfpImage, setPfpImage] = useState("");
+     const [otherUserPfp, setOtherUserPfp] = useState("https://img.myloview.com/stickers/default-avatar-profile-icon-vector-social-media-user-photo-400-205577532.jpg")
+
+const storage = getStorage();
+const pathReference = ref(storage, `ProfileImages/`);
+listAll(pathReference)
+  .then((result) => {
+    // result.items contains an array of references to the files in the 'ProfileImages/' folder
+    result.items.forEach((itemRef) => {
+      // Get the download URL for each image
+      getDownloadURL(itemRef)
+        .then((url) => {
+          // Check if the URL contains the user's UID
+          if (url.includes(user.uid)) {
+            // Use the 'url' to display or manipulate the image
+            setPfpImage(url)
+            setDefaultImage(false)
+          }else if(url.includes(userId)){
+            setOtherUserPfp(url)
+            setDefaultImage(false)
+          }
+        })
+        .catch((error) => {
+          console.error('Error getting download URL:', error);
+        });
+    });
+  })
+  .catch((error) => {
+    console.error('Error listing items in folder:', error);
+  });
+
+
 
     useEffect(
       ()=>{
@@ -46,12 +81,20 @@ function SinglePost({image, userName, date, caption, id, userId}) {
   return (
     <div className='post-container'>
         <div className='post-header'>
-            <img src={
+          {
+             defaultImage?
+                <img src='https://img.myloview.com/stickers/default-avatar-profile-icon-vector-social-media-user-photo-400-205577532.jpg' />
+                :
+                 <img src={
                 user.uid === userId?
-                user.photoURL
+                pfpImage
+                :
+                user.uid !== userId?
+                otherUserPfp
                 :
                 'https://img.myloview.com/stickers/default-avatar-profile-icon-vector-social-media-user-photo-400-205577532.jpg'
-                } alt='profileImg'/>
+                } alt='test'/>
+          }
                 <div className='post-info'>
                      <div className='username-box'>
                         <h3>{userName}</h3>
@@ -77,12 +120,12 @@ function SinglePost({image, userName, date, caption, id, userId}) {
                     null
                     }
             </div>
-            {
+            {/* {
                 followed?
                  <p id='follow-button' onClick={()=> setFollowed(!followed)}>Unfollow</p>
                  :
                 <p onClick={()=> setFollowed(!followed)}>Follow</p>
-            }
+            } */}
         </div>
     </div>
   )

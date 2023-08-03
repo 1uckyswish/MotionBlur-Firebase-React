@@ -33,21 +33,7 @@ function PostDetailCard({post, userName, date, caption, id, postUrlId}) {
                   <div className='username-info-date'>
                     <h3>{userName}</h3>
                      {/* <p>{date}</p> */}
-                      <div className='like-follow-info'>
-                     {
-                    followed?
-                    <p id='follow-user-button' onClick={()=> setFollowed(!followed)}>Unfollow</p>
-                    :
-                    <p id='follow-user-button' onClick={()=> setFollowed(!followed)}>Follow</p>
-                    }
-                    <PostLikes postId={postUrlId}/>
-                    {/* {
-                    liked?
-                    <AiFillHeart id='liked-icon' onClick={()=> SetLiked(!liked)}/>
-                    :
-                    <AiOutlineHeart id='unliked-icon' onClick={()=> SetLiked(!liked)}/>
-                    } */}
-                    </div>
+                     <PostLikes postId={postUrlId}/>
                    </div>
                 </div>
         </div>

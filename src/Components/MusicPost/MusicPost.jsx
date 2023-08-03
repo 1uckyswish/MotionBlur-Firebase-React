@@ -10,13 +10,50 @@ import { db } from '../../Config/FirebaseConfig';
 import { collection, getDocs, query, where} from 'firebase/firestore';
 import { auth } from '/src/Config/FirebaseConfig';
 import {useAuthState} from 'react-firebase-hooks/auth';
-
+import { getStorage, ref, getDownloadURL, listAll } from 'firebase/storage';
 
 function MusicPost({post, userName, date, caption, id, userId}) {
     const [followed, setFollowed] = useState(false);
     const navigate = useNavigate();
     const [commentCount, setCommentCount] = useState(0);
      const [user] = useAuthState(auth);
+     const [defaultImage, setDefaultImage] = useState(true)
+
+     const [pfpImage, setPfpImage] = useState("");
+     const [errorImage, setErrorImage] = useState("https://img.myloview.com/stickers/default-avatar-profile-icon-vector-social-media-user-photo-400-205577532.jpg")
+    
+const storage = getStorage();
+const pathReference = ref(storage, `ProfileImages/`);
+listAll(pathReference)
+  .then((result) => {
+    // result.items contains an array of references to the files in the 'ProfileImages/' folder
+    result.items.forEach((itemRef) => {
+      // Get the download URL for each image
+      getDownloadURL(itemRef)
+        .then((url) => {
+          // Check if the URL contains the user's UID
+          if (url.includes(user.uid)) {
+            // Use the 'url' to display or manipulate the image
+            setPfpImage(url)
+            setDefaultImage(false)
+            console.log(url);
+          }else if(url.includes(userId)){
+            setErrorImage(url)
+            console.log("error", url)
+            setDefaultImage(false)
+          }
+        })
+        .catch((error) => {
+          console.error('Error getting download URL:', error);
+        });
+    });
+  })
+  .catch((error) => {
+    console.error('Error listing items in folder:', error);
+  });
+
+
+
 
      useEffect(
       ()=>{
@@ -43,27 +80,26 @@ function MusicPost({post, userName, date, caption, id, userId}) {
         })
       },[commentCount])
 
-   useEffect(() => {
-    // Fetch all users
-    const usersRef = collection(db, 'Users');
-    getDocs(usersRef).then((res)=>{
-        console.log(res)
-    })
-    .catch((err)=>console.log(err))
-    
-  }, []);
 
-      
+
 
   return (
     <div className='music-container'>
         <div className='music-header'>
-            <img src={
+            {
+                defaultImage?
+                <img src='https://img.myloview.com/stickers/default-avatar-profile-icon-vector-social-media-user-photo-400-205577532.jpg' />
+                :
+                <img src={
                 user.uid === userId?
-                user.photoURL
+                pfpImage
+                :
+                user.uid !== userId?
+                errorImage
                 :
                 'https://img.myloview.com/stickers/default-avatar-profile-icon-vector-social-media-user-photo-400-205577532.jpg'
                 } alt='profileImg'/>
+            }
                 <div className='music-info'>
                     <div className='username-box'>
                         <h3>{userName}</h3>
@@ -89,12 +125,12 @@ function MusicPost({post, userName, date, caption, id, userId}) {
                     null
                     }
             </div>
-            {
+            {/* {
                 followed?
                  <p id='follow-button' onClick={()=> setFollowed(!followed)}>Unfollow</p>
                  :
                 <p onClick={()=> setFollowed(!followed)}>Follow</p>
-            }
+            } */}
         </div>
     </div>
   );

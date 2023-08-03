@@ -6,13 +6,13 @@ import { BsCameraFill } from "react-icons/bs";
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { storage } from '../../Config/FirebaseConfig';
 import { updateProfile } from 'firebase/auth';
+import { toast } from 'react-toastify';
 
 function ProfileAccount() {
     const [user] = useAuthState(auth);
     const [followUser, setFollowUser] = useState(true);
     const [photoURL, setPhotoURL] = useState('https://img.myloview.com/stickers/default-avatar-profile-icon-vector-social-media-user-photo-400-205577532.jpg')
     const [photo, setPhoto] = useState(null)
-    const [loading, setLoading] = useState(false);
 
    function handleChange(e) {
     if (e.target.files[0]) {
@@ -24,15 +24,18 @@ function ProfileAccount() {
   // storage
   async function upload(file, account) {
     try {
-      const fileRef = ref(storage, account.uid + '.jpeg');
+      const fileRef = ref(storage, "ProfileImages/" + account.uid + '.jpeg');
       await uploadBytes(fileRef, file);
       const downloadURL = await getDownloadURL(fileRef);
       updateProfile(account, { photoURL: downloadURL });
       setPhotoURL(downloadURL); // Update the photoURL here after successful upload
-      alert("File uploaded successfully!");
+      toast("Image Posted!", {
+          type: "success",
+          autoClose: 1000,
+        });
     } catch (error) {
       console.error("Error uploading photo:", error);
-      alert("An error occurred while uploading the photo. Please try again.");
+     toast('Failed to upload the image. Please try again.', { type: 'error', autoClose: 3000 })
     }
   }
 
@@ -41,12 +44,6 @@ function ProfileAccount() {
       setPhotoURL(user.photoURL);
     }
   }, [user]);
-
-
-console.log(user)
-
-
-
 
    const profileImageStyle = [
   {
@@ -99,7 +96,7 @@ console.log(user)
         <h3>{user?.displayName}</h3>
         <p>{user?.email}</p>
       </div>
-      <div className="card_count">
+      {/* <div className="card_count">
         <div className="count">
           <div className="fans">
             <h3>100</h3>
@@ -120,7 +117,7 @@ console.log(user)
          :
           <div onClick={()=> setFollowUser(!followUser)} className="btn">UnFollow</div>
        }
-      </div>
+      </div> */}
     </div>
   </div>
   );
