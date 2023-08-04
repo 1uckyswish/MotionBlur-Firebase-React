@@ -77,14 +77,11 @@ useEffect(() => {
         // Check if user.uid is included in the array of image URLs
         const foundImageUrl = imageUrls.find((url) => url.includes(user?.uid));
         if (foundImageUrl) {
-          console.log("User UID is included in the array of image URLs." , user?.uid);
           setBackgroundImg(foundImageUrl);
-        } else {
-          console.log("User UID is not included in the array of image URLs.");
         }
 
       } catch (error) {
-        console.error('Error listing images:', error);
+        toast('Failed to upload the image. Please try again.', { type: 'error', autoClose: 3000 })
       }
     };
 
