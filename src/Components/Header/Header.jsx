@@ -33,7 +33,12 @@ function Header() {
         {
           user?
           <div className='profile-signout-box'>
-            <img onClick={()=>navigate(`/ProfileAccount/${user?.uid}`)} src={user.photoURL}/>
+            {
+              user.photoURL?
+              <img onClick={()=>navigate(`/ProfileAccount/${user?.uid}`)} src={user.photoURL}/>
+              :
+              <span onClick={()=>navigate(`/ProfileAccount/${user?.uid}`)}>{user?.displayName ? user?.displayName : user?.email}</span>
+            }
             {/* <span onClick={()=>navigate('/ProfileAccount')}>{user?.displayName ? user?.displayName : user?.email}</span> */}
              <button onClick={logOut}>Log Out</button>
           </div>
