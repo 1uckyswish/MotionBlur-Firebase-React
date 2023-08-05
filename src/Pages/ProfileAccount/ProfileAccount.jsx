@@ -182,7 +182,6 @@ useEffect(() => {
                     <p>Email</p>
                 </div>
             </div>
-             <div className="btn">Follow</div>
         </div>
       </div>
     </div>
