@@ -90,6 +90,9 @@ console.log(user)
               CreatedBy: user.displayName,
               UserId: user.uid,
               CreatedAt: Timestamp.now().toDate(),
+              UserEmail: user.email,
+              LastLogin: user.metadata.lastSignInTime,
+              AccountMade: user.metadata.creationTime,
             });
           });
         })

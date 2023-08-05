@@ -97,7 +97,7 @@ listAll(pathReference)
           }
                 <div className='post-info'>
                      <div className='username-box'>
-                        <h3>{userName}</h3>
+                        <h3 onClick={()=>navigate(`/ProfileAccount/${userId}`)}>{userName}</h3>
                         <AiOutlineMore id="more-icon" onClick={()=>navigate(`/PostDetails/${id}`)}/>
                     </div>
                     <p>{date.toDate().toDateString()}</p>

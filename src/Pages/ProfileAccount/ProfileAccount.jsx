@@ -50,7 +50,7 @@ function ProfileAccount() {
 
     function handleImageBG(e) {
     if (e.target.files[0]) {
-      bgImage(e.target.files[0], user);
+      bgImage(e.target.files[0], UserUID);
     }
   }
 
@@ -58,7 +58,7 @@ function ProfileAccount() {
 
   async function bgImage(file, account) {
     try {
-      const fileRef = ref(storage, "background/" + account.uid + '.jpeg');
+      const fileRef = ref(storage, "background/" + account + '.jpeg');
       await uploadBytes(fileRef, file);
       const downloadURL = await getDownloadURL(fileRef);
       setBackgroundImg(downloadURL);
@@ -98,8 +98,8 @@ useEffect(() => {
 
    const listAllPFP = async () => {
       try {
-        const backgroundRef = ref(storage, 'ProfileImages/');
-        const listResult = await listAll(backgroundRef);
+        const profileRef = ref(storage, 'ProfileImages/');
+        const listResult = await listAll(profileRef);
         const imageRefs = listResult.items;
         const imageUrls = await Promise.all(imageRefs.map((imageRef) => getDownloadURL(imageRef)));
 
@@ -116,7 +116,7 @@ useEffect(() => {
 
     listAllPFP()
 
-  }, [user]);
+  }, [user, UserUID]);
 
 
   const profileImageStyle = [
