@@ -15,6 +15,7 @@ function Header() {
     signOut(auth);
   }
 
+
   return (
     <header>
         <h1 onClick={()=>navigate('/')}>Motion</h1>
@@ -32,7 +33,7 @@ function Header() {
         {
           user?
           <div className='profile-signout-box'>
-            <img onClick={()=>navigate('/ProfileAccount')} src={user.photoURL}/>
+            <img onClick={()=>navigate(`/ProfileAccount/${user?.uid}`)} src={user.photoURL}/>
             {/* <span onClick={()=>navigate('/ProfileAccount')}>{user?.displayName ? user?.displayName : user?.email}</span> */}
              <button onClick={logOut}>Log Out</button>
           </div>

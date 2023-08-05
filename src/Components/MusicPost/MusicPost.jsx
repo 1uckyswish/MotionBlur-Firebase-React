@@ -12,6 +12,8 @@ import { auth } from '/src/Config/FirebaseConfig';
 import {useAuthState} from 'react-firebase-hooks/auth';
 import { getStorage, ref, getDownloadURL, listAll } from 'firebase/storage';
 
+
+
 function MusicPost({post, userName, date, caption, id, userId}) {
     const [followed, setFollowed] = useState(false);
     const navigate = useNavigate();
@@ -102,7 +104,7 @@ listAll(pathReference)
             }
                 <div className='music-info'>
                     <div className='username-box'>
-                        <h3>{userName}</h3>
+                        <h3 onClick={()=>navigate(`/ProfileAccount/${userId}`)}>{userName}</h3>
                         <AiOutlineMore id="more-icon" onClick={()=>navigate(`/PostDetails/${id}`)}/>
                     </div>
                     <p>{date.toDate().toDateString()}</p>

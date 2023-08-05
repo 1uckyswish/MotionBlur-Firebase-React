@@ -28,6 +28,16 @@ function AddPost() {
 
   const [user] = useAuthState(auth);
   const postRef = collection(db, 'Posts');
+console.log(user)
+//   function formatUnixTimestamp(timestamp) {
+//   const date = new Date(parseInt(timestamp));
+//   return date.toUTCString();
+// }
+
+// // Convert lastLoginAt timestamp to a readable date
+// const lastLoginAtReadable = formatUnixTimestamp(user.metadata.createdAt);
+
+// console.log(lastLoginAtReadable); //
 
   useEffect(() => {
     if (selectedImage) {
@@ -55,6 +65,9 @@ function AddPost() {
         CreatedBy: user.displayName,
         UserId: user.uid,
         CreatedAt: Timestamp.now().toDate(),
+        UserEmail: user.email,
+        LastLogin: user.metadata.lastSignInTime,
+        AccountMade: user.metadata.creationTime,
       })
         .then((results) => {
           setIsOpen(false);

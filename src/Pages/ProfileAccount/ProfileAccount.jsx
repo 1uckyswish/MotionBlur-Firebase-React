@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext} from 'react';
 import "./ProfileAccount.css";
 import { auth } from '/src/Config/FirebaseConfig';
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -7,16 +7,25 @@ import { getStorage, ref, uploadBytes, getDownloadURL, listAll } from 'firebase/
 import { storage } from '../../Config/FirebaseConfig';
 import { updateProfile } from 'firebase/auth';
 import { toast } from 'react-toastify';
+import { useParams } from 'react-router-dom';
+import { FirebaseData } from '../../Context/FirebaseContext';
 
 function ProfileAccount() {
   const [user] = useAuthState(auth);
   const [photoURL, setPhotoURL] = useState('https://img.myloview.com/stickers/default-avatar-profile-icon-vector-social-media-user-photo-400-205577532.jpg')
   const [backgroundImg, setBackgroundImg] = useState('https://theoheartist.com/wp-content/uploads/sites/2/2015/01/fbdefault.png');
+  const {UserUID} = useParams();
+  const {allPosts} = useContext(FirebaseData);
+  const [userName, setUsername] = useState('');
+
+  const foundUser = allPosts.filter((item) => item.UserId === UserUID);
+
   function handleChange(e) {
     if (e.target.files[0]) {
       upload(e.target.files[0], user);
     }
   }
+
 
   async function upload(file, account) {
     try {
@@ -75,7 +84,7 @@ useEffect(() => {
         const imageUrls = await Promise.all(imageRefs.map((imageRef) => getDownloadURL(imageRef)));
 
         // Check if user.uid is included in the array of image URLs
-        const foundImageUrl = imageUrls.find((url) => url.includes(user?.uid));
+        const foundImageUrl = imageUrls.find((url) => url.includes(UserUID));
         if (foundImageUrl) {
           setBackgroundImg(foundImageUrl);
         }
@@ -86,6 +95,27 @@ useEffect(() => {
     };
 
     listAllImages();
+
+   const listAllPFP = async () => {
+      try {
+        const backgroundRef = ref(storage, 'ProfileImages/');
+        const listResult = await listAll(backgroundRef);
+        const imageRefs = listResult.items;
+        const imageUrls = await Promise.all(imageRefs.map((imageRef) => getDownloadURL(imageRef)));
+
+        // Check if user.uid is included in the array of image URLs
+        const foundImageUrl = imageUrls.find((url) => url.includes(UserUID));
+        if (foundImageUrl) {
+          setPhotoURL(foundImageUrl);
+        }
+
+      } catch (error) {
+        toast('Failed to upload the image. Please try again.', { type: 'error', autoClose: 3000 })
+      }
+    };
+
+    listAllPFP()
+
   }, [user]);
 
 
@@ -135,8 +165,24 @@ useEffect(() => {
           />
         </label>
         <div className="user_details">
-          <h3>{user?.displayName}</h3>
-          <p>{user?.email}</p>
+          <h3>{foundUser[0]?.CreatedBy}</h3>
+        </div>
+         <div className="card_count">
+            <div className="count">
+                <div className="fans">
+                    <h3>{foundUser[0]?.LastLogin?.slice(0,16)}</h3>
+                    <p>Last Login</p>
+                </div>
+                <div className="following">
+                    <h3>{foundUser[0]?.AccountMade?.slice(0,16)}</h3>
+                    <p>Account Made</p>
+                </div>
+                <div className="post">
+                    <h3>{foundUser[0]?.UserEmail}</h3>
+                    <p>Email</p>
+                </div>
+            </div>
+             <div className="btn">Follow</div>
         </div>
       </div>
     </div>
