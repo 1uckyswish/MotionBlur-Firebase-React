@@ -6,18 +6,18 @@ import { useNavigate } from 'react-router-dom';
 import PostLikes from '../PostLikes/PostLikes';
 import { db } from '../../Config/FirebaseConfig';
 import { collection, getDocs, query, where} from 'firebase/firestore';
-import { auth } from '/src/Config/FirebaseConfig';
-import {useAuthState} from 'react-firebase-hooks/auth';
+// import { auth } from '/src/Config/FirebaseConfig';
+// import {useAuthState} from 'react-firebase-hooks/auth';
 import { getStorage, ref, getDownloadURL, listAll } from 'firebase/storage';
 import { FirebaseData } from '../../Context/FirebaseContext';
 
 
 function SinglePost({image, userName, date, caption, id, userId}) {
-    const [liked, SetLiked] = useState(false);
-    const [followed, setFollowed] = useState(false);
+    // const [liked, SetLiked] = useState(false);
+    // const [followed, setFollowed] = useState(false);
     const navigate = useNavigate();
     const [commentCount, setCommentCount] = useState(0);
-    const [user] = useAuthState(auth);
+    // const [user] = useAuthState(auth);
     const [defaultImage, setDefaultImage] = useState(true)
     const [pfpImage, setPfpImage] = useState("");
     const [otherUserPfp, setOtherUserPfp] = useState("https://img.myloview.com/stickers/default-avatar-profile-icon-vector-social-media-user-photo-400-205577532.jpg")

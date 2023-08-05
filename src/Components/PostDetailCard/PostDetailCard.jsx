@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 
 function PostDetailCard({post, userName, date, caption, id, postUrlId, UserId}) {
     // const [liked, SetLiked] = useState(false);
-    const [followed, setFollowed] = useState(false);
+    // const [followed, setFollowed] = useState(false);
     const [comment, setComment] = useState(false);
     const navigate = useNavigate();
 

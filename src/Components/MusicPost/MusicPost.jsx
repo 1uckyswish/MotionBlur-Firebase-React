@@ -15,10 +15,10 @@ import { FirebaseData } from '../../Context/FirebaseContext';
 
 
 function MusicPost({post, userName, date, caption, id, userId}) {
-    const [followed, setFollowed] = useState(false);
+    // const [followed, setFollowed] = useState(false);
     const navigate = useNavigate();
     const [commentCount, setCommentCount] = useState(0);
-    const [user] = useAuthState(auth);
+    // const [user] = useAuthState(auth);
     const [defaultImage, setDefaultImage] = useState(true)
     const [pfpImage, setPfpImage] = useState("");
     const [otherUserPfp, setOtherUserPfp] = useState("https://img.myloview.com/stickers/default-avatar-profile-icon-vector-social-media-user-photo-400-205577532.jpg")

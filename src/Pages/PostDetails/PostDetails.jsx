@@ -10,7 +10,7 @@ import PostDetailCard from '../../Components/PostDetailCard/PostDetailCard';
 function PostDetails() {
     const {PostId} = useParams();
     const [singlePostData, setSinglePostData] = useState([]);
-    const {isYouTubeLink} = useContext(FirebaseData);
+    // const {isYouTubeLink} = useContext(FirebaseData);
   useEffect(
     ()=>{
       //* set up a single ref to a single PostDetails

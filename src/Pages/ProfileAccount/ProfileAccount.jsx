@@ -16,7 +16,7 @@ function ProfileAccount() {
   const [backgroundImg, setBackgroundImg] = useState('https://theoheartist.com/wp-content/uploads/sites/2/2015/01/fbdefault.png');
   const {UserUID} = useParams();
   const {allPosts} = useContext(FirebaseData);
-  const [userName, setUsername] = useState('');
+  // const [userName, setUsername] = useState('');
 
   const foundUser = allPosts.filter((item) => item.UserId === UserUID);
 
