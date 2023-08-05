@@ -12,6 +12,7 @@ import { useNavigate } from 'react-router-dom';
 import ScaleLoader from 'react-spinners/ScaleLoader';
 import Modal from 'react-modal';
 
+
 function AddPost() {
   const [mediaType, setMediaType] = useState(false);
   const [youtubeLink, setYoutubeLink] = useState('');

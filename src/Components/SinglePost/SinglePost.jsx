@@ -1,5 +1,5 @@
 //*import  components
-import React, {useState, useEffect}from 'react'
+import {useState, useEffect,  useContext}from 'react'
 import './SinglePost.css'
 import { AiOutlineComment,AiOutlineMore} from "react-icons/ai";
 import { useNavigate } from 'react-router-dom';
@@ -9,6 +9,7 @@ import { collection, getDocs, query, where} from 'firebase/firestore';
 import { auth } from '/src/Config/FirebaseConfig';
 import {useAuthState} from 'react-firebase-hooks/auth';
 import { getStorage, ref, getDownloadURL, listAll } from 'firebase/storage';
+import { FirebaseData } from '../../Context/FirebaseContext';
 
 
 function SinglePost({image, userName, date, caption, id, userId}) {
@@ -17,22 +18,23 @@ function SinglePost({image, userName, date, caption, id, userId}) {
     const navigate = useNavigate();
     const [commentCount, setCommentCount] = useState(0);
     const [user] = useAuthState(auth);
-     const [defaultImage, setDefaultImage] = useState(true)
+    const [defaultImage, setDefaultImage] = useState(true)
+    const [pfpImage, setPfpImage] = useState("");
+    const [otherUserPfp, setOtherUserPfp] = useState("https://img.myloview.com/stickers/default-avatar-profile-icon-vector-social-media-user-photo-400-205577532.jpg")
+    const {allPosts} = useContext(FirebaseData);
+    const foundUser = allPosts.filter((item) => item.UserId === userId);
 
-     const [pfpImage, setPfpImage] = useState("");
-     const [otherUserPfp, setOtherUserPfp] = useState("https://img.myloview.com/stickers/default-avatar-profile-icon-vector-social-media-user-photo-400-205577532.jpg")
-
-const storage = getStorage();
-const pathReference = ref(storage, `ProfileImages/`);
-listAll(pathReference)
-  .then((result) => {
-    // result.items contains an array of references to the files in the 'ProfileImages/' folder
-    result.items.forEach((itemRef) => {
-      // Get the download URL for each image
-      getDownloadURL(itemRef)
-        .then((url) => {
-          // Check if the URL contains the user's UID
-          if (url.includes(user.uid)) {
+    const storage = getStorage();
+    const pathReference = ref(storage, `ProfileImages/`);
+    listAll(pathReference)
+      .then((result) => {
+        // result.items contains an array of references to the files in the 'ProfileImages/' folder
+        result.items.forEach((itemRef) => {
+          // Get the download URL for each image
+          getDownloadURL(itemRef)
+            .then((url) => {
+              // Check if the URL contains the user's UID
+          if (url.includes(foundUser[0].id)) {
             // Use the 'url' to display or manipulate the image
             setPfpImage(url)
             setDefaultImage(false)
@@ -81,20 +83,17 @@ listAll(pathReference)
   return (
     <div className='post-container'>
         <div className='post-header'>
-          {
-             defaultImage?
-                <img src='https://img.myloview.com/stickers/default-avatar-profile-icon-vector-social-media-user-photo-400-205577532.jpg' />
-                :
-                 <img src={
-                user.uid === userId?
-                pfpImage
-                :
-                user.uid !== userId?
-                otherUserPfp
-                :
-                'https://img.myloview.com/stickers/default-avatar-profile-icon-vector-social-media-user-photo-400-205577532.jpg'
-                } alt='test'/>
-          }
+          {defaultImage ? (
+        <img
+          src="https://img.myloview.com/stickers/default-avatar-profile-icon-vector-social-media-user-photo-400-205577532.jpg"
+          alt="Default Avatar"
+        />
+      ) : (
+        <img
+          src={foundUser[0].id === userId ? pfpImage : otherUserPfp}
+          alt="User Profile"
+        />
+      )}
                 <div className='post-info'>
                      <div className='username-box'>
                         <h3 onClick={()=>navigate(`/ProfileAccount/${userId}`)}>{userName}</h3>

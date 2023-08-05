@@ -5,11 +5,14 @@ import { AiOutlineComment, AiOutlineHeart, AiFillHeart} from "react-icons/ai";
 import ReactPlayer from 'react-player';
 import Comments from '../Comments/Comments';
 import PostLikes from '../PostLikes/PostLikes';
+import { useNavigate } from 'react-router-dom';
 
-function PostDetailCard({post, userName, date, caption, id, postUrlId}) {
+
+function PostDetailCard({post, userName, date, caption, id, postUrlId, UserId}) {
     // const [liked, SetLiked] = useState(false);
     const [followed, setFollowed] = useState(false);
     const [comment, setComment] = useState(false);
+    const navigate = useNavigate();
 
     function isYouTubeLink(link) {
         // Regular expression to match YouTube URLs
@@ -31,7 +34,7 @@ function PostDetailCard({post, userName, date, caption, id, postUrlId}) {
             {/* <img src='https://images.unsplash.com/photo-1551847812-f815b31ae67c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80' alt='profileImg'/> */}
                 <div className='post-detail-info'>
                   <div className='username-info-date'>
-                    <h3>{userName}</h3>
+                    <h3 onClick={()=>navigate(`/ProfileAccount/${UserId}`)}>{userName}</h3>
                      {/* <p>{date}</p> */}
                      <PostLikes postId={postUrlId}/>
                    </div>

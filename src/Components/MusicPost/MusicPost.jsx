@@ -1,5 +1,5 @@
 //*import  components
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import './MusicPost.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { AiOutlineComment, AiOutlineMore} from "react-icons/ai";
@@ -11,36 +11,37 @@ import { collection, getDocs, query, where} from 'firebase/firestore';
 import { auth } from '/src/Config/FirebaseConfig';
 import {useAuthState} from 'react-firebase-hooks/auth';
 import { getStorage, ref, getDownloadURL, listAll } from 'firebase/storage';
-
+import { FirebaseData } from '../../Context/FirebaseContext';
 
 
 function MusicPost({post, userName, date, caption, id, userId}) {
     const [followed, setFollowed] = useState(false);
     const navigate = useNavigate();
     const [commentCount, setCommentCount] = useState(0);
-     const [user] = useAuthState(auth);
-     const [defaultImage, setDefaultImage] = useState(true)
+    const [user] = useAuthState(auth);
+    const [defaultImage, setDefaultImage] = useState(true)
+    const [pfpImage, setPfpImage] = useState("");
+    const [otherUserPfp, setOtherUserPfp] = useState("https://img.myloview.com/stickers/default-avatar-profile-icon-vector-social-media-user-photo-400-205577532.jpg")
+    const {allPosts} = useContext(FirebaseData);
+    const foundUser = allPosts.filter((item) => item.UserId === userId);
 
-     const [pfpImage, setPfpImage] = useState("");
-     const [errorImage, setErrorImage] = useState("https://img.myloview.com/stickers/default-avatar-profile-icon-vector-social-media-user-photo-400-205577532.jpg")
-    
-const storage = getStorage();
-const pathReference = ref(storage, `ProfileImages/`);
-listAll(pathReference)
-  .then((result) => {
-    // result.items contains an array of references to the files in the 'ProfileImages/' folder
+    const storage = getStorage();
+    const pathReference = ref(storage, `ProfileImages/`);
+    listAll(pathReference)
+      .then((result) => {
+        // result.items contains an array of references to the files in the 'ProfileImages/' folder
     result.items.forEach((itemRef) => {
       // Get the download URL for each image
       getDownloadURL(itemRef)
         .then((url) => {
           // Check if the URL contains the user's UID
-          if (url.includes(user.uid)) {
+          if (url.includes(foundUser[0].id)) {
             // Use the 'url' to display or manipulate the image
             setPfpImage(url)
             setDefaultImage(false)
             console.log(url);
           }else if(url.includes(userId)){
-            setErrorImage(url)
+            setOtherUserPfp(url)
             console.log("error", url)
             setDefaultImage(false)
           }
@@ -88,20 +89,17 @@ listAll(pathReference)
   return (
     <div className='music-container'>
         <div className='music-header'>
-            {
-                defaultImage?
-                <img src='https://img.myloview.com/stickers/default-avatar-profile-icon-vector-social-media-user-photo-400-205577532.jpg' />
-                :
-                <img src={
-                user.uid === userId?
-                pfpImage
-                :
-                user.uid !== userId?
-                errorImage
-                :
-                'https://img.myloview.com/stickers/default-avatar-profile-icon-vector-social-media-user-photo-400-205577532.jpg'
-                } alt='profileImg'/>
-            }
+             {defaultImage ? (
+        <img
+          src="https://img.myloview.com/stickers/default-avatar-profile-icon-vector-social-media-user-photo-400-205577532.jpg"
+          alt="Default Avatar"
+        />
+      ) : (
+        <img
+          src={foundUser[0].id === userId ? pfpImage : otherUserPfp}
+          alt="User Profile"
+        />
+      )}
                 <div className='music-info'>
                     <div className='username-box'>
                         <h3 onClick={()=>navigate(`/ProfileAccount/${userId}`)}>{userName}</h3>
