@@ -124,3 +124,69 @@ header button:hover{
     padding-top: 10px;
     cursor: pointer;
 }
+
+
+/** media queries **/
+
+/** Desktop **/
+
+@media (max-width: 1920px) {
+    
+  .user-trending-hashtags {
+    justify-content: space-evenly;
+    padding: 0;
+    width: 35%;
+  }
+
+  .trending-hashtags {
+    justify-content: space-evenly;
+    width: 30%;
+  }
+}
+
+/** Tablet css **/
+
+@media (max-width: 850px) {
+  header {
+    height: 7vh;
+    padding: 0 7px;
+  }
+
+  header button{
+    margin-left: 10px;
+  }
+
+  .profile-signout-box{
+    padding-top: 12px;
+  }
+
+  .profile-signout-box span{
+    padding: 0;
+    font-size: 18px;
+  }
+
+  .user-trending-hashtags {
+    /* border: 2px solid red; */
+    width: 45%;
+    padding-top: 28px;
+  }
+
+  .user-trending-hashtags p{
+    font-size: 22px;
+  }
+
+  .trending-hashtags{
+     width: 45%;
+     padding-top: 10px;
+  }
+
+  .trending-hashtags p{
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 650px){
+    .user-trending-hashtags, .trending-hashtags, .profile-signout-box, header button{
+        display: none;
+    }
+}
