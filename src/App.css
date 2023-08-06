@@ -32,3 +32,24 @@ a{
   --Pastel-Error: #ff4a4a;
   --GrayScale:#c0c0c0;
 }
+
+
+/** media queries **/
+
+/** Desktop **/
+
+@media (max-width: 1920px) {
+
+}
+
+/** Tablet css **/
+
+@media (max-width: 850px) {
+
+}
+
+/** Moblie css**/
+
+@media (max-width: 650px){
+    
+}

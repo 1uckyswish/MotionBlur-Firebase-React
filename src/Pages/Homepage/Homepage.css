@@ -5,6 +5,16 @@ section{
 
 .banner{
     position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 55vh;
+  opacity: 1;
+  transition: background-image 20s ease-in-out, background-position 9s ease-in-out, opacity 0.5s ease-in-out;
+  backdrop-filter: blur(5px);
+  background-color: black;
+  /* Uncomment the line below if you want to apply the filter: brightness(80%); */
+  /* filter: brightness(80%); */
 }
 
 .banner-header{
@@ -15,6 +25,9 @@ section{
     font-size: 30px;
     color: rgb(253, 253, 253);
     font-weight: bolder;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .banner-header h2{
@@ -28,4 +41,79 @@ section{
     font-size: 50px;
     line-height:2;
     text-shadow: 1px 5px 10px black;
+}
+
+/** media queries **/
+
+/** Desktop **/
+@media (max-width: 1920px){
+    .banner-header{
+    position: absolute;
+    text-align: center;
+    top: 200px;
+    left: 7%;
+    font-size: 30px;
+    color: rgb(253, 253, 253);
+    font-weight: bolder;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    .banner-header h2{
+    font-size: 75px;
+}
+}
+
+@media (max-width: 1919px) {
+    .banner-header{
+    left: 3%;
+    top: 260px;
+}
+}
+
+/** Tablet css **/
+
+@media (max-width: 850px) {
+    .banner{
+    height: 40vh;
+    }
+
+   .banner-header{
+    top:165px;
+    left:1%;
+}
+    .banner-header h2{
+    font-size: 50px;
+}
+}
+
+/** Moblie css**/
+
+@media (max-width: 650px){
+      .banner{
+    height: 450px;
+    }
+
+   .banner-header{
+    top:165px;
+    left:1%;
+}
+    .banner-header h2{
+    font-size: 45px;
+}
+}
+
+
+@media (max-width: 350px){
+      .banner{
+    height: 400px;
+    }
+
+   .banner-header{
+    top:140px;
+    left:1%;
+}
+    .banner-header h2{
+    font-size: 40px;
+}
 }
