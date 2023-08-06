@@ -136,11 +136,13 @@ header button:hover{
     justify-content: space-evenly;
     padding: 0;
     width: 35%;
+    padding-top: 20px;
   }
 
   .trending-hashtags {
     justify-content: space-evenly;
     width: 30%;
+    padding-top: 16px;
   }
 }
 
