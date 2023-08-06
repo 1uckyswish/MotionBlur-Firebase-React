@@ -55,6 +55,7 @@ function SignUpPage() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
+                  maxLength='13'
                 />
                 <label>Email Address</label>
                 <input

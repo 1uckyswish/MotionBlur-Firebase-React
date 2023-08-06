@@ -5,7 +5,7 @@
 }
 .card {
     width: 60%;
-    height: 70vh;
+    height: 80vh;
     background-color: #ffffff;
     margin: 50px 0;
     box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.15);
@@ -123,8 +123,8 @@
 }
 
 .card_profile_img {
-    width: 180px;
-    height: 180px;
+     width: 185px;
+    height: 190px;
     background-color: #868d9b;
     border: 2px solid #ffffff;
     border-radius: 120px;
@@ -149,15 +149,14 @@
 }
 
 .card_count {
-    padding: 30px;
+    padding: 40px;
     border-top: 1px solid #dde1e7;
 }
 
 .count {
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    margin-bottom: 18px;
+    justify-content: space-evenly;
 }
 
 .count p {

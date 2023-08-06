@@ -3,8 +3,8 @@ header{
     justify-content: space-between;
     align-items: center;
     background-color: var(--Pastel-Sage);
-    height: 70px;
-    padding: 0 10px;
+    height: 10vh;
+    padding: 0 20px;
     box-shadow: 
     12px 1px 16px 0 rgba(0, 0, 0, 0.25),
     -8px -8px 12px 0 rgba(255, 255, 255, 0.3);
@@ -12,7 +12,7 @@ header{
 }
 
 header h1{
-    padding-top: 10px;
+    padding-top: 25px;
     filter: blur(0.4px);
     -webkit-filter: blur(0.4px);
     cursor: pointer;
@@ -40,9 +40,11 @@ h1::after{
     justify-content: space-around;
     /* margin-left: 150px; */
      align-items: center;
+     padding-top: 15px;
 }
 
 .trending-hashtags p{
+    padding-top: 10px;
      border-bottom: 1px solid var(--Dark-Sage);
      font-size: 20px;
 }
@@ -75,6 +77,8 @@ header button{
     font-size: 25px;
     padding-top: 2px;
     cursor: pointer;
+    margin-left: 30px;
+    margin-right: 10px;
 }
 
 header button:hover{
@@ -91,6 +95,10 @@ header button:hover{
 .profile-signout-box span{
     padding-right: 15px;
 }
+
+/* .profile-signout-box img{
+    margin-right: 30px;
+} */
 
 .profile-signout-box span:hover {
     color: var(--Pastel-Pink);

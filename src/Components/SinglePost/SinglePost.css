@@ -31,6 +31,7 @@
 
 .post-info h3{
     font-size: 40px;
+      cursor: pointer;
 }
 
 .post-info p{
@@ -47,6 +48,7 @@
 #more-icon{
     font-size: 2em;
     font-weight: bolder;
+      cursor: pointer;
 }
 
 .post-caption{
@@ -136,6 +138,7 @@
 #comment-icon{
     padding-top: 2px;
     font-size: 2rem;
+      cursor: pointer;
 }
 
 

@@ -31,6 +31,7 @@
 
 .music-info h3{
     font-size: 40px;
+      cursor: pointer;
 }
 
 .music-info p{
@@ -48,6 +49,7 @@
 #more-icon{
     font-size: 2em;
     font-weight: bolder;
+      cursor: pointer;
 }
 
 .music-caption{
@@ -133,6 +135,7 @@
 #comment-icon{
     padding-top: 2px;
     font-size: 2rem;
+      cursor: pointer;
 }
 
 #liked-heart-icon{

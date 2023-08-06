@@ -95,18 +95,18 @@ function Comments({ postId, commentState, userName}) {
     }, 1000);
 
   return (
-    <div>
+    <>
         {
         user?
-        (commentState? (<form onSubmit={addNewComment}><input type="text" placeholder={`Leave ${userName} a comment${commentDots}`} onChange={(e)=> setNewComment(e.target.value)} value={newComment}/> </form>) : (null))
+        (commentState? (<form onSubmit={addNewComment}><input type="text" placeholder={`Leave ${userName} a comment${commentDots}`} maxLength="85"  onChange={(e)=> setNewComment(e.target.value)} value={newComment}/> </form>) : (null))
         :
         (<p id="error-login">Please <span id="error-login-text" onClick={()=>nav('/SignUp')}>Login</span> To Comment!</p>)
         }
          {
           arrayOfComments.map((item)=>{
             return (
-            <p key={item?.id}>
-            <span>{item.UserName}:</span>
+            <div key={item?.id}>
+            <span onClick={()=>nav(`/ProfileAccount/${item?.UserId}`)}>{item.UserName}:</span>
             <span id="comment-section-like-icon">{item.Content}
             {
               // comment has a uid
@@ -121,10 +121,10 @@ function Comments({ postId, commentState, userName}) {
               // (<AiOutlineLike id="unliked-comment-icon" onClick={() => setCommentLiked(!commentLiked)} />)
             }
             </span>
-            </p>)
+            </div>)
           })
         }
-    </div>
+    </>
   );
 }
 

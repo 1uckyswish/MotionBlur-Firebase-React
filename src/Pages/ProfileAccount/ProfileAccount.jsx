@@ -138,7 +138,11 @@ useEffect(() => {
     <div className='profile-container'>
       <div className="card">
         <div className="card_background_img" style={profileImageStyle[1]}></div>
-        <label htmlFor="background-img-input" className="icon-wrapper">
+        {
+          UserUID !== user?.uid?
+          null
+          :
+          <label htmlFor="background-img-input" className="icon-wrapper">
           <div className='background-edit-icon'>
             <BsCameraFill className="edit-icon" />
             <p style={{ color: 'white', paddingLeft: "10px" }}>Change Image</p>
@@ -152,8 +156,13 @@ useEffect(() => {
             onChange={handleImageBG}
           />
         </label>
+        }
         <div className="card_profile_img" style={profileImageStyle[0]}></div>
-        <label htmlFor="profile-img-input" className="profile-icon-wrapper">
+        {
+           UserUID !== user?.uid?
+          null
+          :
+          <label htmlFor="profile-img-input" className="profile-icon-wrapper">
           <div className='icon-circle'><BsCameraFill className="profile-edit-icon" /></div>
           <input
             type="file"
@@ -164,6 +173,7 @@ useEffect(() => {
             onChange={handleChange}
           />
         </label>
+        }
         <div className="user_details">
           <h3>{foundUser[0]?.CreatedBy}</h3>
         </div>
@@ -173,13 +183,13 @@ useEffect(() => {
                     <h3>{foundUser[0]?.LastLogin?.slice(0,16)}</h3>
                     <p>Last Login</p>
                 </div>
-                <div className="following">
-                    <h3>{foundUser[0]?.AccountMade?.slice(0,16)}</h3>
-                    <p>Account Made</p>
-                </div>
                 <div className="post">
                     <h3>{foundUser[0]?.UserEmail}</h3>
                     <p>Email</p>
+                </div>
+                <div className="following">
+                    <h3>{foundUser[0]?.AccountMade?.slice(0,16)}</h3>
+                    <p>Account Made</p>
                 </div>
             </div>
         </div>
