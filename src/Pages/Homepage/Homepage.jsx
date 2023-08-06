@@ -19,15 +19,6 @@ function Homepage() {
 
   const bannerStyles = {
     backgroundImage: `url("${Banner[index].image}")`,
-    // backgroundSize: 'cover',
-    // backgroundPosition: 'right',
-    // backgroundRepeat: 'no-repeat',
-    // height: '55vh',
-    // opacity: 1,
-    // transition: 'background-image 20s ease-in-out background-position 9s ease-in-out, opacity 0.5s ease-in-out',
-    // backdropFilter: 'blur(5px)',
-    // backgroundColor: 'black',
-    // // filter: 'brightness(80%)',
   };
 
   return (
