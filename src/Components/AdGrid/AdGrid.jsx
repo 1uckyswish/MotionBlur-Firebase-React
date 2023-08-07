@@ -5,7 +5,7 @@ import "./AdGrid.css"
 function AdGrid() {
   return (
     <section>
-      <div className="container">
+      <div className="container" >
         <div className="ad-box ad-box-1">
           <h2 className="hidden-h2">About</h2>
           <p className="hidden-p">Unleash your creativity! Share passions through captivating visuals and soulful music. Experience art and sound seamlessly. Join us today!</p>
