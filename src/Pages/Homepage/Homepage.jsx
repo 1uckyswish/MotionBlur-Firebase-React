@@ -14,7 +14,7 @@ function Homepage() {
       } else {
         setIndex(index + 1);
       }
-    }, 7000);
+    }, 6500);
   }, [index]);
 
   const bannerStyles = {
