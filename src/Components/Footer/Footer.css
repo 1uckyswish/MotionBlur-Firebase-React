@@ -23,3 +23,42 @@ footer h1{
 .copyright-container{
     padding-top: 10px;
 }
+
+
+/** media queries **/
+
+/** Desktop **/
+
+@media (max-width: 1920px) {
+
+}
+
+/** Tablet css **/
+
+@media (max-width: 850px) {
+
+}
+
+/** Moblie css**/
+
+@media (max-width: 500px){
+    footer{
+    justify-content: space-evenly;
+    padding: 15px 0px;
+    flex-direction: column;
+}
+
+
+.icon-container{
+    display: flex;
+    width: 120px;
+    justify-content: space-around;
+    font-size: 1.5em;
+    padding-bottom: 10px;
+}
+
+.copyright-container{
+    padding-top: 10px;
+}
+}
+

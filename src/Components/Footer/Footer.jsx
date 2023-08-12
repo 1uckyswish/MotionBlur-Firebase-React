@@ -2,16 +2,15 @@ import React from 'react'
 //Import css files
 import "./Footer.css"
 //Import components
-import { AiFillFacebook} from "react-icons/ai";
-import { FaInstagram, FaTwitter } from "react-icons/fa";
+import { AiFillGithub, AiFillLinkedin, AiFillInstagram} from "react-icons/ai";
 
 function Footer() {
   return (
     <footer>
         <div className='icon-container'>
-        <AiFillFacebook/>
-        <FaInstagram />
-        <FaTwitter />
+        <AiFillLinkedin />
+        <AiFillGithub/>
+        <AiFillInstagram />
         </div>
       <h1>Motion</h1>
       <div className='copyright-container'>
