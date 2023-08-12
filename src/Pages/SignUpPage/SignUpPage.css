@@ -17,18 +17,19 @@
 
 
 .box-1{
-    width: 40%;
-    height: 100%;
-    background-image:url("https://images.unsplash.com/photo-1544515137-2b2670f403bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80");
-    background-size: cover;
-    background-repeat: no-repeat;
-    filter: brightness(130%);
-    -webkit-filter: brightness(130%);
-    border-radius: 20px;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    -ms-border-radius: 20px;
-    -o-border-radius: 20px;
+     width: 40%;
+     height: 100%;
+     background-image:url("https://images.unsplash.com/photo-1478145971721-10511ecaf005?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=692&q=80");
+     background-size: cover;
+     background-repeat: no-repeat;
+     border-radius: 20px;
+     -webkit-border-radius: 20px;
+     -moz-border-radius: 20px;
+     -ms-border-radius: 20px;
+     -o-border-radius: 20px;
+     background-position: center;
+     filter: brightness(90%);
+     -webkit-filter: brightness(90%);
 }
 
 .welcome-member{
@@ -129,4 +130,87 @@
     font-style: italic;
     cursor: pointer;
     font-size: 26px;
+}
+
+
+/** media queries **/
+
+/** Desktop **/
+
+@media (max-width: 1260px) {
+
+    .box-1{
+    background-size: cover; 
+    background-position: center; 
+}
+ .welcome-member{
+        background-size: cover; 
+        background-position: center; 
+    }
+.box-2 h2{
+    font-family: 'Playfair Display', serif;
+     color: var(--Dark-Sage);
+     width: auto;
+     text-align: center;
+}
+.box-2 h4{
+    width: auto;
+    text-align: center;
+}
+}
+
+/** Tablet css **/
+
+@media (max-width: 920px) {
+.box-1{
+    background-size: cover; 
+    background-position: center; 
+}
+ .welcome-member{
+        background-size: cover; 
+        background-position: center; 
+    }
+.box-2{
+    padding: 0 10px;
+}
+
+.box-2 form{
+    width: 100%;
+}
+
+.box-2 input{
+    width: 75%;
+}
+}
+
+/** Moblie css**/
+
+@media (max-width: 650px){
+    .form-box-container{
+    height: 1200px;
+        display: flex;
+        flex-direction: column;
+        width: auto;
+        margin: 50px 0;
+        width: 90%;
+    }
+
+    .box-1{
+        width: 100%;
+        margin-bottom: 20px;
+        background-size: cover; 
+        background-position: top; 
+    }
+
+    .welcome-member{
+        width: 100%;
+        margin-bottom: 20px;
+        background-size: cover; 
+        background-position: right; 
+    }
+
+    .box-2{
+    width: auto;
+    }
+
 }
