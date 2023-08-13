@@ -41,7 +41,7 @@
 
 .username-box{
     display: flex;
-    width: 550px;
+    /* width: 550px; */
     justify-content: space-between;
     text-align: center;
 }
@@ -145,4 +145,89 @@
 #post-details{
     font-size: 15px;
     text-align: center;
+}
+
+
+
+
+/** media queries **/
+
+/** Desktop **/
+
+@media (max-width: 1920px) {
+.music-info img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 20px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+
+.music-info h3{
+    font-size: 50px;
+      cursor: pointer;
+}
+
+.music-info p{
+    font-size: 25px;
+    color: rgb(149, 149, 149);
+}
+
+.music-info{
+    width: 100%;
+}
+
+.username-box{
+     width: 95%;
+}
+
+#more-icon{
+    font-size: 2.5em;
+    font-weight: bolder;
+      cursor: pointer;
+}
+
+
+.card-social-icons{
+    width: 16%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 2.1rem;
+}
+
+.comment-count {
+    padding-top: 7px;
+    padding-right:1px;
+}
+
+
+#comment-icon{
+    padding-top: 2px;
+      cursor: pointer;
+      font-size: 2.9rem;
+}
+
+
+#post-details{
+    font-size: 15px;
+    text-align: center;
+}
+
+}
+
+/** Tablet css **/
+
+@media (max-width: 850px) {
+
+}
+
+/** Moblie css**/
+
+@media (max-width: 650px){
+    
 }
