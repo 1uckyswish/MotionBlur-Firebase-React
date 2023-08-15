@@ -16,8 +16,8 @@
 }
 
 .post-header img{
-   width: 120px;
-  height: 120px;
+   width: 150px;
+  height: 150px;
   border-radius: 50%;
   object-fit: cover;
     margin-right: 20px;
@@ -153,17 +153,17 @@
 /** Desktop **/
 
 @media (max-width: 1920px) {
-.post-header img {
+/* .post-header img {
   width: 200px;
   height: 200px;
   border-radius: 50%;
   object-fit: cover;
   margin-right: 20px;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-}
+  -webkit-border-radius:;
+  -moz-border-radius:;
+  -ms-border-radius:;
+  -o-border-radius:;
+} */
 
 
 .post-info h3{
