@@ -179,3 +179,40 @@
 #error-login{
       color: black;
 }
+
+
+/** media queries **/
+
+/** Desktop **/
+
+@media (width: 1920px) {
+
+.username-info-date{
+    display: flex;
+    width: 950px;
+    justify-content: space-between;
+}
+
+
+.post-detail-info h3{
+    font-size: 40px;
+    color: var(--Dark-Sage);
+}
+
+.post-detail-info p{
+    font-size: 25px;
+    color: rgb(149, 149, 149);
+}
+}
+
+/** Tablet css **/
+
+@media (max-width: 850px) {
+
+}
+
+/** Moblie css**/
+
+@media (max-width: 650px){
+    
+}
