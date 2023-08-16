@@ -20,7 +20,7 @@ function SinglePost({image, userName, date, caption, id, userId}) {
     // const [user] = useAuthState(auth);
     const [defaultImage, setDefaultImage] = useState(true)
     const [pfpImage, setPfpImage] = useState("");
-    const [otherUserPfp, setOtherUserPfp] = useState("https://img.myloview.com/stickers/default-avatar-profile-icon-vector-social-media-user-photo-400-205577532.jpg")
+    const [otherUserPfp, setOtherUserPfp] = useState("https://i.seadn.io/gae/y2QcxTcchVVdUGZITQpr6z96TXYOV0p3ueLL_1kIPl7s-hHn3-nh8hamBDj0GAUNAndJ9_Yuo2OzYG5Nic_hNicPq37npZ93T5Nk-A?auto=format&dpr=1&w=1000")
     const {allPosts} = useContext(FirebaseData);
     const foundUser = allPosts.filter((item) => item.UserId === userId);
 
@@ -85,7 +85,7 @@ function SinglePost({image, userName, date, caption, id, userId}) {
         <div className='post-header'>
           {defaultImage ? (
         <img
-          src="https://img.myloview.com/stickers/default-avatar-profile-icon-vector-social-media-user-photo-400-205577532.jpg"
+          src="https://cdn.dribbble.com/users/2609408/screenshots/6902542/rainbow-loader.gif"
           alt="Default Avatar"
         onClick={()=>navigate(`/ProfileAccount/${userId}`)}/>
       ) : (

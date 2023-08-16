@@ -96,3 +96,25 @@
 .post-form-container form button:hover {
   background-color: #4a5e72;
 }
+
+
+
+/** media queries **/
+
+/** Desktop **/
+
+@media (max-width: 1920px) {
+
+}
+
+/** Tablet css **/
+
+@media (max-width: 850px) {
+
+}
+
+/** Moblie css**/
+
+@media (max-width: 650px){
+    
+}

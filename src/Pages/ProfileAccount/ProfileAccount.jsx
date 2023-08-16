@@ -12,7 +12,7 @@ import { FirebaseData } from '../../Context/FirebaseContext';
 
 function ProfileAccount() {
   const [user] = useAuthState(auth);
-  const [photoURL, setPhotoURL] = useState('https://img.myloview.com/stickers/default-avatar-profile-icon-vector-social-media-user-photo-400-205577532.jpg')
+  const [photoURL, setPhotoURL] = useState('https://i.seadn.io/gae/y2QcxTcchVVdUGZITQpr6z96TXYOV0p3ueLL_1kIPl7s-hHn3-nh8hamBDj0GAUNAndJ9_Yuo2OzYG5Nic_hNicPq37npZ93T5Nk-A?auto=format&dpr=1&w=1000')
   const [backgroundImg, setBackgroundImg] = useState('https://theoheartist.com/wp-content/uploads/sites/2/2015/01/fbdefault.png');
   const {UserUID} = useParams();
   const {allPosts} = useContext(FirebaseData);
