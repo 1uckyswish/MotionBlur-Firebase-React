@@ -93,12 +93,12 @@ function MusicPost({post, userName, date, caption, id, userId}) {
         <img
           src="https://img.myloview.com/stickers/default-avatar-profile-icon-vector-social-media-user-photo-400-205577532.jpg"
           alt="Default Avatar"
-        />
+        onClick={()=>navigate(`/ProfileAccount/${userId}`)}/>
       ) : (
         <img
           src={foundUser[0].id === userId ? pfpImage : otherUserPfp}
           alt="User Profile"
-        />
+        onClick={()=>navigate(`/ProfileAccount/${userId}`)}/>
       )}
                 <div className='music-info'>
                     <div className='username-box'>
