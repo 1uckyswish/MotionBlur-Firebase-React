@@ -13,15 +13,15 @@ header{
 
 header h1{
     padding-top: 25px;
-    filter: blur(0.4px);
-    -webkit-filter: blur(0.4px);
+    /* filter: blur(0.4px);
+    -webkit-filter: blur(0.4px); */
     cursor: pointer;
 }
 
 h1::after{
-	  content: "blurr";
-	  filter: blur(0.5px);
-	  -webkit-filter: blur(0.5px);
+	  content: "Blurr";
+	  /* filter: blur(0.5px);
+	  -webkit-filter: blur(0.5px); */
 }
 
 .trending-hashtags{
