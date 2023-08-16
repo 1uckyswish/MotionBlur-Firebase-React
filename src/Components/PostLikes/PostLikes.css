@@ -1,5 +1,6 @@
 #liked-icon, #unliked-icon{
     cursor: pointer;
+    margin-top: 2px;
 }
 
 .liked-container-detail span{
