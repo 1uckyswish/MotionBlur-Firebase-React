@@ -1,3 +1,7 @@
+:root {
+    --main-color: #FFC0CB; /* Pastel Pink */
+    --secondary-color: #4CAF50; /* Green */
+}
 header{
     display: flex;
     justify-content: space-between;
@@ -24,43 +28,44 @@ h1::after{
 	  -webkit-filter: blur(0.5px); */
 }
 
-.trending-hashtags{
+.trending-hashtags, .user-trending-hashtags {
     display: flex;
-    width: 30%;
-    justify-content: space-around;
-    /* margin-left: 150px; */
-     align-items: center;
-}
-
-.user-trending-hashtags{
-    display: flex;
-    /* width: 50%; */
-    padding-left: 100px;
     width: 40%;
     justify-content: space-around;
-    /* margin-left: 150px; */
-     align-items: center;
-     padding-top: 15px;
+    align-items: center;
+    padding-top: 15px;
 }
 
-.trending-hashtags p{
-    padding-top: 10px;
-     border-bottom: 1px solid var(--Dark-Sage);
-     font-size: 20px;
+.trending-hashtags p, .user-trending-hashtags p {
+    position: relative;
+    cursor: pointer;
+    font-size: 20px;
+    transition: color 0.3s, transform 0.3s;
+      margin-top: 10px;
 }
 
-.trending-hashtags p:hover{
-    color: var(--Pastel-Pink);
+.trending-hashtags p::before, .user-trending-hashtags p::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--Pastel-Pink);
+    bottom: -1px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s, background-color 0.3s;
 }
 
-.user-trending-hashtags p{
-     border-bottom: 1px solid var(--Dark-Sage);
-     font-size: 20px;
+.trending-hashtags p:hover, .user-trending-hashtags p:hover {
+    color: var(--Dark-Sage);
+    transform: translateY(-3px);
 }
 
-.user-trending-hashtags p:hover{
-    color: var(--Pastel-Pink);
+.trending-hashtags p:hover::before, .user-trending-hashtags p:hover::before {
+    transform: scaleX(1);
 }
+
 
 header button{
     width: 6rem;
