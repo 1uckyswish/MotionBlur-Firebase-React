@@ -5,7 +5,7 @@
 }
 .card {
     width: 60%;
-    height: 80vh;
+    height: 630px;
     background-color: #ffffff;
     margin: 50px 0;
     box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.15);
@@ -187,45 +187,568 @@
 
 /** Desktop **/
 
-@media (max-width: 1920px) {
-.profile-edit-icon {
-  /* Adjust the position of the icon as needed */
-  /* For example, if you want the icon to be on the right side of the input */
-  /* right: 0; */
-  position: absolute;
-  left: 31%;
-  bottom: 13px;
-  color: white;
-
+@media (width: 1920px) {
+.card {
+    height: 680px;
 }
 
-/* Hide the file input */
-.profile-img-input {
+.profile-edit-icon {
+  left: 31%;
+  bottom: 13px;
+}
+
+
+.icon-circle{
+    left: 54%;
+}
+
+.background-edit-icon{
   position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
+  left: 85%;
+  top: -40px;
+  font-size: 1.5rem;
+  display: flex;
+  width: 160px;
+  border: 0.1px solid black;
+  height: 30px;
+  background-color: #222121;
+  color: #fff;
+  opacity: .6;
+  padding-top:5px;
+  justify-content: center;
+  border-radius:4px ;
+  -webkit-border-radius:4px ;
+  -moz-border-radius:4px ;
+  -ms-border-radius:4px ;
+  -o-border-radius:4px ;
+  letter-spacing: 0.4px;
   cursor: pointer;
 }
 
+}
+
+
+@media (max-width: 1340px) {
+.card {
+    height: 680px;
+}
+
+
+
 .icon-circle{
-    position: absolute;
-    left: 54%;
-    bottom: 5px;
+    left: 57%;
+}
+
+.background-edit-icon{
+  position: absolute;
+  left: 70%;
+  top: -40px;
+  font-size: 1.5rem;
+  display: flex;
+  width: 160px;
+  border: 0.1px solid black;
+  height: 30px;
+  background-color: #222121;
+  color: #fff;
+  opacity: .6;
+  padding-top:5px;
+  justify-content: center;
+  border-radius:4px ;
+  -webkit-border-radius:4px ;
+  -moz-border-radius:4px ;
+  -ms-border-radius:4px ;
+  -o-border-radius:4px ;
+  letter-spacing: 0.4px;
+  cursor: pointer;
+}
+
+
+.card_profile_img {
+     width: 200px;
+    height: 200px;
+
+}
+
+
+.card_background_img {
+    width: 100%;
+    height: 350px;
+    background-color: #e1e7ed;
+}
+
+.user_details h3 {
+    font-size: 40px;
+}
+
+}
+
+
+@media (max-width: 960px) {
+.card {
+    height: 680px;
+}
+
+
+
+.icon-circle{
+    left: 57%;
+}
+
+.background-edit-icon{
+  position: absolute;
+  left: 70%;
+  top: -40px;
+  font-size: 1.5rem;
+  display: flex;
+  width: 140px;
+  border: 0.1px solid black;
+  height: 30px;
+  background-color: #222121;
+  color: #fff;
+  opacity: .6;
+  padding-top:5px;
+  justify-content: center;
+  border-radius:4px ;
+  -webkit-border-radius:4px ;
+  -moz-border-radius:4px ;
+  -ms-border-radius:4px ;
+  -o-border-radius:4px ;
+  letter-spacing: 0.4px;
+  cursor: pointer;
+}
+
+
+.card_profile_img {
+     width: 200px;
+    height: 200px;
+
+}
+
+
+.card_background_img {
+    width: 100%;
+    height: 350px;
+    background-color: #e1e7ed;
+}
+
+.user_details h3 {
+    font-size: 40px;
+}
+.count {
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    background-color: rgb(141, 138, 138);
-    border-radius: 50px;
-    -webkit-border-radius: 50px;
-    -moz-border-radius: 50px;
-    -ms-border-radius: 50px;
-    -o-border-radius: 50px;
-    cursor: pointer;
+    justify-content: space-between;
+}
+
+.count h3{
+  font-size: 20px;
+}
+
+.count p {
+    margin-top: -10px;
+}
+
+
+}
+
+
+@media (max-width: 810px) {
+.card {
+    height: auto;
+    width: 500px;
+}
+
+.card_profile_img {
+     width: 15px;
+    height: 200px;
+    background-color: #868d9b;
+    border: 2px solid #ffffff;
+    border-radius: 120px;
+    margin: 0 auto;
+    margin-top: -60px;
+
+}
+
+.icon-circle{
+    left: 63%;
+}
+
+.background-edit-icon{
+  position: absolute;
+  left: 70%;
+  top: -340px;
+  font-size: 1.3rem;
+  display: flex;
+  width: 130px;
+  border: 0.1px solid black;
+  height: 30px;
+  background-color: #222121;
+  color: #fff;
+  opacity: .6;
+  padding-top:5px;
+  justify-content: center;
+  border-radius:4px ;
+  -webkit-border-radius:4px ;
+  -moz-border-radius:4px ;
+  -ms-border-radius:4px ;
+  -o-border-radius:4px ;
+  letter-spacing: 0.4px;
+  cursor: pointer;
+}
+
+
+.card_profile_img {
+     width: 200px;
+    height: 200px;
+
+}
+
+
+.card_background_img {
+    width: 100%;
+    height: 350px;
+    background-color: #e1e7ed;
+}
+
+.user_details h3 {
+    font-size: 40px;
+}
+.count {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.count h3{
+  font-size: 25px;
+}
+
+.count p {
+    margin-top: -10px;
+    font-size: 20px;
+}
+
+
+}
+
+@media (max-width: 520px) {
+.card {
+    height: auto;
+    width: 430px;
+}
+
+.card_profile_img {
+     width: 15px;
+    height: 200px;
+    background-color: #868d9b;
+    border: 2px solid #ffffff;
+    border-radius: 120px;
+    margin: 0 auto;
+    margin-top: -60px;
+
+}
+
+.icon-circle{
+    left: 63%;
+}
+
+.background-edit-icon{
+  position: absolute;
+  left: 68%;
+  top: -340px;
+  font-size: 1.3rem;
+  display: flex;
+  width: 130px;
+  border: 0.1px solid black;
+  height: 30px;
+  background-color: #222121;
+  color: #fff;
+  opacity: .6;
+  padding-top:5px;
+  justify-content: center;
+  border-radius:4px ;
+  -webkit-border-radius:4px ;
+  -moz-border-radius:4px ;
+  -ms-border-radius:4px ;
+  -o-border-radius:4px ;
+  letter-spacing: 0.4px;
+  cursor: pointer;
+}
+
+
+.card_profile_img {
+     width: 200px;
+    height: 200px;
+
+}
+
+
+.card_background_img {
+    width: 100%;
+    height: 350px;
+    background-color: #e1e7ed;
+}
+
+.user_details h3 {
+    font-size: 40px;
+}
+.count {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.count h3{
+  font-size: 25px;
+}
+
+.count p {
+    margin-top: -10px;
+    font-size: 20px;
+}
+
+
+}
+
+@media (max-width: 444px) {
+.card {
+    height: auto;
+    width: 380px;
+}
+
+.card_profile_img {
+     width: 15px;
+    height: 200px;
+    background-color: #868d9b;
+    border: 2px solid #ffffff;
+    border-radius: 120px;
+    margin: 0 auto;
+    margin-top: -60px;
+
+}
+
+.icon-circle{
+    left: 63%;
+}
+
+.background-edit-icon{
+  position: absolute;
+  left: 63%;
+  top: -340px;
+  font-size: 1.3rem;
+  display: flex;
+  width: 130px;
+  border: 0.1px solid black;
+  height: 30px;
+  background-color: #222121;
+  color: #fff;
+  opacity: .6;
+  padding-top:5px;
+  justify-content: center;
+  border-radius:4px ;
+  -webkit-border-radius:4px ;
+  -moz-border-radius:4px ;
+  -ms-border-radius:4px ;
+  -o-border-radius:4px ;
+  letter-spacing: 0.4px;
+  cursor: pointer;
+}
+
+
+.card_profile_img {
+     width: 200px;
+    height: 200px;
+
+}
+
+
+.card_background_img {
+    width: 100%;
+    height: 350px;
+    background-color: #e1e7ed;
+}
+
+.user_details h3 {
+    font-size: 40px;
+}
+.count {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.count h3{
+  font-size: 25px;
+}
+
+.count p {
+    margin-top: -10px;
+    font-size: 20px;
+}
+
+
+}
+
+
+@media (max-width: 398px) {
+.card {
+    height: auto;
+    width: 340px;
+}
+
+.card_profile_img {
+     width: 15px;
+    height: 200px;
+    background-color: #868d9b;
+    border: 2px solid #ffffff;
+    border-radius: 120px;
+    margin: 0 auto;
+    margin-top: -60px;
+
+}
+
+.icon-circle{
+    left: 63%;
+}
+
+.background-edit-icon{
+  position: absolute;
+  left: 58%;
+  top: -340px;
+  font-size: 1.3rem;
+  display: flex;
+  width: 130px;
+  border: 0.1px solid black;
+  height: 30px;
+  background-color: #222121;
+  color: #fff;
+  opacity: .6;
+  padding-top:5px;
+  justify-content: center;
+  border-radius:4px ;
+  -webkit-border-radius:4px ;
+  -moz-border-radius:4px ;
+  -ms-border-radius:4px ;
+  -o-border-radius:4px ;
+  letter-spacing: 0.4px;
+  cursor: pointer;
+}
+
+
+.card_profile_img {
+     width: 200px;
+    height: 200px;
+
+}
+
+
+.card_background_img {
+    width: 100%;
+    height: 350px;
+    background-color: #e1e7ed;
+}
+
+.user_details h3 {
+    font-size: 40px;
+}
+.count {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.count h3{
+  font-size: 25px;
+}
+
+.count p {
+    margin-top: -10px;
+    font-size: 20px;
+}
+
+
+}
+
+
+@media (max-width: 354px) {
+.card {
+    height: auto;
+    width: 300px;
+}
+
+.card_profile_img {
+     width: 15px;
+    height: 200px;
+    background-color: #868d9b;
+    border: 2px solid #ffffff;
+    border-radius: 120px;
+    margin: 0 auto;
+    margin-top: -60px;
+
+}
+
+.icon-circle{
+    left: 63%;
+}
+
+.background-edit-icon{
+  position: absolute;
+  left: 52%;
+  top: -340px;
+  font-size: 1.3rem;
+  display: flex;
+  width: 130px;
+  border: 0.1px solid black;
+  height: 30px;
+  background-color: #222121;
+  color: #fff;
+  opacity: .6;
+  padding-top:5px;
+  justify-content: center;
+  border-radius:4px ;
+  -webkit-border-radius:4px ;
+  -moz-border-radius:4px ;
+  -ms-border-radius:4px ;
+  -o-border-radius:4px ;
+  letter-spacing: 0.4px;
+  cursor: pointer;
+}
+
+
+.card_profile_img {
+     width: 200px;
+    height: 200px;
+
+}
+
+
+.card_background_img {
+    width: 100%;
+    height: 350px;
+    background-color: #e1e7ed;
+}
+
+.user_details h3 {
+    font-size: 40px;
+}
+.count {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.count h3{
+  font-size: 25px;
+}
+
+.count p {
+    margin-top: -10px;
+    font-size: 20px;
 }
 
 

@@ -112,6 +112,7 @@
     display: flex;
     margin: 0 25px;
     font-size: 2em;
+    cursor: pointer;
 }
 
 .social-icons p{
@@ -204,6 +205,8 @@
     color: rgb(149, 149, 149);
 }
 }
+
+
 
 /** Tablet css **/
 
