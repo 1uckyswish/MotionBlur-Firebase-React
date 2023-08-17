@@ -16,9 +16,17 @@ function ProfileAccount() {
   const [backgroundImg, setBackgroundImg] = useState('https://theoheartist.com/wp-content/uploads/sites/2/2015/01/fbdefault.png');
   const {UserUID} = useParams();
   const {allPosts} = useContext(FirebaseData);
-  // const [userName, setUsername] = useState('');
+ useEffect(() => {
+    if (user?.uid == UserUID) {
+// Set a timeout to stop the reload after one second
+setTimeout(function() {
+    // Stop the reloading by navigating to the current URL again
+    window.location.href = window.location.href;
+}, 1); // 1000 milliseconds = 1 second
+}
+  }, [UserUID]);
 
-  console.log(user)
+  // const [userName, setUsername] = useState('');
 
   const foundUser = allPosts.filter((item) => item.UserId === UserUID);
 
@@ -120,7 +128,6 @@ useEffect(() => {
 
   }, [user, UserUID]);
 
-
   const profileImageStyle = [
     {
       backgroundImage: `url(${photoURL})`,
@@ -135,8 +142,6 @@ useEffect(() => {
       backgroundPosition: 'center',
     },
   ];
-
-   console.log(foundUser[0]?.CreatedBy)
 
   return (
     <div className='profile-container'>
