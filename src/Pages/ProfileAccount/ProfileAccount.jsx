@@ -18,6 +18,8 @@ function ProfileAccount() {
   const {allPosts} = useContext(FirebaseData);
   // const [userName, setUsername] = useState('');
 
+  console.log(user)
+
   const foundUser = allPosts.filter((item) => item.UserId === UserUID);
 
   function handleChange(e) {
@@ -134,6 +136,8 @@ useEffect(() => {
     },
   ];
 
+   console.log(foundUser[0]?.CreatedBy)
+
   return (
     <div className='profile-container'>
       <div className="card">
@@ -175,20 +179,40 @@ useEffect(() => {
         </label>
         }
         <div className="user_details">
-          <h3>{foundUser[0]?.CreatedBy}</h3>
+          <h3>{
+             foundUser[0]?.CreatedBy?
+             foundUser[0]?.CreatedBy
+             :
+             user?.displayName
+            }</h3>
         </div>
          <div className="card_count">
             <div className="count">
                 <div className="fans">
-                    <h3>{foundUser[0]?.LastLogin?.slice(0,16)}</h3>
+                    <h3>{
+                    foundUser[0]?.LastLogin?
+                    foundUser[0]?.LastLogin?.slice(0,16)
+                    :
+                    user?.metadata?.lastSignInTime?.slice(0,16)
+                    }</h3>
                     <p>Last Login</p>
                 </div>
                 <div className="post">
-                    <h3>{foundUser[0]?.UserEmail}</h3>
+                    <h3>{
+                    foundUser[0]?.UserEmail?
+                    foundUser[0]?.UserEmail
+                    :
+                    user?.email
+                    }</h3>
                     <p>Email</p>
                 </div>
                 <div className="following">
-                    <h3>{foundUser[0]?.AccountMade?.slice(0,16)}</h3>
+                    <h3>{
+                    foundUser[0]?.AccountMade?
+                    foundUser[0]?.AccountMade?.slice(0,16)
+                    :
+                    user?.metadata?.creationTime?.slice(0,16)
+                    }</h3>
                     <p>Account Made</p>
                 </div>
             </div>
