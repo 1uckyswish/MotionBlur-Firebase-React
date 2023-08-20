@@ -467,7 +467,7 @@
 
 /** Moblie css**/
 
-@media (max-width: 428px){
+@media (max-width: 435px){
     .music-container{
     border: 0.1px solid grey;
     width: 90%;
@@ -480,12 +480,16 @@
     margin: 20px 0;
 }
   .music-header img {
-    width: 60%; /* Adjust as needed */
-    height: 120px; /* Adjust as needed */
-    border-radius: 50%;
-    object-fit: cover;
-    margin-right: 10px; /* Adjust as needed */
-  }
+     width: 70%;
+     height: 120px;
+     object-fit: cover;
+     margin-right: 15px;
+     border-radius: 100px;
+     -webkit-border-radius: 100px;
+     -moz-border-radius: 100px;
+     -ms-border-radius: 100px;
+     -o-border-radius: 100px;
+}
 
   .music-header{
     display: flex;
