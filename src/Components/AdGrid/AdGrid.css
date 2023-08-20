@@ -278,7 +278,7 @@
 
 }
 
-
+/* 
 @media (max-width: 420px) {
    .hidden-h2{
   font-size: 30px;
@@ -307,7 +307,7 @@
 .container .ad-box:nth-child(6) .hidden-p {
  display: none;
 }
-}
+} */
 
 @media (max-width: 375px){
 .container .ad-box:nth-child(3)  .hidden-h2 {
