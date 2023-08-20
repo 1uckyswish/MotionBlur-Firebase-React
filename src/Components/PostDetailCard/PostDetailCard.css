@@ -186,7 +186,7 @@
 
 /** Desktop **/
 
-@media (width: 1920px) {
+@media (max-width: 1920px) {
 
 .username-info-date{
     display: flex;

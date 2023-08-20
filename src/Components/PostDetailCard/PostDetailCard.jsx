@@ -6,6 +6,7 @@ import ReactPlayer from 'react-player';
 import Comments from '../Comments/Comments';
 import PostLikes from '../PostLikes/PostLikes';
 import { useNavigate } from 'react-router-dom';
+import { TbMessage } from "react-icons/tb";
 
 
 function PostDetailCard({post, userName, date, caption, id, postUrlId, UserId}) {
@@ -45,7 +46,7 @@ function PostDetailCard({post, userName, date, caption, id, postUrlId, UserId}) 
         </div>
         <div className="post-detail-social">
             <div className='social-icons'>
-                <AiOutlineComment onClick={()=> setComment(!comment)}/>
+                <TbMessage onClick={()=> setComment(!comment)}/>
                 <p onClick={()=> setComment(!comment)}>Leave a Comment?</p>
             </div>
         </div>

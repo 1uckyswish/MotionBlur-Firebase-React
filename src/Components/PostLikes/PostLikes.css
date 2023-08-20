@@ -1,13 +1,16 @@
 #liked-icon, #unliked-icon{
     cursor: pointer;
-    margin-top: 2px;
 }
+
 
 .liked-container-detail span{
     font-size: 25px;
+    padding-left: 5px;
 }
 
 .liked-container-detail .liked-number{
     font-size: 2.1rem;
 }
+
+
 
