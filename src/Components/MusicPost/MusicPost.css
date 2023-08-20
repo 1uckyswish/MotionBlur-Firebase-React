@@ -128,15 +128,15 @@
 }
 
 .comment-count {
-    padding-top: 5px;
-    padding-right:2px;
+    margin-top: 1px;
+    padding-right:1px;
 }
 
 
 #comment-icon{
-    padding-top: 2px;
-    font-size: 2rem;
+    margin-top: 1px;
       cursor: pointer;
+      font-size: 2.9rem;
 }
 
 #liked-heart-icon{
@@ -196,19 +196,17 @@
     justify-content: space-between;
     font-size: 2.1rem;
 }
-
 .comment-count {
-    padding-top: 7px;
+    margin-top: 1px;
     padding-right:1px;
 }
 
 
 #comment-icon{
-    padding-top: 2px;
+    margin-top: 1px;
       cursor: pointer;
       font-size: 2.9rem;
 }
-
 
 #post-details{
     font-size: 15px;
@@ -257,15 +255,14 @@
     justify-content: space-between;
     font-size: 2.1rem;
 }
-
 .comment-count {
-    padding-top: 7px;
+    margin-top: 2px;
     padding-right:1px;
 }
 
 
 #comment-icon{
-    padding-top: 2px;
+    margin-top: 0px;
       cursor: pointer;
       font-size: 2.9rem;
 }
@@ -534,15 +531,16 @@
 }
 
 .comment-count {
-    padding-top:6px;
+    margin-top: -3px;
     padding-right:1px;
+    font-size: 1.2em;
 }
 
 
 #comment-icon{
-    margin-top: 1px;
-    cursor: pointer;
-    font-size: 2.4rem;
+    margin-top: 0px;
+      cursor: pointer;
+      font-size: 2.4rem;
 }
 
 

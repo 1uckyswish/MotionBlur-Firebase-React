@@ -12,6 +12,8 @@ import { auth } from '/src/Config/FirebaseConfig';
 import {useAuthState} from 'react-firebase-hooks/auth';
 import { getStorage, ref, getDownloadURL, listAll } from 'firebase/storage';
 import { FirebaseData } from '../../Context/FirebaseContext';
+import { TbMessage } from "react-icons/tb";
+
 
 
 function MusicPost({post, userName, date, caption, id, userId}) {
@@ -117,7 +119,7 @@ function MusicPost({post, userName, date, caption, id, userId}) {
         <div className="music-social">
             <div className='card-social-icons'>
                 <PostLikes postId={id} />
-                <AiOutlineComment onClick={()=>navigate(`/PostDetails/${id}`)} id='comment-icon'/>
+                <TbMessage onClick={()=>navigate(`/PostDetails/${id}`)} id='comment-icon'/>
                 {
                     commentCount?
                     <p className='comment-count'>{commentCount}</p>

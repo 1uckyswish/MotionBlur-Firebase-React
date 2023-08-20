@@ -10,6 +10,7 @@ import { collection, getDocs, query, where} from 'firebase/firestore';
 // import {useAuthState} from 'react-firebase-hooks/auth';
 import { getStorage, ref, getDownloadURL, listAll } from 'firebase/storage';
 import { FirebaseData } from '../../Context/FirebaseContext';
+import { TbMessage } from "react-icons/tb";
 
 
 function SinglePost({image, userName, date, caption, id, userId}) {
@@ -111,7 +112,7 @@ function SinglePost({image, userName, date, caption, id, userId}) {
         <div className="post-social">
             <div className='card-social-icons'>
                  <PostLikes postId={id} />
-                 <AiOutlineComment onClick={()=>navigate(`/PostDetails/${id}`)} id='comment-icon'/>
+                 <TbMessage onClick={()=>navigate(`/PostDetails/${id}`)} id='comment-icon'/>
                   {
                     commentCount?
                     <p className='comment-count'>{commentCount}</p>

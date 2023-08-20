@@ -131,14 +131,14 @@
 }
 
 .comment-count {
-    padding-top: 5px;
+    padding-top: 7px;
     padding-right:2px;
 }
 
 
 #comment-icon{
-    padding-top: 2px;
-    font-size: 2rem;
+    padding-top: 3px;
+    font-size: 1.5rem;
       cursor: pointer;
 }
 
@@ -201,10 +201,11 @@
 }
 
 
+
 #comment-icon{
-    padding-top: 2px;
+    padding-top: 3px;
+    font-size: 1.5rem;
       cursor: pointer;
-      font-size: 2.9rem;
 }
 
 
@@ -262,10 +263,13 @@
 }
 
 
+
+
+
 #comment-icon{
-    padding-top: 2px;
+    padding-top: 3px;
+    font-size: 1.5rem;
       cursor: pointer;
-      font-size: 2.9rem;
 }
 
 
