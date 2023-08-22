@@ -1,4 +1,4 @@
-.music-container{
+/* .music-container{
     border: 0.1px solid grey;
     width: 55%;
     height: auto;
@@ -151,10 +151,6 @@
 
 
 
-/** media queries **/
-
-/** Desktop **/
-
 @media (max-width: 2000px) {
 .music-header img{
  width: 20%;
@@ -274,10 +270,10 @@
 }
 
 }
+ */
 
 
-/** Tablet css **/
-
+/* 
 @media (width: 1024px) {
     .music-container{
     border: 0.1px solid grey;
@@ -313,11 +309,11 @@
     margin: 20px 0;
 }
   .music-header img {
-    width: 30%; /* Adjust as needed */
-    height: 120px; /* Adjust as needed */
+    width: 30%; 
+    height: 120px;
     border-radius: 50%;
     object-fit: cover;
-    margin-right: 15px; /* Adjust as needed */
+    margin-right: 15px; 
   }
 
 .music-info h3{
@@ -354,11 +350,11 @@
     margin: 20px 0;
 }
   .music-header img {
-    width: 30%; /* Adjust as needed */
-    height: 120px; /* Adjust as needed */
+    width: 30%;
+    height: 120px;
     border-radius: 50%;
     object-fit: cover;
-    margin-right: 15px; /* Adjust as needed */
+    margin-right: 15px; 
   }
 
 .music-info h3{
@@ -395,11 +391,11 @@
     margin: 20px 0;
 }
   .music-header img {
-    width: 30%; /* Adjust as needed */
-    height: 120px; /* Adjust as needed */
+    width: 30%; 
+    height: 120px;
     border-radius: 50%;
     object-fit: cover;
-    margin-right: 15px; /* Adjust as needed */
+    margin-right: 15px;
   }
 
 .music-info h3{
@@ -436,11 +432,11 @@
     margin: 20px 0;
 }
   .music-header img {
-    width: 30%; /* Adjust as needed */
-    height: 120px; /* Adjust as needed */
+    width: 30%; 
+    height: 120px;
     border-radius: 50%;
     object-fit: cover;
-    margin-right: 15px; /* Adjust as needed */
+    margin-right: 15px; 
   }
 
 .music-info h3{
@@ -465,7 +461,6 @@
 }
 
 
-/** Moblie css**/
 
 @media (max-width: 435px){
     .music-container{
@@ -553,4 +548,4 @@
     text-align: center;
 }
 
-}
+} */
