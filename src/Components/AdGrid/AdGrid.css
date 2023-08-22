@@ -2,16 +2,17 @@
 
 .container {
   display: grid;
-  margin: 100px;
+  margin: 50px; /* Adjust as needed */
   grid-template-areas:
     "ad-box-1 ad-box-2 ad-box-3"
     "ad-box-1 ad-box-5 ad-box-3"
     "ad-box-4 ad-box-5 ad-box-6"
     "ad-box-4 ad-box-5 ad-box-6";
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1.5fr 0.8fr 0.7fr 1fr;
+  grid-template-rows: 1fr 1fr 0fr 1.1fr;
   gap: 15px;
   height: 100vh;
+   position: relative;
 }
 
 .ad-box {
@@ -45,9 +46,11 @@
   transition: opacity 0.3s ease;
   color: white;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  padding: 50px 20px 0 20px;
+  /* padding: 50px 20px 0 20px; */
   position: absolute;
   font-family: 'Playfair Display', serif;
+  margin: 15px;
+  word-wrap: break-word;
 }
 
 .ad-box:hover .hidden-h2,
@@ -57,16 +60,25 @@
 
 .hidden-p {
   font-size: 24px;
-  top: 50px;
+  top: 70px;
   line-height: 1.5;
-  padding-top: 80px;
+  /* padding-top: 60px; */
 }
 
 .hidden-h2 {
   font-size: 40px;
   color: var(--Pastel-Sage);
+  top: auto;
 }
 
+.ad-box.active:before {
+  opacity: 1;
+}
+
+.hidden-h2.active,
+.hidden-p.active {
+  opacity: 1;
+}
 
 
 .ad-box-1 {
@@ -101,206 +113,110 @@
 
 
 /** media queries **/
-
-/** Desktop **/
-
-@media (max-width: 1920px) {
-
+@media only screen and (width: 1024px) {
+ .container .ad-box:nth-child(4) .hidden-p {
+  top: 120px;
+}
 }
 
-/** Tablet css **/
+@media only screen and (max-width: 834px) {
+  .hidden-h2 {
+  font-size: 35px;
+  top: auto;
+}
+ .container .ad-box:nth-child(4) .hidden-p {
+  top: 90px;
+  font-size: 22px;
+}
+ .container .ad-box:nth-child(6) .hidden-p {
+  top: 90px;
+  font-size: 22px;
+}
+}
 
-@media (max-width: 850px) {
+
+@media only screen and (max-width: 768px) {
   .container {
-  grid-template-areas:
-    "ad-box-1 ad-box-2"
-    "ad-box-1 ad-box-5"
-    "ad-box-4 ad-box-5"
-    "ad-box-4 ad-box-5"
-    "ad-box-3 ad-box-6"
-    "ad-box-3 ad-box-6";
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(4, minmax(0, 1fr)) 1fr; /* Using repeat to create 4 rows of equal height and 1 extra row */
+    grid-template-areas:
+      "ad-box-1"
+      "ad-box-2"
+      "ad-box-3"
+      "ad-box-4"
+      "ad-box-5"
+      "ad-box-6";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    margin: 50px 0;
+  }
+
+
+.hidden-p {
+  font-size: 21px;
+  top: 55px;
+  line-height: 1.5;
+  /* padding-top: 60px; */
+}
+
+.hidden-h2 {
+  font-size: 40px;
+  color: var(--Pastel-Sage);
+  top: auto;
+}
+ .container .ad-box:nth-child(4) .hidden-p {
+  top: 55px;
+}
+
+ .container .ad-box:nth-child(6) .hidden-p {
+  top: 65px;
 }
 }
 
-@media (max-width: 1024px){
- .hidden-h2{
+
+@media only screen and  (max-width: 480px) {
+.hidden-p {
+  font-size: 16px;
+  top: 40px;
+  line-height: 1.5;
+  /* padding-top: 60px; */
+}
+
+.hidden-h2 {
   font-size: 30px;
+  color: var(--Pastel-Sage);
+  top: auto;
 }
-.container .ad-box:nth-child(1) .hidden-p {
- 
-}
-
-.container .ad-box:nth-child(2) .hidden-p {
-   font-size: 23px;
-  padding-top: 35px;
-  line-height: 1.4;
-}
-.container .ad-box:nth-child(3) .hidden-p {
-   font-size: 25px;
-   line-height: 1.1;
-   padding-top: 40px;
-}
-
-.container .ad-box:nth-child(4) .hidden-p {
-  font-size: 23px;
-   padding-top: 50px;
-   
-}
-.container .ad-box:nth-child(5) .hidden-p {
-  font-size: 26px;
-   top: 40px;
-}
-
-.container .ad-box:nth-child(6) .hidden-p {
-
-   font-size: 23px;
-   padding-top: 45px;
-}
-
-}
-
-
-@media (max-width: 700px){
- .hidden-h2{
-  font-size: 20px;
-}
-
-.container .ad-box:nth-child(1) .hidden-p {
-  padding-top: 35px;
-  font-size: 20px;
-}
-
-.container .ad-box:nth-child(2) .hidden-p {
-
+ .container .ad-box:nth-child(1) .hidden-p {
+  top: 40px;
   font-size: 15px;
-  padding-top: 30px;
 }
-.container .ad-box:nth-child(3) .hidden-p {
-   font-size: 17.5px;
-   line-height: 1.2;
-   padding-top: 30px;
+ .container .ad-box:nth-child(2) .hidden-p {
+  top: 55px;
 }
-
-.container .ad-box:nth-child(4) .hidden-p {
-  font-size: 20px;
-   padding-top: 35px;
+ .container .ad-box:nth-child(3) .hidden-p {
+  top: 55px;
 }
-.container .ad-box:nth-child(5) .hidden-p {
-  
-  font-size: 26px;
-   top: 30px;
+ .container .ad-box:nth-child(4) .hidden-p {
+    top: 45px;
+  font-size: 15px;
 }
-
-.container .ad-box:nth-child(6) .hidden-p {
-
-   font-size: 14px;
-   padding-top: 30px;
+ .container .ad-box:nth-child(6) .hidden-p {
+   top: 50px;
+  font-size: 15px;
+}
 }
 
+@media only screen and  (max-width: 480px) {
+  .hidden-p {
+display: none;
+}
+.hidden-h2 {
+  font-size: 30px;
+  color: var(--Pastel-Sage);
+  top: 20%;
+}
 }
 
-
-
-@media (max-width: 500px){
- .hidden-h2{
-  font-size: 20px;
-}
-
-.container .ad-box:nth-child(1) .hidden-p {
+/* .container .ad-box:nth-child(1) .hidden-p {
    font-size: 18px;
    padding-top: 35px;
-}
-
-.container .ad-box:nth-child(2) .hidden-p {
-  font-size: 15px;
-  padding-top: 25px;
-  line-height: 1.2;
-}
-.container .ad-box:nth-child(3) .hidden-p {
-   font-size: 16px;
-   line-height: 1.1;
-   padding-top: 30px;
-}
-
-.container .ad-box:nth-child(4) .hidden-p {
-  font-size: 20px;
-   padding-top: 35px;
-}
-.container .ad-box:nth-child(5) .hidden-p {
-  font-size: 24px;
-   padding-top: 50px;
-}
-
-.container .ad-box:nth-child(6) .hidden-p {
-   font-size: 15px;
-   padding-top: 30px;
-}
-
-}
-
-
-@media (max-width: 430px) and (min-width: 421px){
- .hidden-h2{
-  font-size: 20px;
-}
-
-.container .ad-box:nth-child(1) .hidden-p {
-   font-size: 18px;
-   padding-top: 35px;
-}
-
-.container .ad-box:nth-child(2) .hidden-p {
-  font-size: 15px;
-  padding-top: 25px;
-  line-height: 1.2;
-}
-.container .ad-box:nth-child(3) .hidden-p {
-   font-size: 15px;
-   line-height: 1.2;
-   padding-top: 25px;
-}
-
-.container .ad-box:nth-child(4) .hidden-p {
-  font-size: 19px;
-   padding-top: 30px;
-}
-.container .ad-box:nth-child(5) .hidden-p {
-  font-size: 25px;
-   padding-top: 30px;
-}
-
-.container .ad-box:nth-child(6) .hidden-p {
-   font-size: 15px;
-   padding-top: 30px;
-}
-
-}
-
-
-@media (max-width: 420px) {
-    .hidden-h2 {
-        font-size: 30px;
-    }
-    
-    .container .ad-box:nth-child(3) .hidden-h2 {
-        right: -2px;
-    }
-    
-    .container .ad-box:nth-child(1) .hidden-p,
-    .container .ad-box:nth-child(2) .hidden-p,
-    .container .ad-box:nth-child(3) .hidden-p,
-    .container .ad-box:nth-child(4) .hidden-p,
-    .container .ad-box:nth-child(5) .hidden-p,
-    .container .ad-box:nth-child(6) .hidden-p {
-        display: none;
-    }
-}
-
-
-@media (max-width: 375px){
-.container .ad-box:nth-child(3)  .hidden-h2 {
-  right: -12px;
-}
-}
+} */

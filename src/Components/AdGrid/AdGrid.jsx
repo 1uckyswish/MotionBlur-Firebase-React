@@ -1,38 +1,63 @@
-//Import css
-import React from 'react'
-import "./AdGrid.css"
+import {useState, useEffect} from 'react';
+import "./AdGrid.css";
+
+const adData = [
+  {
+    title: "About",
+    description: "Unleash your creativity! Share passions through captivating visuals and soulful music. Experience art and sound seamlessly. Join us today!",
+    className: "ad-box-1"
+  },
+  {
+    title: "Discover",
+    description: "Vibrant community of artists, photographers, music lovers, and dreamers.",
+    className: "ad-box-2"
+  },
+  {
+    title: "Collaborate",
+    description: "Unleash your imagination, find inspiration, and ignite conversations that transcend boundaries.",
+    className: "ad-box-3"
+  },
+  {
+    title: "Like & Comment",
+    description: "Ignite conversations with captivating content. Leave your mark through thought-provoking visuals and heart-pounding beats.",
+    className: "ad-box-4"
+  },
+  {
+    title: "Share Posts",
+    description: "Unleash your voice! Comment, share, and make an impact. Spread your influence through conversation.",
+    className: "ad-box-5"
+  },
+  {
+    title: "Trending Posts",
+    description: "Stay in the loop! Explore trending topics and be part of the buzz.",
+    className: "ad-box-6"
+  }
+];
 
 function AdGrid() {
+  const [hoverIndex, setHoverIndex] = useState(-1);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setHoverIndex((hoverIndex + 1) % adData.length);
+    }, 2500);
+
+    return () => clearTimeout(timer);
+  }, [hoverIndex]);
+
   return (
-    <section>
-      <div className="container" >
-        <div className="ad-box ad-box-1">
-          <h2 className="hidden-h2">About</h2>
-          <p className="hidden-p">Unleash your creativity! Share passions through captivating visuals and soulful music. Experience art and sound seamlessly. Join us today!</p>
+    <div className="container">
+      {adData.map((ad, index) => (
+        <div
+          key={index}
+          className={`ad-box ${ad.className} ${index === hoverIndex ? 'active' : ''}`}
+        >
+          <h2 className={`hidden-h2 ${index === hoverIndex ? 'active' : ''}`}>{ad.title}</h2>
+          <p className={`hidden-p ${index === hoverIndex ? 'active' : ''}`}>{ad.description}</p>
         </div>
-        <div className="ad-box ad-box-2">
-          <h2 className="hidden-h2">Discover</h2>
-          <p className="hidden-p">Vibrant community of artists, photographers, music lovers, and dreamers. </p>
-        </div>
-        <div className="ad-box ad-box-3">
-          <h2 className="hidden-h2">Collaborate</h2>
-          <p className="hidden-p">Unleash your imagination, find inspiration, and ignite conversations that transcend boundaries.</p>
-        </div>
-        <div className="ad-box ad-box-4">
-          <h2 className="hidden-h2">Like & Comment</h2>
-          <p className="hidden-p">Ignite conversations with captivating content. Leave your mark through thought-provoking visuals and heart-pounding beats.</p>
-        </div>
-        <div className="ad-box ad-box-5">
-          <h2 className="hidden-h2">Share Posts</h2>
-          <p className="hidden-p">Unleash your voice! Comment, share, and make an impact. Spread your influence through conversation</p>
-        </div>
-        <div className="ad-box ad-box-6">
-          <h2 className="hidden-h2">Trending Posts</h2>
-          <p className="hidden-p">Stay in the loop! Explore trending topics and be part of the buzz.</p>
-        </div>
-      </div>
-    </section>
-  )
+      ))}
+    </div>
+  );
 }
 
-export default AdGrid
+export default AdGrid;
