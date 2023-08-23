@@ -91,6 +91,7 @@ function MusicPost({post, userName, date, caption, id, userId}) {
   return (
     <div className='music-container'>
         <div className='music-header'>
+           <div className='user-image'>
              {defaultImage ? (
         <img
           src="https://cdn.dribbble.com/users/2609408/screenshots/6902542/rainbow-loader.gif"
@@ -102,6 +103,7 @@ function MusicPost({post, userName, date, caption, id, userId}) {
           alt="User Profile"
         onClick={()=>navigate(`/ProfileAccount/${userId}`)}/>
       )}
+      </div>
                 <div className='music-info'>
                     <div className='username-box'>
                         <h3 onClick={()=>navigate(`/ProfileAccount/${userId}`)}>{userName}</h3>
@@ -114,7 +116,7 @@ function MusicPost({post, userName, date, caption, id, userId}) {
            <p>{caption}</p>
         </div>
         <div className="music-image">
-            <ReactPlayer url={post} controls/>
+            <ReactPlayer url={post} controls width="90%"/>
         </div>
         <div className="music-social">
             <div className='card-social-icons'>
