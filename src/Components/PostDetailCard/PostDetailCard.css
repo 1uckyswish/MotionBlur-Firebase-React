@@ -1,6 +1,7 @@
 .post-detail-container{
     border: 0.1px solid grey;
-    width: 55%;
+    width: 60%;
+    max-width: auto;
     height: auto;
     border-radius: 20px;
     -webkit-border-radius: 20px;
@@ -29,16 +30,17 @@
   margin-right: 20px;
 }
 
-.post-detail-info{
+/* .post-detail-info{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* margin: 0 20px; */
-}
+    width: 100%;
+} */
 
 .post-detail-info h3{
     font-size: 40px;
     color: var(--Dark-Sage);
+    margin: 0;
 }
 
 .post-detail-info p{
@@ -48,15 +50,13 @@
 
 .username-info-date{
     display: flex;
-    width: 700px;
+    flex-direction: column-reverse;
+    width: auto;
     justify-content: space-between;
 }
 
-.like-follow-info{
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-    width: 112px;
+.username-info-date h3{
+    padding-right: 200px;
 }
 
 .post-detail-caption{
@@ -182,40 +182,47 @@
 }
 
 
-/** media queries **/
-
-/** Desktop **/
-
-@media (max-width: 1920px) {
-
+@media only screen and (width: 1920px){
 .username-info-date{
-    display: flex;
-    width: 950px;
-    justify-content: space-between;
+    max-width: auto;
+    min-width: 950PX;
 }
-
 
 .post-detail-info h3{
-    font-size: 40px;
+    font-size: 50px;
+}
+.post-detail-caption p{
+    font-size: 30px;
+}
+
+.social-icons svg{
+    font-size: 1.4em;
+}
+
+.social-icons p{
+    font-size: 30px;
+}
+
+}
+
+@media only screen and (max-width: 900px){
+.post-detail-container{
+    border: 0.1px solid grey;
+    width: 90%;
+}
+}
+
+@media only screen and (max-width: 500px){
+    .post-detail-container{
+    border: 1px solid grey;
+    width: 95%;
+}
+.post-detail-info h3{
+    font-size: 35px;
     color: var(--Dark-Sage);
+    margin: 0;
 }
-
-.post-detail-info p{
-    font-size: 25px;
-    color: rgb(149, 149, 149);
+.post-detail-caption p{
+    font-size: 20px;
 }
-}
-
-
-
-/** Tablet css **/
-
-@media (max-width: 850px) {
-
-}
-
-/** Moblie css**/
-
-@media (max-width: 650px){
-    
 }
