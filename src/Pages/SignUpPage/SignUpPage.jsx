@@ -3,6 +3,7 @@ import './SignUpPage.css';
 import { auth } from '../../Config/FirebaseConfig';
 import { createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 function SignUpPage() {
   const [signIn, setSignIn] = useState(true);
@@ -10,6 +11,36 @@ function SignUpPage() {
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+
+  function HandleUser(){
+    if(name.length === 12){
+      toast.error('Sorry, username limit is 13 characters', {
+position: "top-center",
+autoClose: 2000,
+hideProgressBar: false,
+closeOnClick: true,
+pauseOnHover: true,
+draggable: true,
+progress: undefined,
+theme: "colored",
+});
+    }
+  }
+
+
+  function alertUser() {
+    toast.warn('Password must consist of 6 characters', {
+position: "bottom-right",
+autoClose: 4000,
+hideProgressBar: false,
+closeOnClick: true,
+pauseOnHover: true,
+draggable: true,
+progress: undefined,
+theme: "dark",
+});
+  }
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -53,7 +84,8 @@ function SignUpPage() {
                   type='text'
                   placeholder='Username'
                   value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  onChange={(e)=>setName(e.target.value)}
+                  onInput={HandleUser}
                   required
                   maxLength='13'
                 />
@@ -72,6 +104,7 @@ function SignUpPage() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
+                  onClick={alertUser}
                 />
                 <button type='submit'>Sign Up</button>
               </form>

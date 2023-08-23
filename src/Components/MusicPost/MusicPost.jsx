@@ -85,8 +85,27 @@ function MusicPost({post, userName, date, caption, id, userId}) {
         })
       },[commentCount])
 
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
 
+    window.addEventListener('resize', handleResize);
 
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  let playerWidth = '90%';
+  let playerHeight = '500px';
+
+  if (windowWidth > 450) {
+    playerHeight = '500px';
+  } else if (windowWidth < 450) {
+    playerHeight = '300px';
+  }
 
   return (
     <div className='music-container'>
@@ -116,7 +135,7 @@ function MusicPost({post, userName, date, caption, id, userId}) {
            <p>{caption}</p>
         </div>
         <div className="music-image">
-            <ReactPlayer url={post} controls width="90%" height="500px"/>
+            <ReactPlayer url={post} controls width={playerWidth} height={playerHeight} />
         </div>
         <div className="music-social">
             <div className='card-social-icons'>
