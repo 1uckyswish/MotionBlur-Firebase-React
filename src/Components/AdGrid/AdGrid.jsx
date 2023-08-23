@@ -40,7 +40,7 @@ function AdGrid() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setHoverIndex((hoverIndex + 1) % adData.length);
-    }, 2500);
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, [hoverIndex]);

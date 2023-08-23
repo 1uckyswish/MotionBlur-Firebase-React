@@ -116,7 +116,7 @@ function MusicPost({post, userName, date, caption, id, userId}) {
            <p>{caption}</p>
         </div>
         <div className="music-image">
-            <ReactPlayer url={post} controls width="90%"/>
+            <ReactPlayer url={post} controls width="90%" height="500px"/>
         </div>
         <div className="music-social">
             <div className='card-social-icons'>
