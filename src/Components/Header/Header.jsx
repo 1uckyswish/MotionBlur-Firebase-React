@@ -72,7 +72,10 @@ function Header() {
       )}
       {showHamburger && <Hamburger toggled={isOpen} toggle={setOpen} />}
       <div className='hamburger-slider' style={isOpen? flexStyle : blockStyle}>
-       <p className='menu-item' onClick={() => handleClick('/Trending')}>Trending Posts</p>
+      {
+        user && <p className='menu-item' onClick={() => handleClick(`/ProfileAccount/${user?.uid}`)}>Profile</p>
+      }
+      <p className='menu-item' onClick={() => handleClick('/Trending')}>Trending Posts</p>
       <p className='menu-item' onClick={() => handleClick('/MusicPage')}>Music Videos</p>
       <p className='menu-item' onClick={() => handleClick('/TimeLine')}>Photos</p>
         {user ? <p onClick={() => handleClick('/AddPost')}>Create a post</p> : null}
