@@ -24,6 +24,10 @@ footer h1{
     padding-top: 10px;
 }
 
+a{
+    color: black;
+}
+
 
 /** media queries **/
 
