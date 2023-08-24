@@ -101,7 +101,7 @@ function Comments({ postId, commentState, userName }) {
             />
           </form>
         ) : (null))
-        : (<p id="error-login">Please <span id="error-login-text" onClick={() => nav('/SignUp')}>Login</span> To Comment!</p>)
+        : (<p id="error-login">Please <span id="error-login-text" onClick={() => nav('/SignUp')}>Login</span> to comment!</p>)
       }
       {arrayOfComments.map((item) => (
         <div key={item?.id}>

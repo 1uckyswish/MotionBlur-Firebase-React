@@ -104,7 +104,7 @@
    -o-border-radius: 4px;
 }
 #error-login-text{
-    /* text-decoration: underline; */
+    text-decoration: underline;
     margin-left: 6px;
     padding-right: 3px;
     color: red;
