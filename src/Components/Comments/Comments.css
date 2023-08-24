@@ -104,18 +104,21 @@
    -o-border-radius: 4px;
 }
 #error-login-text{
-    text-decoration: underline;
-    padding-left: 2px;
-    padding-right: 1px;
+    /* text-decoration: underline; */
+    margin-left: 6px;
+    padding-right: 3px;
     color: red;
     cursor: pointer;
+    font-size: 22px;
 }
 
+
+
+
 @media only screen and (max-width: 420px){
+
 .comment-container{
     margin: 0 10px;
-}
-.comment-container div{
 }
 .comment-container textarea::placeholder{
 font-size: 20px;
