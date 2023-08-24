@@ -15,6 +15,10 @@ header{
      text-align: center;
 }
 
+.hamburger-slider{
+  display: none;
+}
+
 header h1{
     padding-top: 25px;
     /* filter: blur(0.4px);
@@ -195,7 +199,83 @@ header button:hover{
 /** Moblie css**/
 
 @media (max-width: 650px){
-    /* .user-trending-hashtags, .trending-hashtags, .profile-signout-box, header button{
+    header{
+      position: relative;
+    }
+    .user-trending-hashtags, .trending-hashtags, .profile-signout-box, header button{
         display: none;
-    } */
+    }
+
+  .hamburger-slider {
+  display: flex;
+  position: absolute;
+  background: var(--Dark-Sage);
+  height: 75vh;
+  top: 65px;
+  right: 0;
+  width: 50%;
+  z-index: 1;
+  flex-direction: column;
+  padding: 80px 0 0 0;
+  font-size: 30px;
+  box-shadow: -10px 0px 20px rgba(0, 0, 0, 0.2);
+}
+
+.hamburger-slider p:hover {
+  background-color: var(--Pastel-Pink);
+  color: black;
+  border-color:var(--Pastel-Pink);
+}
+
+.hamburger-slider p {
+   color: white;
+   border: 1px solid white;
+   border-radius: 20px;
+   padding: 20px 30px;
+   margin: 10px 10px;
+   font-weight: bold;
+   letter-spacing: 1px;
+   text-transform: uppercase;
+   transform: translateX(20px);
+   opacity: 0;
+   transition: transform 0.1s, opacity 0.1s;
+   animation: showItem 1s forwards;
+   -webkit-transition: transform 0.1s, opacity 0.1s;
+   -moz-transition: transform 0.1s, opacity 0.1s;
+   -ms-transition: transform 0.1s, opacity 0.1s;
+   -o-transition: transform 0.1s, opacity 0.1s;
+   -webkit-animation: showItem 1s forwards;
+   -webkit-border-radius: 20px;
+   -moz-border-radius: 20px;
+   -ms-border-radius: 20px;
+   -o-border-radius: 20px;
+}
+
+@keyframes showItem {
+  from {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.hamburger-slider p:nth-child(1) {
+  transition-delay: 0.2s;
+}
+
+.hamburger-slider p:nth-child(2) {
+  transition-delay: 0.4s;
+}
+
+.hamburger-slider p:nth-child(3) {
+  transition-delay: 0.6s;
+}
+
+.hamburger-slider p:nth-child(4) {
+  transition-delay: 0.8s;
+}
+
 }

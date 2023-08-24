@@ -15,6 +15,7 @@ function Header() {
   const logOut = () => {
     navigate('/');
     signOut(auth);
+    setOpen(false);
   };
 
   useEffect(() => {
@@ -28,6 +29,22 @@ function Header() {
   }, []);
 
   const showHamburger = viewportWidth <= 650;
+
+    const blockStyle = {
+    display: 'none',
+  };
+
+    const flexStyle = {
+    display: 'flex',
+  };
+
+   const handleClick = (path) => {
+    navigate(path);
+    setOpen(false);
+    if(path=== 'AddPost'){
+       setOpen(false);
+    }
+  };
 
   return (
     <header>
@@ -54,8 +71,21 @@ function Header() {
         <button onClick={() => navigate('/SignUp')}>Sign Up</button>
       )}
       {showHamburger && <Hamburger toggled={isOpen} toggle={setOpen} />}
+      <div className='hamburger-slider' style={isOpen? flexStyle : blockStyle}>
+       <p className='menu-item' onClick={() => handleClick('/Trending')}>Trending Posts</p>
+      <p className='menu-item' onClick={() => handleClick('/MusicPage')}>Music Videos</p>
+      <p className='menu-item' onClick={() => handleClick('/TimeLine')}>Photos</p>
+        {user ? <p onClick={() => handleClick('/AddPost')}>Create a post</p> : null}
+        {
+          user ?
+           <p onClick={logOut}>Log Out</p>
+           :
+           <p onClick={() => handleClick('/SignUp')}>Sign Up</p>
+        }
+      </div>
     </header>
   );
 }
 
 export default Header;
+
