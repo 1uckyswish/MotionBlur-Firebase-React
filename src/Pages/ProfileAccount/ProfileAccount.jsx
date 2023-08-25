@@ -198,7 +198,10 @@ useEffect(() => {
                     foundUser[0]?.LastLogin?
                     foundUser[0]?.LastLogin?.slice(0,16)
                     :
+                    user?.metadata?.lastSignInTime?
                     user?.metadata?.lastSignInTime?.slice(0,16)
+                    :
+                    "No recent Login activity"
                     }</h3>
                     <p>Last Login</p>
                 </div>
@@ -207,7 +210,10 @@ useEffect(() => {
                     foundUser[0]?.UserEmail?
                     foundUser[0]?.UserEmail
                     :
+                    user?.email?
                     user?.email
+                    :
+                    "No Email Found"
                     }</h3>
                     <p>Email</p>
                 </div>
@@ -216,7 +222,10 @@ useEffect(() => {
                     foundUser[0]?.AccountMade?
                     foundUser[0]?.AccountMade?.slice(0,16)
                     :
+                    user?.metadata?.creationTime?
                     user?.metadata?.creationTime?.slice(0,16)
+                    :
+                    "No History Found."
                     }</h3>
                     <p>Account Made</p>
                 </div>
