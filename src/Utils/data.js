@@ -18,6 +18,7 @@ import Image17 from "../assets/bannerImgs/IMG17.jpg";
 import Image18 from "../assets/bannerImgs/IMG18.jpg";
 import Image19 from "../assets/bannerImgs/IMG19.jpg";
 
+
 export const Banner = [
   { id: 1, image: Image1 },
   { id: 2, image: Image2 },

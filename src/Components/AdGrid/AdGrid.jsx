@@ -1,4 +1,5 @@
 import {useState, useEffect} from 'react';
+import Grid1 from "../../assets/GridImgs/image1.webp";
 import "./AdGrid.css";
 
 const adData = [
