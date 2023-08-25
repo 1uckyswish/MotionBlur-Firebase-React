@@ -9,6 +9,8 @@ import { updateProfile } from 'firebase/auth';
 import { toast } from 'react-toastify';
 import { useParams } from 'react-router-dom';
 import { FirebaseData } from '../../Context/FirebaseContext';
+import Modal from 'react-modal';
+import ScaleLoader from 'react-spinners/ScaleLoader';
 
 function ProfileAccount() {
   const [user] = useAuthState(auth);
@@ -16,6 +18,7 @@ function ProfileAccount() {
   const [backgroundImg, setBackgroundImg] = useState('https://theoheartist.com/wp-content/uploads/sites/2/2015/01/fbdefault.png');
   const {UserUID} = useParams();
   const {allPosts} = useContext(FirebaseData);
+  const [isOpen, setIsOpen] = useState(false);
  useEffect(() => {
     if (user?.uid == UserUID) {
 // Set a timeout to stop the reload after one second
@@ -39,6 +42,7 @@ setTimeout(function() {
 
   async function upload(file, account) {
     try {
+       setIsOpen(true); // Open the modal here to show the spinner
       const fileRef = ref(storage, "ProfileImages/" + account.uid + '.jpeg');
       await uploadBytes(fileRef, file);
       const downloadURL = await getDownloadURL(fileRef);
@@ -48,6 +52,7 @@ setTimeout(function() {
         type: "success",
         autoClose: 1000,
       });
+       setIsOpen(false); // close the modal here to show the spinner
     } catch (error) {
       console.error("Error uploading photo:", error);
       toast('Failed to upload the image. Please try again.', { type: 'error', autoClose: 3000 })
@@ -68,6 +73,7 @@ setTimeout(function() {
 
   async function bgImage(file, account) {
     try {
+      setIsOpen(true); // Open the modal here to show the spinner
       const fileRef = ref(storage, "background/" + account + '.jpeg');
       await uploadBytes(fileRef, file);
       const downloadURL = await getDownloadURL(fileRef);
@@ -76,6 +82,7 @@ setTimeout(function() {
         type: "success",
         autoClose: 1000,
       });
+       setIsOpen(false); // close the modal here to show the spinner
     } catch (error) {
       console.error("Error uploading photo:", error);
       toast('Failed to upload the image. Please try again.', { type: 'error', autoClose: 3000 })
@@ -142,6 +149,36 @@ useEffect(() => {
       backgroundPosition: 'center',
     },
   ];
+
+
+
+const customStyles = {
+  overlay: {
+    backgroundColor: "rgba(0, 0, 0, 0.4)", // Darken th
+    // zIndex: 1000, // Ensure the overlay is on top of
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  content: {
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: "auto", // Increase the width for a better d
+    height: "auto",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(0, 0, 0, 0)", // Light gray 
+    border: "none", // Remove the border for a cleaner 
+    borderRadius: "8px", // Round the corners of the mo
+    boxShadow: "0px 5px 15px rgba(0, 0, 0, 0)", // Add 
+  },
+};
+
+
+
+  Modal.setAppElement(document.getElementById('root'));
 
   return (
     <div className='profile-container'>
@@ -232,6 +269,14 @@ useEffect(() => {
             </div>
         </div>
       </div>
+       <Modal
+   isOpen={isOpen}
+   onRequestClose={() => setIsOpen(false)}
+   style={customStyles}
+   contentLabel='Example Modal'
+ >
+   <ScaleLoader color='#efb6b2' height='100px'/>
+ </Modal>
     </div>
   );
 }

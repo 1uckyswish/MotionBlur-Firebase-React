@@ -4,7 +4,7 @@ import { auth } from '/src/Config/FirebaseConfig';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { signOut } from 'firebase/auth';
 import './Header.css';
-import { Sling as Hamburger } from 'hamburger-react'
+import { Squeeze as Hamburger } from 'hamburger-react'
 
 function Header() {
   const navigate = useNavigate();
