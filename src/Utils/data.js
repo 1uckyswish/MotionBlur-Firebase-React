@@ -17,7 +17,52 @@ import Image16 from "../assets/bannerImgs/IMG16.jpg";
 import Image17 from "../assets/bannerImgs/IMG17.jpg";
 import Image18 from "../assets/bannerImgs/IMG18.jpg";
 import Image19 from "../assets/bannerImgs/IMG19.jpg";
+import Grid1 from "../assets/GridImgs/Image1.webp";
+import Grid2 from "../assets/GridImgs/Image2.webp";
+import Grid3 from "../assets/GridImgs/Image3.webp";
+import Grid4 from "../assets/GridImgs/Image4.webp";
+import Grid5 from "../assets/GridImgs/Image5.webp";
+import Grid6 from "../assets/GridImgs/Image6.webp";
 
+
+export const adData = [
+  {
+    title: "About",
+    description: "Unleash your creativity! Share passions through captivating visuals and soulful music. Experience art and sound seamlessly. Join us today!",
+    className: "ad-box-1",
+    Image: Grid1,
+  },
+  {
+    title: "Discover",
+    description: "Vibrant community of artists, photographers, music lovers, and dreamers.",
+    className: "ad-box-2",
+    Image: Grid2,
+  },
+  {
+    title: "Collaborate",
+    description: "Unleash your imagination, find inspiration, and ignite conversations that transcend boundaries.",
+    className: "ad-box-3",
+    Image: Grid3,
+  },
+  {
+    title: "Like & Comment",
+    description: "Ignite conversations with captivating content. Leave your mark through thought-provoking visuals and heart-pounding beats.",
+    className: "ad-box-4",
+    Image: Grid4,
+  },
+  {
+    title: "Share Posts",
+    description: "Unleash your voice! Comment, share, and make an impact. Spread your influence through conversation.",
+    className: "ad-box-5",
+    Image: Grid5,
+  },
+  {
+    title: "Trending Posts",
+    description: "Stay in the loop! Explore trending topics and be part of the buzz.",
+    className: "ad-box-6",
+    Image: Grid6,
+  }
+];
 
 export const Banner = [
   { id: 1, image: Image1 },
