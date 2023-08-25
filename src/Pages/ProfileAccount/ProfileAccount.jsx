@@ -225,7 +225,7 @@ useEffect(() => {
                     user?.metadata?.creationTime?
                     user?.metadata?.creationTime?.slice(0,16)
                     :
-                    "No History Found."
+                    "No History Found"
                     }</h3>
                     <p>Account Made</p>
                 </div>

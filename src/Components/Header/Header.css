@@ -205,18 +205,22 @@ header button:hover{
     .user-trending-hashtags, .trending-hashtags, .profile-signout-box, header button{
         display: none;
     }
+  .hamburger-react{
+    position: absolute;
+    z-index: 2;
+  }
 
   .hamburger-slider {
   display: flex;
   position: absolute;
   background: var(--Dark-Sage);
-  height: auto;
-  top: 65px;
+  height: 100vh;
+  top: 0px;
   right: 0;
-  width: 50%;
+  width: 100%;
   z-index: 1;
   flex-direction: column;
-  padding: 20px;
+  padding: 50px;
   font-size: 30px;
   box-shadow: -10px 0px 20px rgba(0, 0, 0, 0.2);
 }

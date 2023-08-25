@@ -111,6 +111,11 @@
 
 }
 
+.container .ad-box:nth-child(4) .hidden-p {
+ top: 58px;
+ font-size: 22px;
+}
+
 
 /** media queries **/
 @media only screen and (width: 1024px) {
