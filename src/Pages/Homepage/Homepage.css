@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap');
 section{
     height: auto;
+    z-index: -4;
 }
 
 .banner{
@@ -15,7 +16,7 @@ position: relative;
   background-color: black;
   /* Uncomment the line below if you want to apply the filter: brightness(80%); */
   /* filter: brightness(80%); */
-  z-index: 0;
+z-index: -4;
 }
 
 .banner-header{
@@ -29,7 +30,7 @@ position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-     z-index: 0;
+   z-index: -4;
 }
 
 .banner-header h2{
@@ -37,14 +38,14 @@ position: relative;
     position: relative;
     font-family: 'Libre Baskerville', serif;
     text-shadow: 1px 5px 10px black;
-     z-index: 0;
+     z-index: -4;
 }
 
 .banner-header p{
     font-size: 50px;
     line-height:2;
     text-shadow: 1px 5px 10px black;
-     z-index: 0;
+   z-index: -4;
 }
 
 /** media queries **/
@@ -111,6 +112,7 @@ position: relative;
 @media (max-width: 350px){
       .banner{
     height: 400px;
+    z-index: -4;
     }
 
    .banner-header{

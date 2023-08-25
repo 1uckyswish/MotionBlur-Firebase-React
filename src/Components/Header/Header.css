@@ -201,6 +201,7 @@ header button:hover{
 @media (max-width: 650px){
     header{
       position: relative;
+      z-index: 2;
     }
     .user-trending-hashtags, .trending-hashtags, .profile-signout-box, header button{
         display: none;
