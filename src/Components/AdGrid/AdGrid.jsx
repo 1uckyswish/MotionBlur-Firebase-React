@@ -1,10 +1,10 @@
 import {useState, useEffect} from 'react';
-import Grid1 from "../../assets/GridImgs/image1.webp";
-import Grid2 from "../../assets/GridImgs/image2.webp";
-import Grid3 from "../../assets/GridImgs/image3.webp";
-import Grid4 from "../../assets/GridImgs/image4.webp";
-import Grid5 from "../../assets/GridImgs/image5.webp";
-import Grid6 from "../../assets/GridImgs/image6.webp";
+import Grid1 from "../../assets/GridImgs/Image1.webp";
+import Grid2 from "../../assets/GridImgs/Image2.webp";
+import Grid3 from "../../assets/GridImgs/Image3.webp";
+import Grid4 from "../../assets/GridImgs/Image4.webp";
+import Grid5 from "../../assets/GridImgs/Image5.webp";
+import Grid6 from "../../assets/GridImgs/Image6.webp";
 import "./AdGrid.css";
 
 const adData = [
