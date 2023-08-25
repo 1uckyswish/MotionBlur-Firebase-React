@@ -165,9 +165,9 @@ function PostLikes({postId}) {
     <div className='liked-container-detail'>
        {
         liked?
-        <AiFillHeart id='liked-icon' onClick={handleUnlikePost} style={{fontSize: "1.4em"}}/>
+        <AiFillHeart id='liked-icon' onClick={handleUnlikePost}/>
         :
-        <AiOutlineHeart id='unliked-icon' onClick={handleLikedPost} style={{fontSize: "1.4em"}}/>
+        <AiOutlineHeart id='unliked-icon' onClick={handleLikedPost}/>
         }
         <span className='liked-number'>
           {
