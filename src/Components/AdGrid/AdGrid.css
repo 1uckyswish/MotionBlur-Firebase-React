@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 
 .container {
-  display: grid;
+  display: grid !important;
   margin: 50px; /* Adjust as needed */
   grid-template-areas:
     "ad-box-1 ad-box-2 ad-box-3"
@@ -16,6 +16,7 @@
 }
 
 .ad-box {
+  display: flex !important;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -51,6 +52,7 @@
   font-family: 'Playfair Display', serif;
   margin: 15px;
   word-wrap: break-word;
+  display: flex !important;
 }
 
 .ad-box:hover .hidden-h2,
@@ -63,6 +65,7 @@
   top: 70px;
   line-height: 1.5;
   /* padding-top: 60px; */
+    display: flex !important;
 }
 
 .hidden-h2 {
