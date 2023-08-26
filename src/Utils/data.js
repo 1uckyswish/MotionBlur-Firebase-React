@@ -17,12 +17,12 @@ import Image16 from "../assets/bannerImgs/IMG16.jpg";
 import Image17 from "../assets/bannerImgs/IMG17.jpg";
 import Image18 from "../assets/bannerImgs/IMG18.jpg";
 import Image19 from "../assets/bannerImgs/IMG19.jpg";
-import Grid1 from "../assets/GridImgs/Image22.webp";
-import Grid2 from "../assets/GridImgs/Image2.webp";
-import Grid3 from "../assets/GridImgs/Image3.webp";
-import Grid4 from "../assets/GridImgs/Image4.webp";
-import Grid5 from "../assets/GridImgs/Image5.webp";
-import Grid6 from "../assets/GridImgs/Image6.webp";
+import Grid1 from "../assets/GridImgs/Image22.jpg";
+import Grid2 from "../assets/GridImgs/Image2.jpg";
+import Grid3 from "../assets/GridImgs/Image3.jpg";
+import Grid4 from "../assets/GridImgs/Image4.jpg";
+import Grid5 from "../assets/GridImgs/Image5.jpg";
+import Grid6 from "../assets/GridImgs/Image6.jpg";
 
 
 export const adData = [
