@@ -5,7 +5,7 @@ import { AiOutlineComment,AiOutlineMore} from "react-icons/ai";
 import { useNavigate } from 'react-router-dom';
 import PostLikes from '../PostLikes/PostLikes';
 import { db } from '../../Config/FirebaseConfig';
-import { collection, getDocs, query, where, getFirestore, deleteDoc, doc} from 'firebase/firestore';
+import { collection, getDocs, query, where} from 'firebase/firestore';
 // import { auth } from '/src/Config/FirebaseConfig';
 // import {useAuthState} from 'react-firebase-hooks/auth';
 import { getStorage, ref, getDownloadURL, listAll } from 'firebase/storage';
@@ -79,19 +79,6 @@ function SinglePost({image, userName, date, caption, id, userId}) {
         });
         })
       },[commentCount])
-
-
-
-
-    // const colRef = collection(db, "Posts");
-    // console.log(colRef)
-    // const docRef = doc(db, 'Posts', id)
-
-    // deleteDoc(docRef)
-    // .then(()=>{
-
-    // })
-
 
 
   return (

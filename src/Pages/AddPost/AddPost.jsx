@@ -29,7 +29,6 @@ function AddPost() {
 
   const [user] = useAuthState(auth);
   const postRef = collection(db, 'Posts');
-console.log(user)
 //   function formatUnixTimestamp(timestamp) {
 //   const date = new Date(parseInt(timestamp));
 //   return date.toUTCString();
