@@ -24,7 +24,7 @@
   /* flex-direction: column; */
 /* } */
 
-.ad-box-1, .ad-box-2, .ad-box-3, .ad-box-4, .ad-box-5, .ad-box-6:before {
+.ad-box:before {
   content: '';
   position: absolute;
   top: 0;
@@ -36,7 +36,7 @@
   transition: opacity 0.3s ease;
 }
 
-.ad-box-1, .ad-box-2, .ad-box-3, .ad-box-4, .ad-box-5, .ad-box-6:hover:before {
+.ad-box:hover:before {
   opacity: 1;
 }
 
@@ -54,8 +54,8 @@
   display: flex;
 }
 
-.ad-box-1:hover, .ad-box-2:hover, .ad-box-3:hover, .ad-box-4:hover, .ad-box-5:hover, .ad-box-6:hover .hidden-h2,
-.ad-box-1:hover, .ad-box-2:hover, .ad-box-3:hover, .ad-box-4:hover, .ad-box-5:hover, .ad-box-6:hover .hidden-p {
+.ad-box:hover .hidden-h2,
+.ad-box:hover .hidden-p {
   opacity: 1;
 }
 
@@ -73,7 +73,7 @@
   top: auto;
 }
 
-.ad-box-1.active:before, .ad-box-2.active:before, .ad-box-3.active:before, .ad-box-4.active:before, .ad-box-5.active:before, .ad-box-6.active:before {
+.ad-box.active:before {
   opacity: 1;
 }
 
