@@ -135,7 +135,7 @@ useEffect(() => {
            <p>{caption}</p>
         </div>
         <div className="music-image">
-            <ReactPlayer url={post} controls width={playerWidth} height={playerHeight} style={{zIndex: '-4'}}/>
+            <ReactPlayer url={post} controls width={playerWidth} height={playerHeight}/>
         </div>
         <div className="music-social">
             <div className='card-social-icons'>
