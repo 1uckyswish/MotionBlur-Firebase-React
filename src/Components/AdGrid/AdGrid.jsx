@@ -13,12 +13,14 @@ function AdGrid() {
     return () => clearTimeout(timer);
   }, [hoverIndex]);
 
+  console.log(adData[0].Image)
+
   return (
     <div className="container">
     {adData.map((ad, index) => (
       <div
         key={index}
-        className={`ad-box ${ad.className} ${index === hoverIndex ? 'active' : ''}`}
+        className={`${ad.className} ${index === hoverIndex ? 'active' : ''}`}
         style={{
           backgroundImage: `url(${ad.Image})`, // Set the background image unconditionally
         }}

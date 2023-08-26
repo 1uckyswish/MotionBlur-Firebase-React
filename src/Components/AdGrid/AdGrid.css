@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 
 .container {
-  display: grid !important;
+  display: grid;
   margin: 50px; /* Adjust as needed */
   grid-template-areas:
     "ad-box-1 ad-box-2 ad-box-3"
@@ -15,15 +15,14 @@
   position: relative;
 }
 
-.ad-box {
-  display: flex !important;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
+/* .ad-box { */
+  /* display: flex; */
+  /* background-position: center; */
+  /* background-size: cover; */
+  /* background-repeat: no-repeat; */
+  /* position: relative; */
+  /* flex-direction: column; */
+/* } */
 
 .ad-box:before {
   content: '';
@@ -52,7 +51,7 @@
   font-family: 'Playfair Display', serif;
   margin: 15px;
   word-wrap: break-word;
-  display: flex !important;
+  display: flex;
 }
 
 .ad-box:hover .hidden-h2,
@@ -65,7 +64,7 @@
   top: 70px;
   line-height: 1.5;
   /* padding-top: 60px; */
-    display: flex !important;
+    display: flex;
 }
 
 .hidden-h2 {
@@ -86,32 +85,63 @@
 
 .ad-box-1 {
   grid-area: ad-box-1;
+  display: flex;
+background-position: center;
+background-size: cover;
+background-repeat: no-repeat;
+position: relative;
+flex-direction: column;
 
 }
 
 .ad-box-2 {
   grid-area: ad-box-2;
-
+display: flex;
+background-position: center;
+background-size: cover;
+background-repeat: no-repeat;
+position: relative;
+flex-direction: column;
 }
 
 .ad-box-3 {
   grid-area: ad-box-3;
-
+display: flex;
+background-position: center;
+background-size: cover;
+background-repeat: no-repeat;
+position: relative;
+flex-direction: column;
 }
 
 .ad-box-4 {
   grid-area: ad-box-4;
-
+display: flex;
+background-position: center;
+background-size: cover;
+background-repeat: no-repeat;
+position: relative;
+flex-direction: column;
 }
 
 .ad-box-5 {
   grid-area: ad-box-5;
-
+display: flex;
+background-position: center;
+background-size: cover;
+background-repeat: no-repeat;
+position: relative;
+flex-direction: column;
 }
 
 .ad-box-6 {
   grid-area: ad-box-6;
-
+display: flex;
+background-position: center;
+background-size: cover;
+background-repeat: no-repeat;
+position: relative;
+flex-direction: column;
 }
 
 .container .ad-box:nth-child(4) .hidden-p {
