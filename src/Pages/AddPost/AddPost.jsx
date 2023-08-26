@@ -155,6 +155,7 @@ console.log(user)
 
 
 
+
   Modal.setAppElement(document.getElementById('root'));
 
   return (
