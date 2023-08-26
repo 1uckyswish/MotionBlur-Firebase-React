@@ -245,6 +245,8 @@ header button:hover{
   animation: slideIn 0.5s forwards ease-in-out, colorChange 0.3s ease-in-out 0.5s alternate;
   transition: transform 0.3s ease, background-color 0.3s ease;
   font-size: 30px;
+    text-align: center;
+    padding-top: 10px;
 }
 
 .hamburger-slider p:nth-child(odd) {
