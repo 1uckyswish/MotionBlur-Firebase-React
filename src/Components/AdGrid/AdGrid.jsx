@@ -20,7 +20,7 @@ function AdGrid() {
     {adData.map((ad, index) => (
       <div
         key={index}
-        className={`${ad.className} ${index === hoverIndex ? 'active' : ''}`}
+        className={`ad-box ${ad.className} ${index === hoverIndex ? 'active' : ''}`}
         style={{
           backgroundImage: `url(${ad.Image})`, // Set the background image unconditionally
         }}
