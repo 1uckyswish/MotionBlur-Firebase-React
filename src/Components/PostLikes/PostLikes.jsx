@@ -5,8 +5,8 @@ import { auth, db} from '../../Config/FirebaseConfig';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { collection, addDoc, query, where, getDocs, deleteDoc, doc} from 'firebase/firestore';
 import { toast } from 'react-toastify';
-import ScaleLoader from 'react-spinners/ScaleLoader';
-import Modal from 'react-modal';
+import { useNavigate } from 'react-router-dom';
+
 
 
 
@@ -15,6 +15,7 @@ function PostLikes({postId}) {
   const [user] = useAuthState(auth);
   const [likedCount, setLikedCount] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   //* check if the user has liked it... if not then set it to unliked
   useEffect(
@@ -164,45 +165,18 @@ function PostLikes({postId}) {
     }
   };
 
-const customStyles = {
-overlay: {
-  backgroundColor: "white", // Darken the overlay to make the modal stan
-  // zIndex: 1000, // Ensure the overlay is on top of other elements
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-},
-content: {
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: "auto", // Increase the width for a better display
-  height: "auto",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  backgroundColor: "rgba(0, 0, 0, 0)", // Light gray background for a modern look
-  border: "none", // Remove the border for a cleaner appearance
-  borderRadius: "8px", // Round the corners of the modal
-  boxShadow: "0px 5px 15px rgba(0, 0, 0, 0)", // Add a subtle shadow to lift the moda
-},
-};
-
-
-
-
-
-  Modal.setAppElement(document.getElementById('root'));
-
 
   return (
     <div className='liked-container-detail'>
-       {
-        liked?
-        <AiFillHeart id='liked-icon' onClick={handleUnlikePost}/>
-        :
-        <AiOutlineHeart id='unliked-icon' onClick={handleLikedPost} />
-        }
+       {user ? (
+        liked ? (
+          <AiFillHeart id='liked-icon' onClick={handleUnlikePost} />
+        ) : (
+          <AiOutlineHeart id='unliked-icon' onClick={handleLikedPost} />
+        )
+      ) : (
+        <AiOutlineHeart id='unliked-icon' onClick={()=>navigate('/SignUp')}/>
+      )}
         <span className='liked-number'>
           {
           likedCount?
@@ -210,18 +184,6 @@ content: {
           : null
           }
           </span>
-           <Modal
-   isOpen={isOpen}
-   onRequestClose={() => setIsOpen(false)}
-   style={customStyles}
-   contentLabel='Example Modal'
- >
-    <div>
-    <h2>Like what you see?</h2>
-    <p>Then join the fun and <strong>log in</strong> or <strong>sign up</strong> to join the community of artists sharing their camera lens or their favorite tunes.</p>
-  </div>
-   {/* <ScaleLoader color='#efb6b2' height='100px'/> */}
- </Modal>
     </div>
   )
 }
