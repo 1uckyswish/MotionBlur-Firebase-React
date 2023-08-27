@@ -57,6 +57,7 @@
 
 .username-info-date h3{
     padding-right: 200px;
+    cursor: pointer;
 }
 
 .post-detail-caption{

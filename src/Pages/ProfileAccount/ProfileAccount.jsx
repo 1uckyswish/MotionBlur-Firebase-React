@@ -155,7 +155,7 @@ useEffect(() => {
 
     listAllPFP()
 
-  }, [user, UserUID]);
+  }, [user, UserUID, errorHandleIMAGE]);
 
   const profileImageStyle = [
     {
