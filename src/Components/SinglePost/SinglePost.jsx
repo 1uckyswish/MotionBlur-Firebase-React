@@ -11,6 +11,7 @@ import { collection, getDocs, query, where} from 'firebase/firestore';
 import { getStorage, ref, getDownloadURL, listAll } from 'firebase/storage';
 import { FirebaseData } from '../../Context/FirebaseContext';
 import { TbMessage } from "react-icons/tb";
+import { toast } from 'react-toastify';
 
 
 function SinglePost({image, userName, date, caption, id, userId}) {

@@ -11,6 +11,9 @@ import { useParams } from 'react-router-dom';
 import { FirebaseData } from '../../Context/FirebaseContext';
 import Modal from 'react-modal';
 import ScaleLoader from 'react-spinners/ScaleLoader';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../../Config/FirebaseConfig';
+
 
 function ProfileAccount() {
   const [user] = useAuthState(auth);
@@ -19,6 +22,9 @@ function ProfileAccount() {
   const {UserUID} = useParams();
   const {allPosts} = useContext(FirebaseData);
   const [isOpen, setIsOpen] = useState(false);
+  const [backUpUsername, setBackUp] = useState('');
+  const [errorHandleIMAGE, setErrorHandleIMAGE] = useState("");
+
  useEffect(() => {
     if (user?.uid == UserUID) {
 // Set a timeout to stop the reload after one second
@@ -30,6 +36,21 @@ setTimeout(function() {
   }, [UserUID]);
 
   // const [userName, setUsername] = useState('');
+const commentsRef = collection(db, 'Comments');
+
+async function fetchComments() {
+  const querySnapshot = await getDocs(commentsRef);
+
+  querySnapshot.forEach((doc) => {
+    if(doc.data().UserId === UserUID){
+      setBackUp(doc.data().UserName)
+    }
+  });
+}
+
+fetchComments();
+
+
 
   const foundUser = allPosts.filter((item) => item.UserId === UserUID);
 
@@ -58,8 +79,6 @@ setTimeout(function() {
       toast('Failed to upload the image. Please try again.', { type: 'error', autoClose: 3000 })
     }
   }
-
-
 
 
 
@@ -122,9 +141,12 @@ useEffect(() => {
 
         // Check if user.uid is included in the array of image URLs
         const foundImageUrl = imageUrls.find((url) => url.includes(UserUID));
-        if (foundImageUrl) {
-          setPhotoURL(foundImageUrl);
-        }
+        if (!foundImageUrl) {
+          setErrorHandleIMAGE('https://i.seadn.io/gae/y2QcxTcchVVdUGZITQpr6z96TXYOV0p3ueLL_1kIPl7s-hHn3-nh8hamBDj0GAUNAndJ9_Yuo2OzYG5Nic_hNicPq37npZ93T5Nk-A?auto=format&dpr=1&w=1000');
+        } else {
+        setPhotoURL(foundImageUrl);
+          }
+
 
       } catch (error) {
         toast('Failed to upload the image. Please try again.', { type: 'error', autoClose: 3000 })
@@ -137,7 +159,7 @@ useEffect(() => {
 
   const profileImageStyle = [
     {
-      backgroundImage: `url(${photoURL})`,
+      backgroundImage: `url(${errorHandleIMAGE? errorHandleIMAGE : photoURL})`,
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
@@ -149,7 +171,6 @@ useEffect(() => {
       backgroundPosition: 'center',
     },
   ];
-
 
 
 const customStyles = {
@@ -175,7 +196,6 @@ const customStyles = {
     boxShadow: "0px 5px 15px rgba(0, 0, 0, 0)", // Add 
   },
 };
-
 
 
   Modal.setAppElement(document.getElementById('root'));
@@ -225,7 +245,10 @@ const customStyles = {
              foundUser[0]?.CreatedBy?
              foundUser[0]?.CreatedBy
              :
+             user?.displayName === backUpUsername?
              user?.displayName
+             :
+             backUpUsername
             }</h3>
         </div>
          <div className="card_count">
@@ -235,10 +258,10 @@ const customStyles = {
                     foundUser[0]?.LastLogin?
                     foundUser[0]?.LastLogin?.slice(0,16)
                     :
-                    user?.metadata?.lastSignInTime?
+                    user?.displayName === backUpUsername?
                     user?.metadata?.lastSignInTime?.slice(0,16)
                     :
-                    "No recent Login activity"
+                    "No Login Activity"
                     }</h3>
                     <p>Last Login</p>
                 </div>
@@ -247,7 +270,7 @@ const customStyles = {
                     foundUser[0]?.UserEmail?
                     foundUser[0]?.UserEmail
                     :
-                    user?.email?
+                    user?.displayName === backUpUsername?
                     user?.email
                     :
                     "No Email Found"
@@ -259,7 +282,7 @@ const customStyles = {
                     foundUser[0]?.AccountMade?
                     foundUser[0]?.AccountMade?.slice(0,16)
                     :
-                    user?.metadata?.creationTime?
+                    user?.displayName === backUpUsername?
                     user?.metadata?.creationTime?.slice(0,16)
                     :
                     "No History Found"
