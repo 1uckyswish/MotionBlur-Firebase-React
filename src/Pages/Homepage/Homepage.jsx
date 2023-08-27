@@ -6,7 +6,7 @@ import { Banner } from '/src/Utils/data';
 
 function Homepage() {
   const [index, setIndex] = useState(0);
-  const randomNum = Math.floor(Math.random() * 19); // Generates a number from 0 to 18
+  // const randomNum = Math.floor(Math.random() * 19); // Generates a number from 0 to 18
 
 
   useEffect(() => {
@@ -20,7 +20,7 @@ function Homepage() {
   }, [index]);
 
   const bannerStyles = {
-    backgroundImage: `url("${Banner[randomNum].image}")`,
+    backgroundImage: `url("${Banner[index].image}")`,
   };
 
   return (
