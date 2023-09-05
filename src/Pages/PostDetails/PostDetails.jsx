@@ -3,8 +3,6 @@ import "./PostDetails.css";
 import { useParams } from 'react-router-dom';
 import { doc, getDoc} from 'firebase/firestore';
 import { db } from '../../Config/FirebaseConfig';
-import { useContext } from 'react';
-import { FirebaseData } from '../../Context/FirebaseContext';
 import PostDetailCard from '../../Components/PostDetailCard/PostDetailCard';
 
 function PostDetails() {
