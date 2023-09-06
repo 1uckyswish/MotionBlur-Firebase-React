@@ -1,5 +1,5 @@
 import { useState, createContext, useEffect } from "react";
-import { collection, getDocs, orderBy, query, onSnapshot } from 'firebase/firestore';
+import { collection, orderBy, query, onSnapshot } from 'firebase/firestore';
 import { db } from '../Config/FirebaseConfig';
 
 export const FirebaseData = createContext();
