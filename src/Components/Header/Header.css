@@ -71,38 +71,34 @@ h1::after{
 }
 
 
-header button{
-    width: 6rem;
-    height: 2rem;
-    border: none;
-    background-color: var();
-    border-radius: 15px;
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
-    -ms-border-radius: 15px;
-    -o-border-radius: 15px;
-    background-color: var(--Pastel-Grey);
-    color: white;
-    font-size: 25px;
-    padding-top: 2px;
-    cursor: pointer;
-    margin-left: 30px;
-    margin-right: 10px;
-}
-
-header button:hover{
-    background-color: var(--Pastel-Pink);
-}
-
 .profile-signout-box{
     width: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    text-align: center;
 }
 
 .profile-signout-box span{
     padding-right: 15px;
+}
+
+#login-btn{
+    width: 90px;
+    height: auto;
+    margin-top: 20px;
+    text-align: center;
+    padding-top: 7px;
+    background-color: var(--Pastel-Grey);
+    color: white;
+    font-size: 25px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+#login-btn:hover{
+    background-color: var(--Pastel-Pink);
 }
 
 /* .profile-signout-box img{
@@ -162,10 +158,10 @@ header button:hover{
     height: 7vh;
     padding: 0 7px;
   }
-
-  header button{
+/* 
+ #login-btn{
     margin-left: 10px;
-  }
+  } */
 
   .profile-signout-box{
     padding-top: 12px;
@@ -203,7 +199,7 @@ header button:hover{
       position: relative;
       z-index: 2;
     }
-    .user-trending-hashtags, .trending-hashtags, .profile-signout-box, header button{
+    .user-trending-hashtags, .trending-hashtags, .profile-signout-box, #login-btn{
         display: none;
     }
   .hamburger-react{

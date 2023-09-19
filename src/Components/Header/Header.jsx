@@ -65,10 +65,10 @@ function Header() {
               src='https://cdn1.iconfinder.com/data/icons/user-pictures/100/unknown-512.png'
             />
           )}
-          <button onClick={logOut}>Log Out</button>
+          <p id="login-btn" onClick={logOut}>Log Out</p>
         </div>
       ) : (
-        <button onClick={() => navigate('/SignUp')}>Sign Up</button>
+        <p id="login-btn" onClick={() => navigate('/SignUp')}>Sign Up</p>
       )}
       {showHamburger && <Hamburger toggled={isOpen} toggle={setOpen} />}
       <div className='hamburger-slider' style={isOpen? flexStyle : blockStyle}>

@@ -1,5 +1,4 @@
 import React from 'react';
-import './Trending.css';
 import SinglePost from '../../Components/SinglePost/SinglePost';
 import { useContext } from 'react';
 import { FirebaseData } from '../../Context/FirebaseContext';
