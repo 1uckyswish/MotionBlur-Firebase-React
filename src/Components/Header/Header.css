@@ -101,9 +101,9 @@ h1::after{
     background-color: var(--Pastel-Pink);
 }
 
-/* .profile-signout-box img{
-    margin-right: 30px;
-} */
+.profile-signout-box img{
+    margin-right: 15px;
+}
 
 .profile-signout-box span:hover {
     color: var(--Pastel-Pink);
@@ -158,10 +158,10 @@ h1::after{
     height: 7vh;
     padding: 0 7px;
   }
-/* 
+
  #login-btn{
     margin-left: 10px;
-  } */
+  }
 
   .profile-signout-box{
     padding-top: 12px;
