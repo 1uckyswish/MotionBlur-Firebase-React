@@ -28,7 +28,7 @@ To run the project locally, follow these steps:
 1. Clone the repository:
 
     ```bash
-    git clone https://MotionBlur-Firebase-React.git
+    git clone https://github.com/1uckyswish/MotionBlur-Firebase-React.git
     ```
 
 2. Navigate to the project directory:
